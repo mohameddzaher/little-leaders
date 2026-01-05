@@ -45,9 +45,7 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className={`flex items-center space-x-2 rtl:space-x-reverse cursor-pointer ${
-              language === "ar" ? "order-last" : "order-first"
-            }`}
+            className="flex items-center space-x-2 rtl:space-x-reverse cursor-pointer"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
