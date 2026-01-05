@@ -371,26 +371,26 @@ export default function CareersContent() {
           )}
           */}
           
-          {/* No jobs available message */}
-            <div className="text-center py-16">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="bg-gradient-to-br from-light-blue/10 to-pink/10 rounded-2xl p-12 max-w-2xl mx-auto border-2 border-royal-blue/20"
-              >
-                <div className="text-6xl mb-4">📋</div>
-                <h3 className="text-2xl font-bold text-royal-blue mb-3">
-                  {current.noJobs}
-                </h3>
-                <p className="text-royal-blue/70">
-                  {language === "ar"
-                    ? "نحن دائماً نبحث عن مواهب جديدة. تحقق من هذه الصفحة بانتظام للاطلاع على الفرص المتاحة."
-                    : "We are always looking for new talents. Check this page regularly for available opportunities."}
-                </p>
-              </motion.div>
-            </div>
+          {/* No jobs available message - currently showing */}
+          <div className="text-center py-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-gradient-to-br from-light-blue/10 to-pink/10 rounded-2xl p-12 max-w-2xl mx-auto border-2 border-royal-blue/20"
+            >
+              <div className="text-6xl mb-4">📋</div>
+              <h3 className="text-2xl font-bold text-royal-blue mb-3">
+                {current.noJobs}
+              </h3>
+              <p className="text-royal-blue/70">
+                {language === "ar"
+                  ? "نحن دائماً نبحث عن مواهب جديدة. تحقق من هذه الصفحة بانتظام للاطلاع على الفرص المتاحة."
+                  : "We are always looking for new talents. Check this page regularly for available opportunities."}
+              </p>
+            </motion.div>
+          </div>
           {/* )} */}
         </div>
         <ShapeDivider className="text-royal-blue" position="bottom" />
