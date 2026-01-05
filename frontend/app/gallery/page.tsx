@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { LanguageProvider } from '@/contexts/LanguageContext';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import FloatingContact from '@/components/FloatingContact';
-import GalleryContent from '@/components/GalleryContent';
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FloatingContact from "@/components/FloatingContact";
+import GalleryContent from "@/components/GalleryContent";
 
 export default function GalleryPage() {
   return (
@@ -18,4 +18,3 @@ export default function GalleryPage() {
     </LanguageProvider>
   );
 }
-

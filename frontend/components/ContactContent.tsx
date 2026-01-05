@@ -1,54 +1,58 @@
-'use client';
+"use client";
 
-import { useLanguage } from '@/contexts/LanguageContext';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import ShapeDivider from './ShapeDivider';
+import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import ShapeDivider from "./ShapeDivider";
 
 export default function ContactContent() {
   const { language } = useLanguage();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
   const content = {
     ar: {
-      title: 'اتصل بنا',
-      subtitle: 'يسعدنا تواصلكم معنا في مركز ليتل ليدرز!',
-      description: 'نرحّب باستفساراتكم حول برامجنا التعليمية وفرص التسجيل ويسعد فريقنا المتخصّص بتقديم الدعم والإجابة عن جميع تساؤلاتكم',
+      title: "اتصل بنا",
+      subtitle: "يسعدنا تواصلكم معنا في مركز ليتل ليدرز!",
+      description:
+        "نرحّب باستفساراتكم حول برامجنا التعليمية وفرص التسجيل ويسعد فريقنا المتخصّص بتقديم الدعم والإجابة عن جميع تساؤلاتكم",
       form: {
-        name: 'الاسم',
-        email: 'البريد الإلكتروني',
-        phone: 'رقم الجوال',
-        message: 'الرسالة',
-        submit: 'إرسال',
+        name: "الاسم",
+        email: "البريد الإلكتروني",
+        phone: "رقم الجوال",
+        message: "الرسالة",
+        submit: "إرسال",
       },
       contactInfo: {
-        title: 'معلومات الاتصال',
-        address: 'مبنى رقم 6403 شارع السديري حي الزهراء 4415 جدة, السعودية 23521',
-        phone: '+966537468887',
-        email: 'info@little-leaders.org',
+        title: "معلومات الاتصال",
+        address:
+          "مبنى رقم 6403 شارع السديري حي الزهراء 4415 جدة, السعودية 23521",
+        phone: "+966537468887",
+        email: "info@little-leaders.org",
       },
     },
     en: {
-      title: 'Contact Us',
-      subtitle: 'We\'d love to hear from you!',
-      description: 'Whether you have questions or need more details about our programs or wish to enroll your child. Little Leaders Center\'s Team is here to help',
+      title: "Contact Us",
+      subtitle: "We'd love to hear from you!",
+      description:
+        "Whether you have questions or need more details about our programs or wish to enroll your child. Little Leaders Center's Team is here to help",
       form: {
-        name: 'Name',
-        email: 'Email',
-        phone: 'Phone Number',
-        message: 'Message',
-        submit: 'Submit',
+        name: "Name",
+        email: "Email",
+        phone: "Phone Number",
+        message: "Message",
+        submit: "Submit",
       },
       contactInfo: {
-        title: 'Contact Information',
-        address: 'Building No. 6403, Al Sudairy Street, Al Zahra District 4415, Jeddah, Saudi Arabia 23521',
-        phone: '+966537468887',
-        email: 'info@little-leaders.org',
+        title: "Contact Information",
+        address:
+          "Building No. 6403, Al Sudairy Street, Al Zahra District 4415, Jeddah, Saudi Arabia 23521",
+        phone: "+966537468887",
+        email: "info@little-leaders.org",
       },
     },
   };
@@ -57,9 +61,13 @@ export default function ContactContent() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert(language === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Your message has been sent successfully!');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    console.log("Form submitted:", formData);
+    alert(
+      language === "ar"
+        ? "تم إرسال رسالتك بنجاح!"
+        : "Your message has been sent successfully!"
+    );
+    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
   return (
@@ -70,7 +78,8 @@ export default function ContactContent() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://plus.unsplash.com/premium_photo-1673730193487-89ae5d321682?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRhcmt8ZW58MHx8MHx8fDA%3D)',
+            backgroundImage:
+              "url(https://plus.unsplash.com/premium_photo-1673730193487-89ae5d321682?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRhcmt8ZW58MHx8MHx8fDA%3D)",
           }}
         />
         <div className="absolute inset-0 bg-black/20" />
@@ -108,7 +117,7 @@ export default function ContactContent() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Form */}
             <motion.div
-              initial={{ opacity: 0, x: language === 'ar' ? -50 : 50 }}
+              initial={{ opacity: 0, x: language === "ar" ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
@@ -124,7 +133,7 @@ export default function ContactContent() {
                 transition={{
                   duration: 4,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
               />
               <motion.div
@@ -136,12 +145,12 @@ export default function ContactContent() {
                 transition={{
                   duration: 5,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                   delay: 1,
                 }}
               />
               <h2 className="text-2xl font-bold text-royal-blue mb-5 relative z-10">
-                {language === 'ar' ? 'أرسل لنا رسالة' : 'Send Us a Message'}
+                {language === "ar" ? "أرسل لنا رسالة" : "Send Us a Message"}
               </h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -152,7 +161,9 @@ export default function ContactContent() {
                     type="text"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-light-blue focus:border-transparent text-sm cursor-pointer"
                   />
                 </div>
@@ -165,7 +176,9 @@ export default function ContactContent() {
                     type="email"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-light-blue focus:border-transparent text-sm cursor-pointer"
                   />
                 </div>
@@ -178,7 +191,9 @@ export default function ContactContent() {
                     type="tel"
                     required
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-light-blue focus:border-transparent text-sm cursor-pointer"
                   />
                 </div>
@@ -191,7 +206,9 @@ export default function ContactContent() {
                     rows={5}
                     required
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-light-blue focus:border-transparent resize-none text-sm cursor-pointer"
                   />
                 </div>
@@ -207,7 +224,7 @@ export default function ContactContent() {
 
             {/* Contact Info */}
             <motion.div
-              initial={{ opacity: 0, x: language === 'ar' ? 50 : -50 }}
+              initial={{ opacity: 0, x: language === "ar" ? 50 : -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
@@ -223,7 +240,7 @@ export default function ContactContent() {
                 transition={{
                   duration: 4,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
               />
               <motion.div
@@ -235,25 +252,41 @@ export default function ContactContent() {
                 transition={{
                   duration: 5,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                   delay: 1,
                 }}
               />
-              <h2 className="text-2xl font-bold mb-6 relative z-10">{current.contactInfo.title}</h2>
+              <h2 className="text-2xl font-bold mb-6 relative z-10">
+                {current.contactInfo.title}
+              </h2>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-base font-semibold mb-2">📍 {language === 'ar' ? 'العنوان' : 'Address'}</h3>
-                  <p className="text-white/90 text-sm">{current.contactInfo.address}</p>
+                  <h3 className="text-base font-semibold mb-2">
+                    📍 {language === "ar" ? "العنوان" : "Address"}
+                  </h3>
+                  <p className="text-white/90 text-sm">
+                    {current.contactInfo.address}
+                  </p>
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold mb-2">📞 {language === 'ar' ? 'الهاتف' : 'Phone'}</h3>
-                  <a href={`tel:${current.contactInfo.phone}`} className="text-white/90 hover:text-white transition-colors text-sm cursor-pointer">
+                  <h3 className="text-base font-semibold mb-2">
+                    📞 {language === "ar" ? "الهاتف" : "Phone"}
+                  </h3>
+                  <a
+                    href={`tel:${current.contactInfo.phone}`}
+                    className="text-white/90 hover:text-white transition-colors text-sm cursor-pointer"
+                  >
                     {current.contactInfo.phone}
                   </a>
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold mb-2">✉️ {language === 'ar' ? 'البريد الإلكتروني' : 'Email'}</h3>
-                  <a href={`mailto:${current.contactInfo.email}`} className="text-white/90 hover:text-white transition-colors text-sm cursor-pointer">
+                  <h3 className="text-base font-semibold mb-2">
+                    ✉️ {language === "ar" ? "البريد الإلكتروني" : "Email"}
+                  </h3>
+                  <a
+                    href={`mailto:${current.contactInfo.email}`}
+                    className="text-white/90 hover:text-white transition-colors text-sm cursor-pointer"
+                  >
                     {current.contactInfo.email}
                   </a>
                 </div>

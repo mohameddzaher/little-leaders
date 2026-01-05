@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { LanguageProvider } from '@/contexts/LanguageContext';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import FloatingContact from '@/components/FloatingContact';
-import CareersContent from '@/components/CareersContent';
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FloatingContact from "@/components/FloatingContact";
+import CareersContent from "@/components/CareersContent";
 
 export default function CareersPage() {
   return (
@@ -18,4 +18,3 @@ export default function CareersPage() {
     </LanguageProvider>
   );
 }
-

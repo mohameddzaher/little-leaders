@@ -1,8 +1,15 @@
-'use client';
+"use client";
 
-export default function WaveDivider({ className = '' }: { className?: string }) {
+export default function WaveDivider({
+  className = "",
+}: {
+  className?: string;
+}) {
   return (
-    <div className={`relative ${className}`} style={{ height: '60px', overflow: 'hidden' }}>
+    <div
+      className={`relative ${className}`}
+      style={{ height: "60px", overflow: "hidden" }}
+    >
       <svg
         className="absolute bottom-0 left-0 w-full h-full"
         viewBox="0 0 1200 120"
@@ -28,4 +35,3 @@ export default function WaveDivider({ className = '' }: { className?: string }) 
     </div>
   );
 }
-

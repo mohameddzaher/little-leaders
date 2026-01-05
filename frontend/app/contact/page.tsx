@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { LanguageProvider } from '@/contexts/LanguageContext';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import FloatingContact from '@/components/FloatingContact';
-import ContactContent from '@/components/ContactContent';
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FloatingContact from "@/components/FloatingContact";
+import ContactContent from "@/components/ContactContent";
 
 export default function ContactPage() {
   return (
@@ -18,4 +18,3 @@ export default function ContactPage() {
     </LanguageProvider>
   );
 }
-
