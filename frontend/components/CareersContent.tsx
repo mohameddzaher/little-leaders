@@ -291,7 +291,8 @@ export default function CareersContent() {
           </motion.h2>
 
           {/* Comment out jobs list - uncomment when jobs are available */}
-          {/* {currentJobs.length > 0 ? (
+          {/* 
+          {currentJobs.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentJobs.map((job, index) => (
                 <motion.div
@@ -307,7 +308,6 @@ export default function CareersContent() {
                   }}
                   className="bg-gradient-to-br from-white to-light-blue/5 rounded-2xl shadow-lg hover:shadow-xl overflow-hidden cursor-pointer relative border border-royal-blue/10"
                 >
-                  {/* Decorative circles */}
                   <motion.div
                     className="absolute top-2 right-2 w-8 h-8 bg-light-blue/20 rounded-full blur-sm"
                     animate={{
@@ -348,7 +348,30 @@ export default function CareersContent() {
                 </motion.div>
               ))}
             </div>
-          ) : ( */}
+          ) : (
+            <div className="text-center py-16">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-gradient-to-br from-light-blue/10 to-pink/10 rounded-2xl p-12 max-w-2xl mx-auto border-2 border-royal-blue/20"
+              >
+                <div className="text-6xl mb-4">📋</div>
+                <h3 className="text-2xl font-bold text-royal-blue mb-3">
+                  {current.noJobs}
+                </h3>
+                <p className="text-royal-blue/70">
+                  {language === "ar"
+                    ? "نحن دائماً نبحث عن مواهب جديدة. تحقق من هذه الصفحة بانتظام للاطلاع على الفرص المتاحة."
+                    : "We are always looking for new talents. Check this page regularly for available opportunities."}
+                </p>
+              </motion.div>
+            </div>
+          )}
+          */}
+          
+          {/* No jobs available message */}
             <div className="text-center py-16">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
