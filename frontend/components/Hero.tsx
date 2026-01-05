@@ -5,13 +5,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
-import { useMemo, useState, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
 export default function Hero() {
   const { language } = useLanguage();
-  const [swiperKey, setSwiperKey] = useState(0);
 
   const content = {
     ar: {
@@ -46,7 +44,6 @@ export default function Hero() {
       {/* Image Slider Background */}
       <div className="absolute inset-0 overflow-hidden">
         <Swiper
-          key={`hero-swiper-${swiperKey}`}
           modules={[Autoplay]}
           autoplay={{
             delay: 4000,
@@ -56,7 +53,6 @@ export default function Hero() {
           loop={true}
           allowTouchMove={false}
           className="w-full h-full"
-          onSwiper={() => {}}
         >
           {heroImages.map((img, index) => (
             <SwiperSlide key={index}>
