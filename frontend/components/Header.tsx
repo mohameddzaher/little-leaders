@@ -38,13 +38,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isHomePage
-          ? isScrolled
-            ? "bg-white shadow-lg py-3"
-            : "bg-transparent py-5"
-          : "bg-white shadow-md py-3"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-3 transition-all duration-300"
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -81,8 +75,6 @@ export default function Header() {
                   className={`px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 cursor-pointer ${
                     isActive
                       ? "bg-light-blue text-white shadow-md"
-                      : isHomePage && !isScrolled
-                      ? "text-white hover:bg-pink hover:text-white"
                       : "text-royal-blue hover:bg-pink hover:text-white"
                   }`}
                 >
@@ -92,11 +84,7 @@ export default function Header() {
             })}
             <button
               onClick={toggleLanguage}
-              className={`px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium cursor-pointer ${
-                isHomePage && !isScrolled
-                  ? "bg-white/20 text-white hover:bg-white/30"
-                  : "bg-royal-blue text-white hover:bg-light-blue"
-              }`}
+              className="px-4 py-2 bg-royal-blue text-white rounded-lg hover:bg-light-blue transition-colors duration-200 text-sm font-medium cursor-pointer"
             >
               {t("nav.language")}
             </button>
