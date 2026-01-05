@@ -67,8 +67,8 @@ export default function Hero() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="absolute inset-0 bg-black/95" />
-        <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/50 via-black/80 to-black/90" />
+        <div className="absolute inset-0 bg-black z-10" style={{ opacity: 0.85 }} />
+        <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/60 via-black/85 to-black/95 z-10" style={{ opacity: 0.9 }} />
       </div>
 
       {/* Animated background elements */}
