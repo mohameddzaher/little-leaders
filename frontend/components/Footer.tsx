@@ -251,7 +251,7 @@ export default function Footer() {
               <h3 className="footer-wave__heading text-royal-blue text-base font-extrabold mb-4 mt-0">
                 {current.followUs}
               </h3>
-              <div className="flex flex-wrap gap-3 justify-center md:justify-end lg:justify-end">
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start lg:justify-start">
                 {socialLinks.map((social) => (
                   <a
                     key={social.name}
