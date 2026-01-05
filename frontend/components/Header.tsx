@@ -41,7 +41,7 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-3 transition-all duration-300"
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className={`flex items-center justify-between ${language === "ar" ? "flex-row-reverse" : ""}`}>
           {/* Logo */}
           <Link
             href="/"
@@ -57,7 +57,7 @@ export default function Header() {
                 alt="Little Leaders Logo"
                 width={120}
                 height={50}
-                className="h-12 w-auto object-contain"
+                className="h-16 w-auto object-contain"
                 priority
                 unoptimized
               />
@@ -65,7 +65,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6 rtl:space-x-reverse flex-1 justify-center">
+          <div className={`hidden lg:flex items-center space-x-6 rtl:space-x-reverse flex-1 ${language === "ar" ? "justify-start" : "justify-center"}`}>
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -91,7 +91,7 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center space-x-4 rtl:space-x-reverse">
+          <div className={`lg:hidden flex items-center space-x-4 rtl:space-x-reverse ${language === "ar" ? "flex-row-reverse" : ""}`}>
             <button
               onClick={toggleLanguage}
               className="px-3 py-1.5 bg-royal-blue text-white rounded-lg text-xs font-medium cursor-pointer"
