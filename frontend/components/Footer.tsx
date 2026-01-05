@@ -138,14 +138,15 @@ export default function Footer() {
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10">
           <div className="footer-wave__main-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ">
             {/* About Us / Logo and Slogan */}
-            <div className="footer-wave__about">
+            <div className="footer-wave__about text-center md:text-right lg:text-right">
               <Link href="/" className="inline-block mb-4 cursor-pointer">
                 <Image
                   src="/images/logo.png"
                   alt="Little Leaders Logo"
                   width={140}
                   height={60}
-                  className="h-28 w-auto object-contain  invert"
+                  className="h-28 w-auto object-contain invert"
+                  unoptimized
                 />
               </Link>
               {/* <h3 className="footer-wave__heading text-royal-blue text-base font-semibold mb-4 mt-0">
@@ -157,7 +158,7 @@ export default function Footer() {
             </div>
 
             {/* Working Hours */}
-            <div className="footer-wave__links">
+            <div className="footer-wave__links text-center md:text-right lg:text-right">
               <h3 className="footer-wave__heading text-royal-blue text-base font-extrabold mb-4 mt-0">
                 {current.workingHours}
               </h3>
@@ -208,7 +209,7 @@ export default function Footer() {
             </div>
 
             {/* Contact Info */}
-            <div className="footer-wave__links">
+            <div className="footer-wave__links text-center md:text-right lg:text-right">
               <h3 className="footer-wave__heading text-royal-blue text-base font-extrabold mb-4 mt-0">
                 {current.contact}
               </h3>
@@ -246,11 +247,11 @@ export default function Footer() {
             </div>
 
             {/* Social Media */}
-            <div className="footer-wave__links">
+            <div className="footer-wave__links text-center md:text-right lg:text-right">
               <h3 className="footer-wave__heading text-royal-blue text-base font-extrabold mb-4 mt-0">
                 {current.followUs}
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start lg:justify-start">
                 {socialLinks.map((social) => (
                   <a
                     key={social.name}
