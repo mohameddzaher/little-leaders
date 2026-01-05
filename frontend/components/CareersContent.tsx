@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useLanguage } from '@/contexts/LanguageContext';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import ShapeDivider from './ShapeDivider';
+import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import ShapeDivider from "./ShapeDivider";
 
 export default function CareersContent() {
   const { language } = useLanguage();
@@ -12,75 +12,83 @@ export default function CareersContent() {
     ar: [
       {
         id: 1,
-        title: 'معلمة رياض أطفال',
-        department: 'التعليم',
-        type: 'دوام كامل',
-        experience: 'خبرة لا تقل عن سنتين',
-        description: 'نبحث عن معلمة متخصصة في رياض الأطفال لديها شغف بالتعليم والرعاية. المطلوب خبرة في التعامل مع الأطفال من عمر 3-5 سنوات.',
+        title: "معلمة رياض أطفال",
+        department: "التعليم",
+        type: "دوام كامل",
+        experience: "خبرة لا تقل عن سنتين",
+        description:
+          "نبحث عن معلمة متخصصة في رياض الأطفال لديها شغف بالتعليم والرعاية. المطلوب خبرة في التعامل مع الأطفال من عمر 3-5 سنوات.",
       },
       {
         id: 2,
-        title: 'معلمة رعاية أطفال',
-        department: 'الرعاية',
-        type: 'دوام كامل',
-        experience: 'خبرة لا تقل عن سنة',
-        description: 'نبحث عن معلمة متخصصة في رعاية الأطفال الرضع والصغار. المطلوب خبرة في التعامل مع الأطفال من عمر 3 أشهر إلى سنتين.',
+        title: "معلمة رعاية أطفال",
+        department: "الرعاية",
+        type: "دوام كامل",
+        experience: "خبرة لا تقل عن سنة",
+        description:
+          "نبحث عن معلمة متخصصة في رعاية الأطفال الرضع والصغار. المطلوب خبرة في التعامل مع الأطفال من عمر 3 أشهر إلى سنتين.",
       },
       {
         id: 3,
-        title: 'مساعد إداري',
-        department: 'الإدارة',
-        type: 'دوام كامل',
-        experience: 'خبرة لا تقل عن سنة',
-        description: 'نبحث عن مساعد إداري للعمل في إدارة المركز. المطلوب مهارات تنظيمية جيدة وإتقان برامج Microsoft Office.',
+        title: "مساعد إداري",
+        department: "الإدارة",
+        type: "دوام كامل",
+        experience: "خبرة لا تقل عن سنة",
+        description:
+          "نبحث عن مساعد إداري للعمل في إدارة المركز. المطلوب مهارات تنظيمية جيدة وإتقان برامج Microsoft Office.",
       },
     ],
     en: [
       {
         id: 1,
-        title: 'Early Childhood Teacher',
-        department: 'Education',
-        type: 'Full Time',
-        experience: 'Minimum 2 years experience',
-        description: 'We are looking for a teacher specialized in early childhood education with a passion for teaching and care. Experience with children aged 3-5 years is required.',
+        title: "Early Childhood Teacher",
+        department: "Education",
+        type: "Full Time",
+        experience: "Minimum 2 years experience",
+        description:
+          "We are looking for a teacher specialized in early childhood education with a passion for teaching and care. Experience with children aged 3-5 years is required.",
       },
       {
         id: 2,
-        title: 'Childcare Teacher',
-        department: 'Care',
-        type: 'Full Time',
-        experience: 'Minimum 1 year experience',
-        description: 'We are looking for a teacher specialized in caring for infants and toddlers. Experience with children aged 3 months to 2 years is required.',
+        title: "Childcare Teacher",
+        department: "Care",
+        type: "Full Time",
+        experience: "Minimum 1 year experience",
+        description:
+          "We are looking for a teacher specialized in caring for infants and toddlers. Experience with children aged 3 months to 2 years is required.",
       },
       {
         id: 3,
-        title: 'Administrative Assistant',
-        department: 'Administration',
-        type: 'Full Time',
-        experience: 'Minimum 1 year experience',
-        description: 'We are looking for an administrative assistant to work in the center\'s administration. Good organizational skills and proficiency in Microsoft Office programs are required.',
+        title: "Administrative Assistant",
+        department: "Administration",
+        type: "Full Time",
+        experience: "Minimum 1 year experience",
+        description:
+          "We are looking for an administrative assistant to work in the center's administration. Good organizational skills and proficiency in Microsoft Office programs are required.",
       },
     ],
   };
 
   const content = {
     ar: {
-      title: 'الوظائف',
-      subtitle: 'انضم إلى فريقنا المبدع',
-      description: 'نرحب بطلبك للعمل معنا. فريقنا يمتلك خبرة تزيد عن 30 عامًا في رعاية الأطفال والتعليم المبكر. نحن نبحث عن أشخاص متحمسين ومتفانين يشاركوننا رؤيتنا في بناء قادة المستقبل.',
-      availableJobs: 'الوظائف المتاحة',
-      viewDetails: 'عرض التفاصيل',
-      applyNow: 'تقديم طلب',
-      noJobs: 'لا توجد وظائف متاحة حالياً',
+      title: "الوظائف",
+      subtitle: "انضم إلى فريقنا المبدع",
+      description:
+        "نرحب بطلبك للعمل معنا. فريقنا يمتلك خبرة تزيد عن 30 عامًا في رعاية الأطفال والتعليم المبكر. نحن نبحث عن أشخاص متحمسين ومتفانين يشاركوننا رؤيتنا في بناء قادة المستقبل.",
+      availableJobs: "الوظائف المتاحة",
+      viewDetails: "عرض التفاصيل",
+      applyNow: "تقديم طلب",
+      noJobs: "لا توجد وظائف متاحة حالياً",
     },
     en: {
-      title: 'Careers',
-      subtitle: 'Join Our Creative Team',
-      description: 'We welcome your application to work with us. Our team has over 30 years of experience in child care and early education. We are looking for enthusiastic and dedicated people who share our vision of building future leaders.',
-      availableJobs: 'Available Positions',
-      viewDetails: 'View Details',
-      applyNow: 'Apply Now',
-      noJobs: 'No positions available at the moment',
+      title: "Careers",
+      subtitle: "Join Our Creative Team",
+      description:
+        "We welcome your application to work with us. Our team has over 30 years of experience in child care and early education. We are looking for enthusiastic and dedicated people who share our vision of building future leaders.",
+      availableJobs: "Available Positions",
+      viewDetails: "View Details",
+      applyNow: "Apply Now",
+      noJobs: "No positions available at the moment",
     },
   };
 
@@ -95,7 +103,8 @@ export default function CareersContent() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://plus.unsplash.com/premium_photo-1673730193487-89ae5d321682?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRhcmt8ZW58MHx8MHx8fDA%3D)',
+            backgroundImage:
+              "url(https://plus.unsplash.com/premium_photo-1673730193487-89ae5d321682?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRhcmt8ZW58MHx8MHx8fDA%3D)",
           }}
         />
         <div className="absolute inset-0 bg-black/20" />
@@ -148,7 +157,7 @@ export default function CareersContent() {
                 transition={{
                   duration: 4,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
               />
               <motion.div
@@ -160,16 +169,20 @@ export default function CareersContent() {
                 transition={{
                   duration: 5,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                   delay: 1,
                 }}
               />
               <div className="text-3xl mb-2 relative z-10">🎓</div>
               <h3 className="text-lg font-bold mb-2">
-                {language === 'ar' ? 'التطوير المهني' : 'Professional Development'}
+                {language === "ar"
+                  ? "التطوير المهني"
+                  : "Professional Development"}
               </h3>
               <p className="text-white/90 text-sm">
-                {language === 'ar' ? 'فرص تدريب مستمرة ونمو مهني' : 'Continuous training opportunities and professional growth'}
+                {language === "ar"
+                  ? "فرص تدريب مستمرة ونمو مهني"
+                  : "Continuous training opportunities and professional growth"}
               </p>
             </motion.div>
             <motion.div
@@ -189,7 +202,7 @@ export default function CareersContent() {
                 transition={{
                   duration: 4,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
               />
               <motion.div
@@ -201,16 +214,20 @@ export default function CareersContent() {
                 transition={{
                   duration: 5,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                   delay: 1,
                 }}
               />
               <div className="text-3xl mb-2 relative z-10">💼</div>
               <h3 className="text-lg font-bold mb-2">
-                {language === 'ar' ? 'بيئة عمل إيجابية' : 'Positive Work Environment'}
+                {language === "ar"
+                  ? "بيئة عمل إيجابية"
+                  : "Positive Work Environment"}
               </h3>
               <p className="text-white/90 text-sm">
-                {language === 'ar' ? 'فريق داعم وبيئة محفزة' : 'Supportive team and stimulating environment'}
+                {language === "ar"
+                  ? "فريق داعم وبيئة محفزة"
+                  : "Supportive team and stimulating environment"}
               </p>
             </motion.div>
             <motion.div
@@ -230,7 +247,7 @@ export default function CareersContent() {
                 transition={{
                   duration: 4,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
               />
               <motion.div
@@ -242,16 +259,18 @@ export default function CareersContent() {
                 transition={{
                   duration: 5,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                   delay: 1,
                 }}
               />
               <div className="text-3xl mb-2 relative z-10">🌟</div>
               <h3 className="text-lg font-bold mb-2">
-                {language === 'ar' ? 'مزايا تنافسية' : 'Competitive Benefits'}
+                {language === "ar" ? "مزايا تنافسية" : "Competitive Benefits"}
               </h3>
               <p className="text-white/90 text-sm">
-                {language === 'ar' ? 'رواتب مجزية ومزايا إضافية' : 'Rewarding salaries and additional benefits'}
+                {language === "ar"
+                  ? "رواتب مجزية ومزايا إضافية"
+                  : "Rewarding salaries and additional benefits"}
               </p>
             </motion.div>
           </div>
@@ -280,7 +299,11 @@ export default function CareersContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -8, scale: 1.03 }}
-                  transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    ease: "easeOut",
+                  }}
                   className="bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden cursor-pointer relative"
                 >
                   {/* Decorative circles */}
@@ -293,12 +316,16 @@ export default function CareersContent() {
                     transition={{
                       duration: 3,
                       repeat: Infinity,
-                      ease: 'easeInOut',
+                      ease: "easeInOut",
                     }}
                   />
-                  <div className={`h-2 bg-gradient-to-r from-light-blue to-pink`} />
+                  <div
+                    className={`h-2 bg-gradient-to-r from-light-blue to-pink`}
+                  />
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-royal-blue mb-2">{job.title}</h3>
+                    <h3 className="text-lg font-bold text-royal-blue mb-2">
+                      {job.title}
+                    </h3>
                     <div className="flex flex-wrap gap-2 mb-3">
                       <span className="px-3 py-1 bg-light-blue/10 text-light-blue rounded-full text-xs font-semibold">
                         {job.department}
@@ -307,7 +334,9 @@ export default function CareersContent() {
                         {job.type}
                       </span>
                     </div>
-                    <p className="text-royal-blue/70 text-sm mb-4 line-clamp-3">{job.description}</p>
+                    <p className="text-royal-blue/70 text-sm mb-4 line-clamp-3">
+                      {job.description}
+                    </p>
                     <Link
                       href={`/careers/${job.id}`}
                       className="inline-block w-full text-center px-4 py-2 bg-gradient-to-r from-royal-blue to-light-blue text-white rounded-lg font-semibold hover:from-light-blue hover:to-pink transition-all duration-300 text-sm cursor-pointer"
