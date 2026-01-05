@@ -277,7 +277,7 @@ export default function GalleryContent() {
           )}
 
           {/* Events Cards Grid */}
-          {activeTab === "events" && (
+          {activeTab === "events" && !selectedEvent && (
             <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {events.map((event, index) => (
                 <motion.div
@@ -360,93 +360,86 @@ export default function GalleryContent() {
         <ShapeDivider className="text-royal-blue" position="bottom" />
       </section>
 
-      {/* Event Photos Modal */}
-      <AnimatePresence>
-        {selectedEvent && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedEvent(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative w-full max-w-6xl max-h-[90vh] bg-white rounded-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
+      {/* Event Photos Section */}
+      {activeTab === "events" && selectedEvent && (
+        <section className="py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="container mx-auto max-w-7xl">
+            {/* Back Button */}
+            <motion.button
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              onClick={() => setSelectedEvent(null)}
+              className="mb-6 flex items-center text-royal-blue hover:text-light-blue transition-colors cursor-pointer group"
             >
-              {/* Header */}
-              <div className="bg-gradient-to-r from-royal-blue to-light-blue text-white p-6 flex items-center justify-between">
-                <div>
-                  <h2 className="text-2xl font-bold mb-1">
-                    {selectedEvent.name[language]}
-                  </h2>
-                  <p className="text-white/80 text-sm">
-                    {selectedEvent.description[language]}
-                  </p>
-                </div>
-                <button
-                  onClick={() => setSelectedEvent(null)}
-                  className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors cursor-pointer"
-                  aria-label="Close"
-                >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
+              <svg
+                className={`w-5 h-5 ${language === "ar" ? "ml-2" : "mr-2"} rtl:ml-0 rtl:mr-2 transform group-hover:translate-x-[-4px] rtl:group-hover:translate-x-[4px] transition-transform`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={language === "ar" ? "M9 5l7 7-7 7" : "M15 19l-7-7 7-7"}
+                />
+              </svg>
+              <span className="font-semibold">
+                {language === "ar" ? "رجوع إلى الفعاليات" : "Back to Events"}
+              </span>
+            </motion.button>
 
-              {/* Images Swiper */}
-              <div className="p-6 max-h-[calc(90vh-120px)] overflow-y-auto">
-                <Swiper
-                  modules={[Pagination, Navigation, Autoplay]}
-                  spaceBetween={20}
-                  slidesPerView={1}
-                  pagination={{ clickable: true }}
-                  navigation
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                  }}
-                  breakpoints={{
-                    640: {
-                      slidesPerView: 2,
-                    },
-                    1024: {
-                      slidesPerView: 3,
-                    },
-                  }}
-                  className="pb-12"
-                >
-                  {selectedEvent.images.map((img, index) => (
-                    <SwiperSlide key={index}>
-                      <div className="relative aspect-square rounded-xl overflow-hidden group">
-                        <img
-                          src={img}
-                          alt={`${selectedEvent.name[language]} ${index + 1}`}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                        />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
+            {/* Event Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center mb-10"
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold text-royal-blue mb-3">
+                {selectedEvent.name[language]}
+              </h2>
+              <p className="text-lg text-royal-blue/70 max-w-3xl mx-auto">
+                {selectedEvent.description[language]}
+              </p>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+            {/* Images Grid */}
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {selectedEvent.images.map((img, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="relative overflow-hidden rounded-xl cursor-pointer group aspect-square"
+                >
+                  {/* Decorative circles */}
+                  <motion.div
+                    className="absolute top-2 right-2 w-6 h-6 bg-white/30 rounded-full blur-sm z-10"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  <img
+                    src={img}
+                    alt={`${selectedEvent.name[language]} ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          <ShapeDivider className="text-royal-blue" position="bottom" />
+        </section>
+      )}
     </div>
   );
 }
