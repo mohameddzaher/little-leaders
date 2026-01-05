@@ -1,0 +1,167 @@
+"use client";
+
+import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+
+export default function Hero() {
+  const { language } = useLanguage();
+
+  const content = {
+    ar: {
+      title: "نصنع جيلاً قيادياً مبدعاً يجمع بين الذكاء والمعرفة",
+      subtitle:
+        "هل تبحث عن مركز ضيافة موثوق في جدة يضمن لطفلك أجواءً مليئة بالسعادة والإلهام كل يوم؟",
+      description:
+        "في مركز ليتل ليدرز نعتني بعقول الصغار بالحب والإبداع والتعلّم الهادف. وبصفتنا من أبرز مراكز الضيافة في جدة نوفر بيئة دافئة وآمنة ينمو فيها الأطفال بثقة وفضول ولطف",
+      cta: "سجل الآن",
+    },
+    en: {
+      title: "Shaping Creative Leaders Who Think Smartly and Lead Wisely",
+      subtitle:
+        "Are you looking for a trusted daycare center in Jeddah that ensures your child has an atmosphere full of happiness and inspiration every day?",
+      description:
+        "At Little Leaders Center, we care for young minds with love, creativity, and purposeful learning. As one of the leading daycare centers in Jeddah, we provide a warm and safe environment where children grow with confidence, curiosity, and kindness.",
+      cta: "Register Now",
+    },
+  };
+
+  const current = content[language];
+
+  const heroImages = [
+    "https://plus.unsplash.com/premium_photo-1661448604365-4ef469471a6d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8",
+    "https://plus.unsplash.com/premium_photo-1754337887805-bb4241dc9b35?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
+    "https://plus.unsplash.com/premium_photo-1754269340768-6d5610146611?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI4fHx8ZW58MHx8fHx8",
+    "https://plus.unsplash.com/premium_photo-1750830335485-a3113ed955d1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQ0fHx8ZW58MHx8fHx8",
+  ];
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Image Slider Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Swiper
+          modules={[Autoplay]}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
+          speed={800}
+          loop={true}
+          allowTouchMove={false}
+          className="w-full h-full"
+        >
+          {heroImages.map((img, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className="w-full h-full absolute inset-0"
+                style={{
+                  backgroundImage: `url(${img})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 via-black/30 to-black/40" />
+      </div>
+
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-20 left-10 w-72 h-72 bg-black/20 rounded-full blur-3xl"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-light-blue/20 rounded-full blur-3xl"
+          animate={{
+            x: [0, -100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight"
+          >
+            <span className="text-royal-blue">{current.title}</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-base sm:text-lg md:text-xl text-royal-blue/80 mb-4 font-medium"
+          >
+            {current.subtitle}
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-base sm:text-lg text-royal-blue/70 mb-8 max-w-3xl mx-auto leading-relaxed"
+          >
+            {current.description}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <Link
+              href="/sections"
+              className="inline-block px-7 py-3 bg-gradient-to-r from-royal-blue to-light-blue text-white rounded-full text-base font-semibold hover:from-light-blue hover:to-pink transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
+            >
+              {current.cta}
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-6 h-10 border-2 border-royal-blue rounded-full flex justify-center cursor-pointer"
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-1 h-3 bg-royal-blue rounded-full mt-2"
+          />
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}

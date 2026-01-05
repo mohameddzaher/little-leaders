@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'GE Dinar Two Medium';
+  src: url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cairo', 'GE Dinar Two Medium', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #0a274b;
+  line-height: 1.6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #57b7cc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0a274b;
+}
+
+/* Zigzag Border */
+.zigzag-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.zigzag-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(
+    45deg,
+    transparent 25%,
+    currentColor 25%,
+    currentColor 50%,
+    transparent 50%,
+    transparent 75%,
+    currentColor 75%
+  );
+  background-size: 20px 20px;
+  opacity: 0.1;
+}
+
+.zigzag-border-bottom {
+  position: relative;
+  overflow: hidden;
+}
+
+.zigzag-border-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    currentColor 10px,
+    currentColor 20px
+  );
+  opacity: 0.1;
+}
+
+/* Creative Zigzag */
+.creative-zigzag {
+  position: relative;
+}
+
+.creative-zigzag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 15px,
+      rgba(10, 39, 75, 0.1) 15px,
+      rgba(10, 39, 75, 0.1) 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 15px,
+      rgba(87, 183, 204, 0.1) 15px,
+      rgba(87, 183, 204, 0.1) 20px
+    );
+  background-size: 40px 30px, 40px 30px;
+  background-position: 0 0, 20px 15px;
+}
+
+.creative-zigzag-bottom {
+  position: relative;
+}
+
+.creative-zigzag-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 25px;
+  background-image: 
+    repeating-linear-gradient(
+      135deg,
+      transparent,
+      transparent 12px,
+      rgba(10, 39, 75, 0.08) 12px,
+      rgba(10, 39, 75, 0.08) 18px
+    ),
+    repeating-linear-gradient(
+      -135deg,
+      transparent,
+      transparent 12px,
+      rgba(87, 183, 204, 0.08) 12px,
+      rgba(87, 183, 204, 0.08) 18px
+    );
+  background-size: 35px 25px, 35px 25px;
+  background-position: 0 0, 17px 12px;
+}
