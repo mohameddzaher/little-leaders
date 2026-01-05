@@ -8,8 +8,8 @@ import { useState, useEffect } from "react";
 
 const team = [
   {
-    name: "رباب صالح بغدادي",
-    nameEn: "Rabab Saleh Boghdadi",
+    name: "رباب صالح",
+    nameEn: "Rabab Saleh",
     role: "مستشارة المركز",
     roleEn: "Center Consultant",
     experience: "34 سنة",
@@ -21,8 +21,8 @@ const team = [
     image: "/images/team/أ.رباب بغدادي.jpg",
   },
   {
-    name: "هالة غازي المغربي",
-    nameEn: "Hala Ghazi AlMaghrabi",
+    name: "هالة غازي",
+    nameEn: "Hala Ghazi",
     role: "مديرة المركز",
     roleEn: "Center Director",
     experience: "30 سنة",
@@ -36,8 +36,8 @@ const team = [
     image: "/images/team/أ.هالة المغربي.jpg",
   },
   {
-    name: "مها فوزان بغدادي",
-    nameEn: "Maha Fozan Boghdadi",
+    name: "مها فوزان",
+    nameEn: "Maha Fozan",
     role: "وكيلة المركز",
     roleEn: "Center Vice Director",
     experience: "20 سنة",
@@ -48,8 +48,8 @@ const team = [
     image: "/images/team/أ. مها بغدادي.jpg",
   },
   {
-    name: "فيء بسام المغربي",
-    nameEn: "Fay Bassam AlMaghrabi",
+    name: "فيء بسام",
+    nameEn: "Fay Bassam",
     role: "مساعد إداري",
     roleEn: "Administrative Assistant",
     experience: "سنتين",
@@ -62,8 +62,8 @@ const team = [
     image: "/images/team/أ. فيء بسام.jpg",
   },
   {
-    name: "مها دعال السبيعي",
-    nameEn: "Maha Da'al AlSubaiay",
+    name: "مها دعال",
+    nameEn: "Maha Da'al",
     role: "معلمة",
     roleEn: "Teacher",
     experience: "5 أشهر",
@@ -77,8 +77,8 @@ const team = [
     image: null,
   },
   {
-    name: "نجود هشام الغربي",
-    nameEn: "Njouf Hisham AlGharbi",
+    name: "نجود هشام",
+    nameEn: "Njouf Hisham",
     role: "معلمة",
     roleEn: "Teacher",
     experience: "6 سنوات",
@@ -89,8 +89,8 @@ const team = [
     image: "/images/team/أ.نجود الغربي.jpg",
   },
   {
-    name: "نوف علي الغامدي",
-    nameEn: "Nouf Ali AlGhamdi",
+    name: "نوف علي",
+    nameEn: "Nouf Ali",
     role: "معلمة",
     roleEn: "Teacher",
     experience: "1 شهر",
@@ -101,8 +101,8 @@ const team = [
     image: "/images/team/أ.نوف الغامدي.jpg",
   },
   {
-    name: "هاجر أيمن بغدادي",
-    nameEn: "Hajer Ayman Boghdadi",
+    name: "هاجر أيمن",
+    nameEn: "Hajer Ayman",
     role: "معلمة",
     roleEn: "Teacher",
     experience: "ليس لديها خبرات",
@@ -115,8 +115,8 @@ const team = [
     image: null,
   },
   {
-    name: "ريهام جابر الأسمري",
-    nameEn: "Reham Jaber AlAsmari",
+    name: "ريهام جابر",
+    nameEn: "Reham Jaber",
     role: "معلمة",
     roleEn: "Teacher",
     experience: "3 سنوات و6 أشهر",
@@ -129,8 +129,8 @@ const team = [
     image: null,
   },
   {
-    name: "فرح بسام المغربي",
-    nameEn: "Farah Bassam AlMaghrabi",
+    name: "فرح بسام",
+    nameEn: "Farah Bassam",
     role: "معلمة",
     roleEn: "Teacher",
     experience: "سنتين ونصف",
@@ -323,7 +323,7 @@ export default function TeamContent() {
                   delay: index * 0.1,
                   ease: "easeOut",
                 }}
-                className={`bg-gradient-to-br ${quality.gradient} rounded-2xl p-5 shadow-lg hover:shadow-xl cursor-pointer relative overflow-hidden`}
+                  className={`bg-gradient-to-br ${quality.gradient} rounded-2xl p-6 shadow-xl hover:shadow-2xl cursor-pointer relative overflow-hidden border-2 border-white/20`}
               >
                 {/* Decorative circles */}
                 <motion.div
@@ -351,8 +351,24 @@ export default function TeamContent() {
                     delay: 1,
                   }}
                 />
-                <div className="text-3xl mb-2 relative z-10">
-                  {quality.icon}
+                <div className="mb-3 relative z-10 w-12 h-12 flex items-center justify-center">
+                  {quality.icon === "❤️" ? (
+                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                  ) : quality.icon === "🎓" ? (
+                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                    </svg>
+                  ) : quality.icon === "🌟" ? (
+                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  ) : (
+                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  )}
                 </div>
                 <h3 className="text-base font-bold text-white mb-2 relative z-10">
                   {quality.title}
@@ -435,11 +451,17 @@ export default function TeamContent() {
                           />
                         </div>
                       ) : (
-                        <div className="w-32 h-56 bg-gradient-to-br from-light-blue to-pink rounded-xl flex items-center justify-center text-white text-4xl font-bold">
-                          {(language === "ar"
-                            ? member.name
-                            : member.nameEn
-                          ).charAt(0)}
+                        <div className="w-32 h-56 rounded-2xl overflow-hidden">
+                          <Image
+                            src="/images/default-person.webp"
+                            alt={
+                              language === "ar" ? member.name : member.nameEn
+                            }
+                            width={128}
+                            height={224}
+                            className="w-full h-full object-cover object-center rounded-2xl"
+                            unoptimized
+                          />
                         </div>
                       )}
                     </div>

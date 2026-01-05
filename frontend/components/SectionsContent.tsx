@@ -108,13 +108,13 @@ export default function SectionsContent() {
         title: "الأيام والأوقات",
         days: "من الأحد إلى الخميس",
         period1: {
-          title: "الفترة الأولى",
+          title: "الدوام الرسمي",
           time: "من 7 صباحًا إلى 3 مساءً",
           age: "(3 شهور إلى 5 سنوات)",
           note: "برامج خاصة",
         },
         period2: {
-          title: "الفترة الثانية",
+          title: "النشاط الإضافي",
           time: "من 3 مساءً إلى 5 مساءً",
           age: "(3 شهور إلى 10 سنوات)",
           note: "أنشطة ترفيهية للمسجلين والغير مسجلين",
@@ -735,7 +735,7 @@ export default function SectionsContent() {
                       <span className="text-royal-blue font-bold text-base flex items-center gap-1.5">
                         <span>{table.prices.day}</span>
                         <span className="text-pink font-extrabold text-xs">
-                          {current.pricing.currency}
+                          {current.pricing.currency} ﷼
                         </span>
                       </span>
                     </div>
@@ -747,7 +747,7 @@ export default function SectionsContent() {
                       <span className="text-royal-blue font-bold text-base flex items-center gap-1.5">
                         <span>{table.prices.month}</span>
                         <span className="text-pink font-extrabold text-xs">
-                          {current.pricing.currency}
+                          {current.pricing.currency} ﷼
                         </span>
                       </span>
                     </div>
@@ -759,7 +759,7 @@ export default function SectionsContent() {
                       <span className="text-royal-blue font-bold text-base flex items-center gap-1.5">
                         <span>{table.prices.threeMonths}</span>
                         <span className="text-pink font-extrabold text-xs">
-                          {current.pricing.currency}
+                          {current.pricing.currency} ﷼
                         </span>
                       </span>
                     </div>
@@ -771,7 +771,7 @@ export default function SectionsContent() {
                       <span className="text-royal-blue font-bold text-base flex items-center gap-1.5">
                         <span>{table.prices.sixMonths}</span>
                         <span className="text-pink font-extrabold text-xs">
-                          {current.pricing.currency}
+                          {current.pricing.currency} ﷼
                         </span>
                       </span>
                     </div>
@@ -783,7 +783,7 @@ export default function SectionsContent() {
                       <span className="text-royal-blue font-bold text-base flex items-center gap-1.5">
                         <span>{table.prices.year}</span>
                         <span className="text-pink font-extrabold text-xs">
-                          {current.pricing.currency}
+                          {current.pricing.currency} ﷼
                         </span>
                       </span>
                     </div>

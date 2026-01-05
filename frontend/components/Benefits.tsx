@@ -204,7 +204,27 @@ export default function Benefits() {
                   />
 
                   <div className="flex items-center gap-3 relative z-10">
-                    <div className="text-2xl flex-shrink-0">{benefit.icon}</div>
+                    <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
+                      {benefit.icon === "💪" ? (
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.86 2.71 4.29l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17l-3.57 3.57 1.43 1.43 1.43-1.43 1.43 1.43 2.14-2.14 1.43 1.43L22 18.57l-1.43-1.71z"/>
+                        </svg>
+                      ) : benefit.icon === "🎨" ? (
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.5-7.5 1.5 1.5-9 9-4.5-4.5 1.5-1.5 3 3zm6.79-11.79c1.08-1.08 2.84-1.08 3.92 0 1.08 1.08 1.08 2.84 0 3.92l-3.92-3.92z"/>
+                        </svg>
+                      ) : benefit.icon === "🧠" ? (
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                          <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                        </svg>
+                      ) : (
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                          <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+                        </svg>
+                      )}
+                    </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-sm font-bold text-white mb-0.5 leading-tight">
                         {benefit.title}

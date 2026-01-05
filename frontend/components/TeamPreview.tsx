@@ -14,8 +14,8 @@ export default function TeamPreview() {
 
   const teamMembers = [
     {
-      name: "هالة غازي المغربي",
-      nameEn: "Hala Ghazi AlMaghrabi",
+      name: "هالة غازي",
+      nameEn: "Hala Ghazi",
       role: "مديرة المركز",
       roleEn: "Center Director",
       experience: "30 سنة",
@@ -30,8 +30,8 @@ export default function TeamPreview() {
       image: "/images/team/أ.هالة المغربي.jpg",
     },
     {
-      name: "رباب صالح بغدادي",
-      nameEn: "Rabab Saleh Boghdadi",
+      name: "رباب صالح",
+      nameEn: "Rabab Saleh",
       role: "المشرف العام",
       roleEn: "Center Consultant",
       experience: "34 سنة",
@@ -44,8 +44,8 @@ export default function TeamPreview() {
       image: "/images/team/أ.رباب بغدادي.jpg",
     },
     {
-      name: "مها فوزان بغدادي",
-      nameEn: "Maha Fozan Boghdadi",
+      name: "مها فوزان",
+      nameEn: "Maha Fozan",
       role: "وكيلة المركز",
       roleEn: "Center Vice Director",
       experience: "20 سنة",
@@ -56,8 +56,8 @@ export default function TeamPreview() {
       image: "/images/team/أ. مها بغدادي.jpg",
     },
     {
-      name: "فيء بسام المغربي",
-      nameEn: "Fay Bassam AlMaghrabi",
+      name: "فيء بسام",
+      nameEn: "Fay Bassam",
       role: "مساعد إداري",
       roleEn: "Administrative Assistant",
       experience: "سنتين",
@@ -70,8 +70,8 @@ export default function TeamPreview() {
       image: "/images/team/أ. فيء بسام.jpg",
     },
     {
-      name: "فرح بسام المغربي",
-      nameEn: "Farah Bassam AlMaghrabi",
+      name: "فرح بسام",
+      nameEn: "Farah Bassam",
       role: "معلمة",
       roleEn: "Teacher",
       experience: "2.5 سنة",
@@ -84,8 +84,8 @@ export default function TeamPreview() {
       image: "/images/team/أ. فرح بسام.jpg",
     },
     {
-      name: "مها دعال السبيعي",
-      nameEn: "Maha Da'al AlSubaiay",
+      name: "مها دعال",
+      nameEn: "Maha Da'al",
       role: "معلمة",
       roleEn: "Teacher",
       experience: "5 أشهر",
@@ -99,8 +99,8 @@ export default function TeamPreview() {
       image: null,
     },
     {
-      name: "نجود هشام الغربي",
-      nameEn: "Njouf Hisham AlGharbi",
+      name: "نجود هشام",
+      nameEn: "Njouf Hisham",
       role: "معلمة",
       roleEn: "Teacher",
       experience: "6 سنوات",
@@ -111,8 +111,8 @@ export default function TeamPreview() {
       image: "/images/team/أ.نجود الغربي.jpg",
     },
     {
-      name: "نوف علي الغامدي",
-      nameEn: "Nouf Ali AlGhamdi",
+      name: "نوف علي",
+      nameEn: "Nouf Ali",
       role: "معلمة",
       roleEn: "Teacher",
       experience: "1 شهر",
@@ -123,8 +123,8 @@ export default function TeamPreview() {
       image: "/images/team/أ.نوف الغامدي.jpg",
     },
     {
-      name: "هاجر أيمن بغدادي",
-      nameEn: "Hajer Ayman Boghdadi",
+      name: "هاجر أيمن",
+      nameEn: "Hajer Ayman",
       role: "معلمة",
       roleEn: "Teacher",
       experience: "ليس لديها خبرات",
@@ -137,8 +137,8 @@ export default function TeamPreview() {
       image: null,
     },
     {
-      name: "ريهام جابر الأسمري",
-      nameEn: "Reham Jaber AlAsmari",
+      name: "ريهام جابر",
+      nameEn: "Reham Jaber",
       role: "معلمة",
       roleEn: "Teacher",
       experience: "3.5 سنة",
@@ -265,15 +265,13 @@ export default function TeamPreview() {
                       unoptimized
                     />
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-light-blue to-pink flex items-center justify-center text-white">
-                      <svg
-                        className="w-16 h-16"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                      </svg>
-                    </div>
+                    <Image
+                      src="/images/default-person.webp"
+                      alt={language === "ar" ? member.name : member.nameEn}
+                      fill
+                      className="object-cover object-center"
+                      unoptimized
+                    />
                   )}
                 </div>
                 <div className="p-4 flex flex-col flex-1">
