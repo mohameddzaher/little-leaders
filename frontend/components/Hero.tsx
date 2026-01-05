@@ -69,11 +69,10 @@ export default function Hero() {
         </Swiper>
         <div
           className="absolute inset-0 bg-black z-10"
-          style={{ opacity: 0.92 }}
+          style={{ opacity: 0.5 }}
         />
         <div
-          className="absolute inset-0 bg-gradient-to-br from-royal-blue/70 via-black/90 to-black z-10"
-          style={{ opacity: 0.95 }}
+          className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 via-black/40 to-black/50 z-10"
         />
       </div>
 
