@@ -138,7 +138,7 @@ export default function Footer() {
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10">
           <div className="footer-wave__main-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ">
             {/* About Us / Logo and Slogan */}
-            <div className="footer-wave__about text-center md:text-right lg:text-right">
+            <div className="footer-wave__about text-center md:text-left lg:text-left">
               <Link href="/" className="inline-block mb-4 cursor-pointer">
                 <Image
                   src="/images/logo.png"
@@ -158,7 +158,7 @@ export default function Footer() {
             </div>
 
             {/* Working Hours */}
-            <div className="footer-wave__links text-center md:text-right lg:text-right">
+            <div className="footer-wave__links text-center md:text-left lg:text-left">
               <h3 className="footer-wave__heading text-royal-blue text-base font-extrabold mb-4 mt-0">
                 {current.workingHours}
               </h3>
@@ -209,7 +209,7 @@ export default function Footer() {
             </div>
 
             {/* Contact Info */}
-            <div className="footer-wave__links text-center md:text-right lg:text-right">
+            <div className="footer-wave__links text-center md:text-left lg:text-left">
               <h3 className="footer-wave__heading text-royal-blue text-base font-extrabold mb-4 mt-0">
                 {current.contact}
               </h3>
@@ -247,11 +247,11 @@ export default function Footer() {
             </div>
 
             {/* Social Media */}
-            <div className="footer-wave__links text-center md:text-right lg:text-right">
+            <div className="footer-wave__links text-center md:text-left lg:text-left">
               <h3 className="footer-wave__heading text-royal-blue text-base font-extrabold mb-4 mt-0">
                 {current.followUs}
               </h3>
-              <div className="flex flex-wrap gap-3 justify-center md:justify-start lg:justify-start">
+              <div className="flex flex-wrap gap-3 justify-center md:justify-center lg:justify-start">
                 {socialLinks.map((social) => (
                   <a
                     key={social.name}
