@@ -42,7 +42,7 @@ export default function Header() {
         isHomePage
           ? isScrolled
             ? "bg-white shadow-lg py-3"
-            : "bg-transparent py-5"
+            : "bg-transparent  py-5"
           : "bg-white shadow-md py-3"
       }`}
     >
