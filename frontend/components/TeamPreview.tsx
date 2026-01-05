@@ -266,7 +266,7 @@ export default function TeamPreview() {
                     />
                   ) : (
                     <Image
-                      src="/images/default-person.webp"
+                      src="/images/dafault-person.webp"
                       alt={language === "ar" ? member.name : member.nameEn}
                       fill
                       className="object-cover object-center"
