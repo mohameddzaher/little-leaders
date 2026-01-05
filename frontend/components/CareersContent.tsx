@@ -279,9 +279,8 @@ export default function CareersContent() {
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -8, scale: 1.03 }}
-                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
                   className="bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden cursor-pointer relative"
                 >
                   {/* Decorative circles */}
