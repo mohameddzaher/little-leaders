@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
-import { useMemo } from "react";
+import { useMemo, memo } from "react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
@@ -16,7 +16,7 @@ const heroImages = [
   "https://plus.unsplash.com/premium_photo-1750830335485-a3113ed955d1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQ0fHx8ZW58MHx8fHx8",
 ];
 
-function HeroSlider() {
+const HeroSlider = memo(function HeroSlider() {
   return (
     <Swiper
       modules={[Autoplay]}
@@ -28,9 +28,10 @@ function HeroSlider() {
       loop={true}
       allowTouchMove={false}
       className="w-full h-full"
+      key="hero-swiper-static"
     >
       {heroImages.map((img, index) => (
-        <SwiperSlide key={`hero-img-${index}`}>
+        <SwiperSlide key={`hero-img-${index}-${img.slice(-10)}`}>
           <div
             className="w-full h-full absolute inset-0"
             style={{
@@ -43,31 +44,81 @@ function HeroSlider() {
       ))}
     </Swiper>
   );
+});
+
+const content = {
+  ar: {
+    title: "نصنع جيلاً قيادياً مبدعاً يجمع بين الذكاء والمعرفة",
+    subtitle:
+      "هل تبحث عن مركز ضيافة موثوق في جدة يضمن لطفلك أجواءً مليئة بالسعادة والإلهام كل يوم؟",
+    description:
+      "في مركز ليتل ليدرز نعتني بعقول الصغار بالحب والإبداع والتعلّم الهادف. وبصفتنا من أبرز مراكز الضيافة في جدة نوفر بيئة دافئة وآمنة ينمو فيها الأطفال بثقة وفضول ولطف",
+    cta: "سجل الآن",
+  },
+  en: {
+    title: "Shaping Creative Leaders Who Think Smartly and Lead Wisely",
+    subtitle:
+      "Are you looking for a trusted daycare center in Jeddah that ensures your child has an atmosphere full of happiness and inspiration every day?",
+    description:
+      "At Little Leaders Center, we care for young minds with love, creativity, and purposeful learning. As one of the leading daycare centers in Jeddah, we provide a warm and safe environment where children grow with confidence, curiosity, and kindness.",
+    cta: "Register Now",
+  },
+};
+
+function HeroContent() {
+  const { language } = useLanguage();
+  const current = useMemo(() => content[language], [language]);
+
+  return (
+    <>
+      <motion.h1
+        key={`title-${language}`}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold mb-4 leading-tight"
+      >
+        <span className="text-white">{current.title}</span>
+      </motion.h1>
+
+      <motion.p
+        key={`subtitle-${language}`}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="text-base sm:text-lg md:text-lg lg:text-lg text-white/80 mb-4 font-medium"
+      >
+        {current.subtitle}
+      </motion.p>
+
+      <motion.p
+        key={`description-${language}`}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="text-base sm:text-sm md:text-sm lg:text-sm text-white/70 mb-8 max-w-3xl mx-auto leading-relaxed"
+      >
+        {current.description}
+      </motion.p>
+
+      <motion.div
+        key={`cta-${language}`}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+      >
+        <Link
+          href="/sections"
+          className="inline-block px-7 py-3 bg-gradient-to-r from-royal-blue to-light-blue text-white rounded-full text-base font-semibold hover:from-light-blue hover:to-pink transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
+        >
+          {current.cta}
+        </Link>
+      </motion.div>
+    </>
+  );
 }
 
 export default function Hero() {
-  const { language } = useLanguage();
-
-  const content = {
-    ar: {
-      title: "نصنع جيلاً قيادياً مبدعاً يجمع بين الذكاء والمعرفة",
-      subtitle:
-        "هل تبحث عن مركز ضيافة موثوق في جدة يضمن لطفلك أجواءً مليئة بالسعادة والإلهام كل يوم؟",
-      description:
-        "في مركز ليتل ليدرز نعتني بعقول الصغار بالحب والإبداع والتعلّم الهادف. وبصفتنا من أبرز مراكز الضيافة في جدة نوفر بيئة دافئة وآمنة ينمو فيها الأطفال بثقة وفضول ولطف",
-      cta: "سجل الآن",
-    },
-    en: {
-      title: "Shaping Creative Leaders Who Think Smartly and Lead Wisely",
-      subtitle:
-        "Are you looking for a trusted daycare center in Jeddah that ensures your child has an atmosphere full of happiness and inspiration every day?",
-      description:
-        "At Little Leaders Center, we care for young minds with love, creativity, and purposeful learning. As one of the leading daycare centers in Jeddah, we provide a warm and safe environment where children grow with confidence, curiosity, and kindness.",
-      cta: "Register Now",
-    },
-  };
-
-  const current = useMemo(() => content[language], [language]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -111,45 +162,7 @@ export default function Hero() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold mb-4 leading-tight"
-          >
-            <span className="text-white">{current.title}</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-lg lg:text-lg text-white/80 mb-4 font-medium"
-          >
-            {current.subtitle}
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-base sm:text-sm md:text-sm lg:text-sm text-white/70 mb-8 max-w-3xl mx-auto leading-relaxed"
-          >
-            {current.description}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <Link
-              href="/sections"
-              className="inline-block px-7 py-3 bg-gradient-to-r from-royal-blue to-light-blue text-white rounded-full text-base font-semibold hover:from-light-blue hover:to-pink transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
-            >
-              {current.cta}
-            </Link>
-          </motion.div>
+          <HeroContent />
         </div>
       </div>
 
