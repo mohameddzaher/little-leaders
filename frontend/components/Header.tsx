@@ -82,7 +82,7 @@ export default function Header() {
                     isActive
                       ? "bg-light-blue text-white shadow-md"
                       : isHomePage && !isScrolled
-                      ? "text-white hover:bg-white/20 hover:text-white"
+                      ? "text-white hover:bg-pink hover:text-white"
                       : "text-royal-blue hover:bg-pink hover:text-white"
                   }`}
                 >

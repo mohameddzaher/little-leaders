@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
+import { useMemo } from "react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
@@ -32,18 +33,19 @@ export default function Hero() {
 
   const current = content[language];
 
-  const heroImages = [
+  const heroImages = useMemo(() => [
     "https://plus.unsplash.com/premium_photo-1661448604365-4ef469471a6d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8",
     "https://plus.unsplash.com/premium_photo-1754337887805-bb4241dc9b35?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
     "https://plus.unsplash.com/premium_photo-1754269340768-6d5610146611?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI4fHx8ZW58MHx8fHx8",
     "https://plus.unsplash.com/premium_photo-1750830335485-a3113ed955d1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQ0fHx8ZW58MHx8fHx8",
-  ];
+  ], []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Image Slider Background */}
       <div className="absolute inset-0 overflow-hidden">
         <Swiper
+          key="hero-swiper"
           modules={[Autoplay]}
           autoplay={{
             delay: 4000,
@@ -71,9 +73,7 @@ export default function Hero() {
           className="absolute inset-0 bg-black z-10"
           style={{ opacity: 0.5 }}
         />
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 via-black/40 to-black/50 z-10"
-        />
+        <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 via-black/40 to-black/50 z-10" />
       </div>
 
       {/* Animated background elements */}
@@ -110,16 +110,16 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight"
+            className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold mb-4 leading-tight"
           >
-            <span className="text-royal-blue">{current.title}</span>
+            <span className="text-white">{current.title}</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl text-royal-blue/80 mb-4 font-medium"
+            className="text-base sm:text-lg md:text-lg lg:text-lg text-white/80 mb-4 font-medium"
           >
             {current.subtitle}
           </motion.p>
@@ -128,7 +128,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-base sm:text-lg text-royal-blue/70 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-sm md:text-sm lg:text-sm text-white/70 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
             {current.description}
           </motion.p>
