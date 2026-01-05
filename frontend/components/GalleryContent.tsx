@@ -437,7 +437,6 @@ export default function GalleryContent() {
               ))}
             </div>
           </div>
-          <ShapeDivider className="text-royal-blue" position="bottom" />
         </section>
       )}
     </div>
