@@ -63,8 +63,9 @@ export default function Header() {
                 alt="Little Leaders Logo"
                 width={120}
                 height={50}
-                className="h-15 w-auto object-contain"
+                className="h-12 w-auto object-contain"
                 priority
+                unoptimized
               />
             </motion.div>
           </Link>
@@ -89,7 +90,7 @@ export default function Header() {
             })}
             <button
               onClick={toggleLanguage}
-              className="px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 cursor-pointer text-royal-blue hover:bg-pink hover:text-white"
+              className="px-4 py-2 bg-royal-blue text-white rounded-lg hover:bg-light-blue transition-colors duration-200 text-sm font-medium cursor-pointer"
             >
               {t("nav.language")}
             </button>
