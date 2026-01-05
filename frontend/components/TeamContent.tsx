@@ -431,6 +431,7 @@ export default function TeamContent() {
                             width={128}
                             height={224}
                             className="w-full h-full object-contain object-center rounded-2xl"
+                            unoptimized
                           />
                         </div>
                       ) : (

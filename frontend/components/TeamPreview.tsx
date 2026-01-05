@@ -262,6 +262,7 @@ export default function TeamPreview() {
                       alt={language === "ar" ? member.name : member.nameEn}
                       fill
                       className="object-contain object-center"
+                      unoptimized
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-light-blue to-pink flex items-center justify-center text-white">
