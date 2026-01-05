@@ -98,7 +98,7 @@ export default function SectionsContent() {
             year: "30,000",
           },
         },
-        currency: "ريال",
+        currency: "",
       },
       whyChoose: {
         title: "لماذا تختارنا",
@@ -239,7 +239,7 @@ export default function SectionsContent() {
             year: "30,000",
           },
         },
-        currency: "SAR",
+        currency: "",
       },
       whyChoose: {
         title: "Why Choose Us",
