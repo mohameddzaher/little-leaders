@@ -67,8 +67,8 @@ export default function Hero() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="absolute inset-0 bg-black/90" />
-        <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/40 via-black/70 to-black/80" />
+        <div className="absolute inset-0 bg-black/95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/50 via-black/80 to-black/90" />
       </div>
 
       {/* Animated background elements */}
