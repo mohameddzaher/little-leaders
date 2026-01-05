@@ -42,7 +42,37 @@ export default function Header() {
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between ${language === "ar" ? "flex-row-reverse" : ""}`}>
-          {/* Logo */}
+          {/* Language Button - Left for Arabic, Right for English */}
+          <div className="hidden lg:block">
+            <button
+              onClick={toggleLanguage}
+              className="px-4 py-2 bg-royal-blue text-white rounded-lg hover:bg-light-blue transition-colors duration-200 text-sm font-medium cursor-pointer"
+            >
+              {t("nav.language")}
+            </button>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-6 rtl:space-x-reverse flex-1 justify-center">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.key}
+                  href={item.href}
+                  className={`px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? "bg-light-blue text-white shadow-md"
+                      : "text-royal-blue hover:bg-pink hover:text-white"
+                  }`}
+                >
+                  {t(item.key)}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Logo - Right for Arabic, Left for English */}
           <Link
             href="/"
             className="flex items-center space-x-2 rtl:space-x-reverse cursor-pointer"
@@ -63,32 +93,6 @@ export default function Header() {
               />
             </motion.div>
           </Link>
-
-          {/* Desktop Navigation */}
-          <div className={`hidden lg:flex items-center space-x-6 rtl:space-x-reverse flex-1 ${language === "ar" ? "justify-start" : "justify-center"}`}>
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.key}
-                  href={item.href}
-                  className={`px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? "bg-light-blue text-white shadow-md"
-                      : "text-royal-blue hover:bg-pink hover:text-white"
-                  }`}
-                >
-                  {t(item.key)}
-                </Link>
-              );
-            })}
-            <button
-              onClick={toggleLanguage}
-              className="px-4 py-2 bg-royal-blue text-white rounded-lg hover:bg-light-blue transition-colors duration-200 text-sm font-medium cursor-pointer"
-            >
-              {t("nav.language")}
-            </button>
-          </div>
 
           {/* Mobile Menu Button */}
           <div className={`lg:hidden flex items-center space-x-4 rtl:space-x-reverse ${language === "ar" ? "flex-row-reverse" : ""}`}>
