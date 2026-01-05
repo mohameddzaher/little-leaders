@@ -5,8 +5,45 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
+import { useMemo } from "react";
 import "swiper/css";
 import "swiper/css/effect-fade";
+
+const heroImages = [
+  "https://plus.unsplash.com/premium_photo-1661448604365-4ef469471a6d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8",
+  "https://plus.unsplash.com/premium_photo-1754337887805-bb4241dc9b35?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
+  "https://plus.unsplash.com/premium_photo-1754269340768-6d5610146611?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI4fHx8ZW58MHx8fHx8",
+  "https://plus.unsplash.com/premium_photo-1750830335485-a3113ed955d1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQ0fHx8ZW58MHx8fHx8",
+];
+
+function HeroSlider() {
+  return (
+    <Swiper
+      modules={[Autoplay]}
+      autoplay={{
+        delay: 4000,
+        disableOnInteraction: false,
+      }}
+      speed={800}
+      loop={true}
+      allowTouchMove={false}
+      className="w-full h-full"
+    >
+      {heroImages.map((img, index) => (
+        <SwiperSlide key={`hero-img-${index}`}>
+          <div
+            className="w-full h-full absolute inset-0"
+            style={{
+              backgroundImage: `url(${img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+}
 
 export default function Hero() {
   const { language } = useLanguage();
@@ -30,43 +67,13 @@ export default function Hero() {
     },
   };
 
-  const current = content[language];
-
-  const heroImages = [
-    "https://plus.unsplash.com/premium_photo-1661448604365-4ef469471a6d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8",
-    "https://plus.unsplash.com/premium_photo-1754337887805-bb4241dc9b35?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
-    "https://plus.unsplash.com/premium_photo-1754269340768-6d5610146611?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI4fHx8ZW58MHx8fHx8",
-    "https://plus.unsplash.com/premium_photo-1750830335485-a3113ed955d1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQ0fHx8ZW58MHx8fHx8",
-  ];
+  const current = useMemo(() => content[language], [language]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Image Slider Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <Swiper
-          modules={[Autoplay]}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
-          speed={800}
-          loop={true}
-          allowTouchMove={false}
-          className="w-full h-full"
-        >
-          {heroImages.map((img, index) => (
-            <SwiperSlide key={index}>
-              <div
-                className="w-full h-full absolute inset-0"
-                style={{
-                  backgroundImage: `url(${img})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <HeroSlider />
         <div
           className="absolute inset-0 bg-black z-10"
           style={{ opacity: 0.5 }}
