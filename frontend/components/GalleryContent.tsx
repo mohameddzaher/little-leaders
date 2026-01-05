@@ -1,7 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/contexts/LanguageContext";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -10,11 +10,26 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+interface Event {
+  id: string;
+  name: {
+    ar: string;
+    en: string;
+  };
+  description: {
+    ar: string;
+    en: string;
+  };
+  images: string[];
+  thumbnail: string;
+}
+
 export default function GalleryContent() {
   const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState<"facilities" | "events">(
     "facilities"
   );
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   const content = {
     ar: {
@@ -92,14 +107,48 @@ export default function GalleryContent() {
     "/images/Facilities/29.webp",
   ];
 
-  const eventsImages = [
-    "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800",
-    "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800",
-    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800",
-    "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800",
+  // Events data
+  const events: Event[] = [
+    {
+      id: "ghars-nabta",
+      name: {
+        ar: "غرسُ نبتة",
+        en: "Planting a Seed",
+      },
+      description: {
+        ar: "فعالية تعليمية ممتعة حيث يشارك الأطفال في زراعة النباتات وتعلم أهمية العناية بالطبيعة",
+        en: "An educational activity where children participate in planting and learn the importance of caring for nature",
+      },
+      thumbnail: "/images/غرسُ نبتة/١١١.jpeg",
+      images: [
+        "/images/غرسُ نبتة/١١١.jpeg",
+        "/images/غرسُ نبتة/٢٢٢.jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.39.47 (1).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.39.47.jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.40.05 (1).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.40.08 (2).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.40.58.jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.41.06.jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.41.20.jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.41.36 (1).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.42.25 (2).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.42.25 (3).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.42.26.jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.42.30.jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.42.35.jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.42.44 (2).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.42.51 (3).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.43.09 (2).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.43.36 (3).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.43.46 (1).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.43.49 (1).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 11.43.49 (5).jpeg",
+        "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 12.54.38.jpeg",
+      ],
+    },
   ];
 
-  const images = activeTab === "facilities" ? facilitiesImages : eventsImages;
+  const images = activeTab === "facilities" ? facilitiesImages : [];
 
   return (
     <div>
@@ -190,51 +239,214 @@ export default function GalleryContent() {
             </p>
           </motion.div>
 
-          {/* Image Grid */}
-          <div
-            className={`grid gap-4 ${
-              activeTab === "facilities"
-                ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-                : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
-            }`}
-          >
-            {images.map((img, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className={`relative overflow-hidden rounded-xl cursor-pointer group ${
-                  activeTab === "facilities" ? "aspect-video" : "aspect-square"
-                }`}
-              >
-                {/* Decorative circles */}
+          {/* Facilities Image Grid */}
+          {activeTab === "facilities" && (
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+              {images.map((img, index) => (
                 <motion.div
-                  className="absolute top-2 right-2 w-6 h-6 bg-white/30 rounded-full blur-sm z-10"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-                <img
-                  src={img}
-                  alt={`${activeTab} ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="relative overflow-hidden rounded-xl cursor-pointer group aspect-video"
+                >
+                  {/* Decorative circles */}
+                  <motion.div
+                    className="absolute top-2 right-2 w-6 h-6 bg-white/30 rounded-full blur-sm z-10"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  <img
+                    src={img}
+                    alt={`facilities ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
+              ))}
+            </div>
+          )}
+
+          {/* Events Cards Grid */}
+          {activeTab === "events" && (
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+              {events.map((event, index) => (
+                <motion.div
+                  key={event.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  onClick={() => setSelectedEvent(event)}
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden cursor-pointer relative border-2 border-transparent hover:border-light-blue/30 transition-all duration-300 group"
+                >
+                  {/* Decorative circles */}
+                  <motion.div
+                    className="absolute top-2 right-2 w-8 h-8 bg-light-blue/20 rounded-full blur-sm z-10"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  <motion.div
+                    className="absolute bottom-2 left-2 w-6 h-6 bg-pink/20 rounded-full blur-sm z-10"
+                    animate={{
+                      scale: [1, 1.4, 1],
+                      opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1,
+                    }}
+                  />
+                  
+                  {/* Event Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={event.thumbnail}
+                      alt={event.name[language]}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  </div>
+                  
+                  {/* Event Info */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-royal-blue mb-2 group-hover:text-light-blue transition-colors">
+                      {event.name[language]}
+                    </h3>
+                    <p className="text-royal-blue/70 text-sm line-clamp-2">
+                      {event.description[language]}
+                    </p>
+                    <div className="mt-4 flex items-center text-light-blue text-sm font-semibold">
+                      <span>{language === "ar" ? "عرض الصور" : "View Photos"}</span>
+                      <svg
+                        className="w-4 h-4 mr-2 rtl:ml-2 rtl:mr-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
         <ShapeDivider className="text-royal-blue" position="bottom" />
       </section>
+
+      {/* Event Photos Modal */}
+      <AnimatePresence>
+        {selectedEvent && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedEvent(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-6xl max-h-[90vh] bg-white rounded-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="bg-gradient-to-r from-royal-blue to-light-blue text-white p-6 flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-bold mb-1">
+                    {selectedEvent.name[language]}
+                  </h2>
+                  <p className="text-white/80 text-sm">
+                    {selectedEvent.description[language]}
+                  </p>
+                </div>
+                <button
+                  onClick={() => setSelectedEvent(null)}
+                  className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors cursor-pointer"
+                  aria-label="Close"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Images Swiper */}
+              <div className="p-6 max-h-[calc(90vh-120px)] overflow-y-auto">
+                <Swiper
+                  modules={[Pagination, Navigation, Autoplay]}
+                  spaceBetween={20}
+                  slidesPerView={1}
+                  pagination={{ clickable: true }}
+                  navigation
+                  autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                  }}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 2,
+                    },
+                    1024: {
+                      slidesPerView: 3,
+                    },
+                  }}
+                  className="pb-12"
+                >
+                  {selectedEvent.images.map((img, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="relative aspect-square rounded-xl overflow-hidden group">
+                        <img
+                          src={img}
+                          alt={`${selectedEvent.name[language]} ${index + 1}`}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
