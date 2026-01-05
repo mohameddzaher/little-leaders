@@ -89,7 +89,7 @@ export default function Header() {
             })}
             <button
               onClick={toggleLanguage}
-              className="px-4 py-2 bg-royal-blue text-white rounded-lg hover:bg-light-blue transition-colors duration-200 text-sm font-medium cursor-pointer"
+              className="px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 cursor-pointer text-royal-blue hover:bg-pink hover:text-white"
             >
               {t("nav.language")}
             </button>
