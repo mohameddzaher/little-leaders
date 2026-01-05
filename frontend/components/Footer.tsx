@@ -261,7 +261,13 @@ export default function Footer() {
                     className="w-10 h-10 bg-[#e68b8d] rounded-full flex items-center justify-center hover:bg-royal-blue hover:text-light-blue transition-all duration-300 cursor-pointer"
                     aria-label={social.name}
                   >
-                    {social.icon}
+                    {social.name === "Snapchat" ? (
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.206.793c.234 1.639 1.144 2.957 2.31 3.69 1.174.729 2.625.978 4.001.978 1.213 0 2.39-.18 3.49-.512a.28.28 0 0 1 .356.178c.155.547.155 1.095.155 1.643 0 4.222-3.404 7.617-7.617 7.617-4.222 0-7.617-3.404-7.617-7.617 0-.548 0-1.096.155-1.643a.28.28 0 0 1 .356-.178c1.1.333 2.277.512 3.49.512 1.376 0 2.827-.249 4.001-.978 1.166-.733 2.076-2.051 2.31-3.69z"/>
+                      </svg>
+                    ) : (
+                      social.icon
+                    )}
                   </a>
                 ))}
               </div>
