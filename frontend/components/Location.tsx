@@ -78,21 +78,26 @@ export default function Location() {
           />
 
           {/* Map Image with 3D effect */}
-          <div className="relative mb-6 rounded-xl overflow-hidden transform group-hover:scale-105 transition-transform duration-300">
+          <div className="relative mb-6 rounded-xl overflow-hidden transform group-hover:scale-105 transition-transform duration-300 shadow-2xl">
             <div className="relative h-64 w-full">
               <Image
-                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&auto=format&fit=crop&q=80"
-                alt="Saudi Arabia Map"
+                src="https://maps.googleapis.com/maps/api/staticmap?center=21.4858,39.1925&zoom=10&size=800x400&maptype=roadmap&markers=color:red%7C21.4858,39.1925&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dS6gm4v1N3m1pY"
+                alt="Jeddah, Saudi Arabia Map"
                 fill
                 className="object-cover"
                 unoptimized
+                onError={(e) => {
+                  // Fallback to Unsplash image if Google Maps fails
+                  e.currentTarget.src = "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&auto=format&fit=crop&q=80";
+                }}
               />
-              {/* Jeddah Marker */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              {/* Jeddah Marker with 3D effect */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                 <motion.div
                   animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.8, 1, 0.8],
+                    scale: [1, 1.3, 1],
+                    opacity: [0.9, 1, 0.9],
+                    y: [0, -5, 0],
                   }}
                   transition={{
                     duration: 2,
@@ -101,13 +106,15 @@ export default function Location() {
                   }}
                   className="relative"
                 >
-                  <FaMapMarkerAlt className="w-12 h-12 text-red-500 drop-shadow-lg" />
-                  <div className="absolute inset-0 w-12 h-12 bg-red-500/30 rounded-full animate-ping" />
+                  <FaMapMarkerAlt className="w-14 h-14 text-red-500 drop-shadow-2xl filter drop-shadow-lg" style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))' }} />
+                  <div className="absolute inset-0 w-14 h-14 bg-red-500/40 rounded-full animate-ping" />
+                  <div className="absolute inset-0 w-14 h-14 bg-red-500/20 rounded-full animate-pulse" />
                 </motion.div>
               </div>
-              {/* Overlay gradient for 3D effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 via-transparent to-pink/20" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              {/* 3D Overlay gradients for depth effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/30 via-transparent to-pink/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
             </div>
           </div>
 
