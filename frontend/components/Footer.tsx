@@ -4,15 +4,15 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
 import FooterShapeDivider from "./FooterShapeDivider";
-import { 
-  FaInstagram, 
-  FaTwitter, 
-  FaSnapchat, 
-  FaTiktok, 
-  FaFacebook, 
-  FaLinkedin, 
-  FaYoutube, 
-  FaWhatsapp 
+import {
+  FaInstagram,
+  FaTwitter,
+  FaSnapchat,
+  FaTiktok,
+  FaFacebook,
+  FaLinkedin,
+  FaYoutube,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 export default function Footer() {

@@ -78,7 +78,7 @@ export default function ContactContent() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url(/images/Facilities/26.webp)",
+            backgroundImage: "url(/images/Facilities/3-4.webp)",
             // Previous Unsplash image (commented for future use):
             // "url(https://images.unsplash.com/photo-1682687221080-5cb261c645cb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           }}

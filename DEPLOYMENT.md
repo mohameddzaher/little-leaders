@@ -77,3 +77,4 @@ For issues, check:
 - Browser console for errors
 - Network tab for slow resources
 
+
