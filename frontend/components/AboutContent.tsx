@@ -165,8 +165,9 @@ export default function AboutContent() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url(https://images.unsplash.com/photo-1682687221080-5cb261c645cb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+            backgroundImage: "url(/images/Facilities/1-3.webp)",
+            // Previous Unsplash image (commented for future use):
+            // "url(https://images.unsplash.com/photo-1682687221080-5cb261c645cb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           }}
         />
         <div className="absolute inset-0 bg-black/20" />
@@ -533,7 +534,7 @@ export default function AboutContent() {
             transition={{ duration: 0.6 }}
             className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-royal-blue mb-3">
+            <h2 className=" text-2xl sm:text-3xl font-bold text-royal-blue mb-3">
               {current.values.title}
             </h2>
             <p className="text-royal-blue/70 text-base max-w-2xl mx-auto">
@@ -651,7 +652,7 @@ export default function AboutContent() {
                         <div className="text-3xl">{value.icon}</div>
                       )}
                     </div>
-                    <h3 className="text-base font-bold text-royal-blue mb-2">
+                    <h3 className="text-center text-base font-bold text-royal-blue mb-2">
                       {value.title}
                     </h3>
                     <p className="text-royal-blue/70 text-xs leading-relaxed">
@@ -672,7 +673,7 @@ export default function AboutContent() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200)",
+              "url(https://images.unsplash.com/photo-1523920280034-97551085d55a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8)",
           }}
         />
         <div className="absolute inset-0 bg-black/15" />
@@ -716,7 +717,7 @@ export default function AboutContent() {
               }`}
               dir={language === "ar" ? "rtl" : "ltr"}
             >
-              <h2 className="text-xl sm:text-2xl font-bold text-royal-blue mb-4">
+              <h2 className="text-center text-xl sm:text-2xl font-bold text-royal-blue mb-4">
                 {current.importance.title}
               </h2>
               <p className="text-base text-royal-blue/70 mb-5 leading-relaxed">
