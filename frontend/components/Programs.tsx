@@ -171,7 +171,7 @@ export default function Programs() {
                 </p>
 
                 {/* Description */}
-                <p className="text-royal-blue/70 leading-relaxed text-xs flex-1 text-center">
+                <p className={`text-royal-blue/70 leading-relaxed text-xs flex-1 text-center ${language === "ar" ? "text-justify" : "text-justify"}`}>
                   {program.description}
                 </p>
               </div>

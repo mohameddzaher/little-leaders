@@ -242,7 +242,6 @@ export default function CareersContent() {
               transition={{ duration: 0.6 }}
               className="bg-gradient-to-br from-light-blue/10 to-pink/10 rounded-2xl p-12 max-w-2xl mx-auto border-2 border-royal-blue/20"
             >
-              <div className="text-6xl mb-4">📋</div>
               <h3 className="text-2xl font-bold text-royal-blue mb-3">
                 {current.noJobs}
               </h3>

@@ -13,6 +13,7 @@ import LearningJourney from "@/components/LearningJourney";
 import CenterInstructions from "@/components/CenterInstructions";
 import TeamPreview from "@/components/TeamPreview";
 import StartJourney from "@/components/StartJourney";
+import Location from "@/components/Location";
 import Footer from "@/components/Footer";
 import FloatingContact from "@/components/FloatingContact";
 import { LanguageProvider } from "@/contexts/LanguageContext";
@@ -33,6 +34,7 @@ export default function Home() {
         <CenterInstructions />
         <TeamPreview />
         <StartJourney />
+        <Location />
         <Footer />
         <FloatingContact />
       </div>

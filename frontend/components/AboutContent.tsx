@@ -217,7 +217,7 @@ export default function AboutContent() {
                   ? "مركز ليتل ليدرز"
                   : "Little Leaders Center"}
               </h2>
-              <p className="text-royal-blue/70 leading-relaxed">
+              <p className={`text-royal-blue/70 leading-relaxed ${language === "ar" ? "text-justify" : "text-justify"} ${language === "ar" ? "text-right" : "text-left"}`}>
                 {current.hero.description}
               </p>
             </motion.div>

@@ -13,6 +13,11 @@ import {
   FaLinkedin,
   FaYoutube,
   FaWhatsapp,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaCalendarAlt,
+  FaClock,
 } from "react-icons/fa";
 
 export default function Footer() {
@@ -62,7 +67,7 @@ export default function Footer() {
 
   // Social media icons - using react-icons library
   const getSocialIcon = (name: string) => {
-    const iconProps = { className: "w-5 h-5" };
+    const iconProps = { className: "w-4 h-4" };
 
     switch (name) {
       case "Instagram":
@@ -160,9 +165,7 @@ export default function Footer() {
               </h3>
               <ul className="list-none p-0 m-0 space-y-3 text-sm text-royal-blue">
                 <li className="flex items-start">
-                  <span className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0">
-                    📅
-                  </span>
+                  <FaCalendarAlt className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0 w-5 h-5 text-royal-blue mt-0.5" />
                   <div>
                     <p className="text-royal-blue font-semibold mb-1">
                       {current.days}
@@ -170,9 +173,7 @@ export default function Footer() {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <span className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0">
-                    ⏰
-                  </span>
+                  <FaClock className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0 w-5 h-5 text-royal-blue mt-0.5" />
                   <div>
                     <p className="text-royal-blue font-semibold mb-1">
                       {current.firstPeriod}
@@ -186,9 +187,7 @@ export default function Footer() {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <span className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0">
-                    ⏰
-                  </span>
+                  <FaClock className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0 w-5 h-5 text-royal-blue mt-0.5" />
                   <div>
                     <p className="text-royal-blue font-semibold mb-1">
                       {current.secondPeriod}
@@ -211,15 +210,18 @@ export default function Footer() {
               </h3>
               <ul className="list-none p-0 m-0 space-y-3 text-sm text-royal-blue/90">
                 <li className="flex items-start">
-                  <span className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0">
-                    📍
-                  </span>
-                  <span>{current.address}</span>
+                  <FaMapMarkerAlt className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0 w-5 h-5 text-royal-blue mt-0.5" />
+                  <a
+                    href="https://maps.app.goo.gl/VvZknuihdmJTE3QLA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-royal-blue/90 hover:text-royal-blue transition-colors cursor-pointer no-underline"
+                  >
+                    {current.address}
+                  </a>
                 </li>
                 <li className="flex items-center">
-                  <span className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0">
-                    📞
-                  </span>
+                  <FaPhone className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0 w-5 h-5 text-royal-blue" />
                   <a
                     href={`tel:${current.phone}`}
                     className="text-royal-blue/90 hover:text-royal-blue transition-colors cursor-pointer no-underline"
@@ -229,9 +231,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li className="flex items-center">
-                  <span className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0">
-                    ✉️
-                  </span>
+                  <FaEnvelope className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0 w-5 h-5 text-royal-blue" />
                   <a
                     href={`mailto:${current.email}`}
                     className="text-royal-blue/90 hover:text-royal-blue transition-colors cursor-pointer no-underline"
@@ -254,7 +254,7 @@ export default function Footer() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-[#e68b8d] rounded-full flex items-center justify-center hover:bg-royal-blue hover:text-light-blue transition-all duration-300 cursor-pointer"
+                    className="w-8 h-8 bg-[#e68b8d] rounded-full flex items-center justify-center hover:bg-royal-blue hover:text-light-blue transition-all duration-300 cursor-pointer"
                     aria-label={social.name}
                   >
                     {getSocialIcon(social.name)}

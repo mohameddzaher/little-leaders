@@ -7,21 +7,8 @@ import ShapeDivider from "./ShapeDivider";
 
 const team = [
   {
-    name: "رباب صالح",
-    nameEn: "Rabab Saleh",
-    role: "مستشارة المركز",
-    roleEn: "Center Consultant",
-    experience: "34 سنة",
-    qualification: "كلية رياض أطفال",
-    qualificationEn: "College of Early Childhood Education",
-    about: "أجد نفسي فيهم في براءتهم وتفاعلهم العاطفي من دون مقابل",
-    aboutEn:
-      "I see myself in their innocence and their genuine emotional interactions given without expectation",
-    image: "/images/team/أ.رباب بغدادي.jpg",
-  },
-  {
-    name: "هالة غازي",
-    nameEn: "Hala Ghazi",
+    name: "هالة غازي المغربي",
+    nameEn: "Hala Ghazi Al-Maghrabi",
     role: "مديرة المركز",
     roleEn: "Center Director",
     experience: "30 سنة",
@@ -33,6 +20,21 @@ const team = [
     aboutEn:
       "I love working with children for their innocence and spontaneity. The results of effort are clearly reflected in them through the positive changes in their behavior, language, values, concepts and principles",
     image: "/images/team/أ.هالة المغربي.jpg",
+    order: 1, // في النص فوق
+  },
+  {
+    name: "رباب صالح بغدادي",
+    nameEn: "Rabab Saleh Baghdadi",
+    role: "مستشارة المركز",
+    roleEn: "Center Consultant",
+    experience: "34 سنة",
+    qualification: "كلية رياض أطفال",
+    qualificationEn: "College of Early Childhood Education",
+    about: "أجد نفسي فيهم في براءتهم وتفاعلهم العاطفي من دون مقابل",
+    aboutEn:
+      "I see myself in their innocence and their genuine emotional interactions given without expectation",
+    image: "/images/team/أ.رباب بغدادي.jpg",
+    order: 2, // يمينها
   },
   {
     name: "مها فوزان",
@@ -45,6 +47,7 @@ const team = [
     about: "لصدق الاحساس لدى الطفل",
     aboutEn: "For the sincerity of a child's feelings",
     image: "/images/team/أ. مها بغدادي.jpg",
+    order: 3, // شمالها
   },
   {
     name: "فيء بسام",
@@ -59,6 +62,7 @@ const team = [
     aboutEn:
       "Working with children brings a sense of blessing and tranquility their innocence and genuine emotions remind me of the values of purity and human generosity",
     image: "/images/team/أ. فيء بسام.jpg",
+    order: 4, // تحتهم
   },
   {
     name: "مها دعال",
@@ -74,6 +78,7 @@ const team = [
     aboutEn:
       "I trust you and believe that you can achieve your dreams. That's why I'm always here to support and help you",
     image: null,
+    order: 5, // بعدين
   },
   {
     name: "نجود هشام",
@@ -88,6 +93,7 @@ const team = [
     aboutEn:
       "I love children's innocence and their wide imagination, which opens limitless horizons for creativity and discovery",
     image: "/images/team/أ.نجود الغربي.jpg",
+    order: 6, // بعدين
   },
   {
     name: "نوف علي",
@@ -102,6 +108,7 @@ const team = [
     aboutEn:
       "I love working with children for their innocence and honesty in expressing their feelings and thoughts",
     image: "/images/team/أ.نوف الغامدي.jpg",
+    order: 7, // بعدهم الباقي
   },
   {
     name: "هاجر أيمن",
@@ -116,6 +123,7 @@ const team = [
     aboutEn:
       "I love seeing how children begin to understand the world around them how they respond to rules and follow them. I enjoy listening to their innocent thoughts watching them express themselves confidently and instilling in them a sense of pride in everything they do",
     image: null,
+    order: 8, // بعدهم الباقي
   },
   {
     name: "ريهام جابر",
@@ -130,6 +138,7 @@ const team = [
     aboutEn:
       "I love interacting with purity, innocence and sincerity. Their moments of laughter, honesty, spontaneous expressions and enthusiasm radiate positive energy",
     image: null,
+    order: 9, // بعدهم الباقي
   },
   {
     name: "فرح بسام",
@@ -143,6 +152,7 @@ const team = [
     aboutEn:
       "In my interaction with children I'm always amazed by their excitement and enthusiasm when they discover something new and enjoyable",
     image: "/images/team/أ. فرح بسام.jpg",
+    order: 10, // بعدهم الباقي
   },
 ];
 
@@ -171,29 +181,8 @@ export default function TeamContent() {
 
   const current = content[language];
 
-  // Organize team hierarchically
-  const organizeTeamHierarchically = () => {
-    const director = team.filter(
-      (member) =>
-        member.role === "مديرة المركز" || member.roleEn === "Center Director"
-    );
-    const management = team.filter(
-      (member) =>
-        member.role === "مستشارة المركز" ||
-        member.roleEn === "Center Consultant" ||
-        member.role === "وكيلة المركز" ||
-        member.roleEn === "Center Vice Director" ||
-        member.role === "مساعد إداري" ||
-        member.roleEn === "Administrative Assistant"
-    );
-    const teachers = team.filter(
-      (member) => member.role === "معلمة" || member.roleEn === "Teacher"
-    );
-
-    return { director, management, teachers };
-  };
-
-  const { director, management, teachers } = organizeTeamHierarchically();
+  // Sort team by order
+  const sortedTeam = [...team].sort((a, b) => (a.order || 999) - (b.order || 999));
 
   return (
     <div>
@@ -255,92 +244,29 @@ export default function TeamContent() {
         <ShapeDivider className="text-royal-blue" position="bottom" />
       </section>
 
-      {/* Team Grid - Hierarchical */}
+      {/* Team Grid */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pink/5 via-white to-light-blue/5 relative overflow-hidden">
         <div className="container mx-auto max-w-7xl">
-          {/* Director Level */}
-          {director.length > 0 && (
-            <div className="mb-12">
-              <motion.h3
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-xl sm:text-2xl font-bold text-royal-blue text-center mb-6"
-              >
-                {language === "ar"
-                  ? "القيادة التنفيذية"
-                  : "Executive Leadership"}
-              </motion.h3>
-              <div className="flex justify-center">
-                <div className="grid grid-cols-1 md:grid-cols-1 gap-6 max-w-md">
-                  {director.map((member, index) => (
-                    <TeamMemberCard
-                      key={index}
-                      member={member}
-                      index={index}
-                      language={language}
-                    />
-                  ))}
-                </div>
+          <motion.h3
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-xl sm:text-2xl font-bold text-royal-blue text-center mb-8"
+          >
+            {language === "ar" ? "الهيكل" : "Team Structure"}
+          </motion.h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sortedTeam.map((member, index) => (
+              <div key={index} className="flex">
+                <TeamMemberCard
+                  member={member}
+                  index={index}
+                  language={language}
+                />
               </div>
-            </div>
-          )}
-
-          {/* Management Level */}
-          {management.length > 0 && (
-            <div className="mb-12">
-              <motion.h3
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-xl sm:text-2xl font-bold text-royal-blue text-center mb-6"
-              >
-                {language === "ar"
-                  ? "الفريق الإداري والاستشاري"
-                  : "Administrative & Advisory Team"}
-              </motion.h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                {management.map((member, index) => (
-                  <TeamMemberCard
-                    key={index}
-                    member={member}
-                    index={index}
-                    language={language}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Teachers Level */}
-          {teachers.length > 0 && (
-            <div>
-              <motion.h3
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-xl sm:text-2xl font-bold text-royal-blue text-center mb-6"
-              >
-                {language === "ar" ? "الفريق التعليمي" : "Educational Team"}
-              </motion.h3>
-              <div className="flex justify-center">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl">
-                  {teachers.map((member, index) => (
-                    <div key={index} className="flex">
-                      <TeamMemberCard
-                        member={member}
-                        index={index}
-                        language={language}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
+            ))}
+          </div>
         </div>
       </section>
     </div>

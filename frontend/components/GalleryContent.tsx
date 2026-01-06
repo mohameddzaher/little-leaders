@@ -31,6 +31,7 @@ export default function GalleryContent() {
     "facilities"
   );
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const content = {
     ar: {
@@ -274,8 +275,9 @@ export default function GalleryContent() {
                     alt={`facilities ${index + 1}`}
                     width={600}
                     height={400}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
                     unoptimized
+                    onClick={() => setSelectedImage(img)}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
@@ -446,8 +448,9 @@ export default function GalleryContent() {
                     alt={`${selectedEvent.name[language]} ${index + 1}`}
                     width={400}
                     height={400}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
                     unoptimized
+                    onClick={() => setSelectedImage(img)}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
@@ -455,6 +458,38 @@ export default function GalleryContent() {
             </div>
           </div>
         </section>
+      )}
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-7xl max-h-full">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 text-4xl font-bold z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center"
+            >
+              ×
+            </button>
+            <Image
+              src={selectedImage}
+              alt="Selected image"
+              width={1200}
+              height={800}
+              className="max-w-full max-h-[90vh] object-contain rounded-lg"
+              unoptimized
+            />
+            <a
+              href={selectedImage}
+              download
+              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 hover:bg-white text-royal-blue px-6 py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer"
+            >
+              {language === "ar" ? "تحميل الصورة" : "Download Image"}
+            </a>
+          </div>
+        </div>
       )}
     </div>
   );
