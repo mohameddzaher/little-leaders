@@ -723,11 +723,19 @@ export default function SectionsContent() {
                   }}
                 />
                 <div
-                  className={`bg-gradient-to-r ${
+                  className={`${
                     table.type === "early"
-                      ? "from-pink-600 to-pink-300"
-                      : "from-royal-blue to-light-blue"
+                      ? ""
+                      : "bg-gradient-to-r from-royal-blue to-light-blue"
                   } text-white p-5`}
+                  style={
+                    table.type === "early"
+                      ? {
+                          background:
+                            "linear-gradient(to right, #d16a6c, #e68b8d, #f0a8aa)",
+                        }
+                      : undefined
+                  }
                 >
                   <h3 className="text-lg font-bold text-center mb-2">
                     {table.title}
