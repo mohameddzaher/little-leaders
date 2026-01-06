@@ -261,7 +261,9 @@ export default function TeamContent() {
                 transition={{ duration: 0.6 }}
                 className="text-xl sm:text-2xl font-bold text-royal-blue text-center mb-6"
               >
-                {language === "ar" ? "القيادة التنفيذية" : "Executive Leadership"}
+                {language === "ar"
+                  ? "القيادة التنفيذية"
+                  : "Executive Leadership"}
               </motion.h3>
               <div className="flex justify-center">
                 <div className="grid grid-cols-1 md:grid-cols-1 gap-6 max-w-md">
@@ -318,19 +320,31 @@ export default function TeamContent() {
                 {language === "ar" ? "الفريق التعليمي" : "Educational Team"}
               </motion.h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {teachers.map((member, index) => (
-                  <TeamMemberCard
-                    key={index}
-                    member={member}
-                    index={index}
-                    language={language}
-                  />
-                ))}
+                {teachers.map((member, index) => {
+                  // Center the last 2 cards if there are odd number of teachers
+                  const isLastTwo = index >= teachers.length - 2 && teachers.length % 2 !== 0;
+                  const isSecondLast = index === teachers.length - 2;
+                  return (
+                    <div
+                      key={index}
+                      className={
+                        isLastTwo && isSecondLast
+                          ? "lg:col-start-2"
+                          : ""
+                      }
+                    >
+                      <TeamMemberCard
+                        member={member}
+                        index={index}
+                        language={language}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
         </div>
-        <ShapeDivider className="text-royal-blue" position="bottom" />
       </section>
     </div>
   );
