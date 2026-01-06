@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import ShapeDivider from "./ShapeDivider";
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -158,7 +159,7 @@ export default function GalleryContent() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url(/images/Facilities/26.webp)",
+            backgroundImage: "url(/images/Facilities/21.webp)",
             // Previous Unsplash image (commented for future use):
             // "url(https://images.unsplash.com/photo-1682687221080-5cb261c645cb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           }}
@@ -268,10 +269,13 @@ export default function GalleryContent() {
                       ease: "easeInOut",
                     }}
                   />
-                  <img
+                  <Image
                     src={img}
                     alt={`facilities ${index + 1}`}
+                    width={600}
+                    height={400}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
@@ -319,17 +323,20 @@ export default function GalleryContent() {
                       delay: 1,
                     }}
                   />
-                  
+
                   {/* Event Image */}
                   <div className="relative h-48 overflow-hidden">
-                    <img
+                    <Image
                       src={event.thumbnail}
                       alt={event.name[language]}
+                      width={400}
+                      height={192}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      unoptimized
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   </div>
-                  
+
                   {/* Event Info */}
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-royal-blue mb-2 group-hover:text-light-blue transition-colors">
@@ -339,7 +346,9 @@ export default function GalleryContent() {
                       {event.description[language]}
                     </p>
                     <div className="mt-4 flex items-center text-light-blue text-sm font-semibold">
-                      <span>{language === "ar" ? "عرض الصور" : "View Photos"}</span>
+                      <span>
+                        {language === "ar" ? "عرض الصور" : "View Photos"}
+                      </span>
                       <svg
                         className="w-4 h-4 mr-2 rtl:ml-2 rtl:mr-0"
                         fill="none"
@@ -375,7 +384,9 @@ export default function GalleryContent() {
               className="mb-6 flex items-center text-royal-blue hover:text-light-blue transition-colors cursor-pointer group"
             >
               <svg
-                className={`w-5 h-5 ${language === "ar" ? "ml-2" : "mr-2"} rtl:ml-0 rtl:mr-2 transform group-hover:translate-x-[-4px] rtl:group-hover:translate-x-[4px] transition-transform`}
+                className={`w-5 h-5 ${
+                  language === "ar" ? "ml-2" : "mr-2"
+                } rtl:ml-0 rtl:mr-2 transform group-hover:translate-x-[-4px] rtl:group-hover:translate-x-[4px] transition-transform`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -430,10 +441,13 @@ export default function GalleryContent() {
                       ease: "easeInOut",
                     }}
                   />
-                  <img
+                  <Image
                     src={img}
                     alt={`${selectedEvent.name[language]} ${index + 1}`}
+                    width={400}
+                    height={400}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
