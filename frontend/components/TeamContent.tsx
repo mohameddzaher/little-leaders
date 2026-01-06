@@ -151,7 +151,8 @@ export default function TeamContent() {
       subtitle: "فريق محترف ومتفاني لرعاية وتعليم أطفالنا",
       intro:
         "فريقنا المتميز يجمع بين الخبرة والحماس والحب للأطفال. نحن نؤمن بأن كل طفل يستحق أفضل رعاية وتعليم، ولهذا نحرص على اختيار معلمين مؤهلين ومتفانين في عملهم.",
-      teamIntro: "فريقنا المتميز يجمع بين الخبرة والحماس والحب للأطفال. نحن نؤمن بأن كل طفل يستحق أفضل رعاية وتعليم.",
+      teamIntro:
+        "فريقنا المتميز يجمع بين الخبرة والحماس والحب للأطفال. نحن نؤمن بأن كل طفل يستحق أفضل رعاية وتعليم.",
     },
     en: {
       title: "Our Team",
@@ -159,7 +160,8 @@ export default function TeamContent() {
         "A professional and dedicated team to care for and educate our children",
       intro:
         "Our distinguished team combines experience, enthusiasm, and love for children. We believe that every child deserves the best care and education, which is why we carefully select qualified and dedicated teachers.",
-      teamIntro: "Our distinguished team combines experience, enthusiasm, and love for children. We believe that every child deserves the best care and education.",
+      teamIntro:
+        "Our distinguished team combines experience, enthusiasm, and love for children. We believe that every child deserves the best care and education.",
     },
   };
 
@@ -173,16 +175,15 @@ export default function TeamContent() {
     );
     const management = team.filter(
       (member) =>
-        (member.role === "مستشارة المركز" ||
-          member.roleEn === "Center Consultant") ||
-        (member.role === "وكيلة المركز" ||
-          member.roleEn === "Center Vice Director") ||
-        (member.role === "مساعد إداري" ||
-          member.roleEn === "Administrative Assistant")
+        member.role === "مستشارة المركز" ||
+        member.roleEn === "Center Consultant" ||
+        member.role === "وكيلة المركز" ||
+        member.roleEn === "Center Vice Director" ||
+        member.role === "مساعد إداري" ||
+        member.roleEn === "Administrative Assistant"
     );
     const teachers = team.filter(
-      (member) =>
-        member.role === "معلمة" || member.roleEn === "Teacher"
+      (member) => member.role === "معلمة" || member.roleEn === "Teacher"
     );
 
     return { director, management, teachers };
@@ -260,7 +261,7 @@ export default function TeamContent() {
                 transition={{ duration: 0.6 }}
                 className="text-xl sm:text-2xl font-bold text-royal-blue text-center mb-6"
               >
-                {language === "ar" ? "مديرة المركز" : "Center Director"}
+                {language === "ar" ? "القيادة التنفيذية" : "Executive Leadership"}
               </motion.h3>
               <div className="flex justify-center">
                 <div className="grid grid-cols-1 md:grid-cols-1 gap-6 max-w-md">
@@ -288,8 +289,8 @@ export default function TeamContent() {
                 className="text-xl sm:text-2xl font-bold text-royal-blue text-center mb-6"
               >
                 {language === "ar"
-                  ? "الإدارة والمستشارة"
-                  : "Management & Consultant"}
+                  ? "الفريق الإداري والاستشاري"
+                  : "Administrative & Advisory Team"}
               </motion.h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {management.map((member, index) => (
@@ -314,7 +315,7 @@ export default function TeamContent() {
                 transition={{ duration: 0.6 }}
                 className="text-xl sm:text-2xl font-bold text-royal-blue text-center mb-6"
               >
-                {language === "ar" ? "المعلمات" : "Teachers"}
+                {language === "ar" ? "الفريق التعليمي" : "Educational Team"}
               </motion.h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {teachers.map((member, index) => (
@@ -427,9 +428,7 @@ function TeamMemberCard({ member, index, language }: any) {
             <span className="font-semibold">
               {language === "ar" ? "المؤهل:" : "Qualification:"}
             </span>{" "}
-            {language === "ar"
-              ? member.qualification
-              : member.qualificationEn}
+            {language === "ar" ? member.qualification : member.qualificationEn}
           </p>
         </div>
 
