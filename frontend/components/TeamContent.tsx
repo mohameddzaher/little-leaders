@@ -148,7 +148,7 @@ const team = [
     experience: "سنتين ونصف",
     qualification: "بكالوريوس طفولة مبكرة",
     qualificationEn: "Bachelor's Degree in Early Childhood Education",
-    about: "في تعاملي مع الأطفال دهشتهم وحماسهم عند عند إكتشاف شئ جديد ووممتع",
+    about: "أحب في تعاملي مع الأطفال دهشتهم وحماسهم عند اكتشاف شيء جديد وممتع",
     aboutEn:
       "In my interaction with children I'm always amazed by their excitement and enthusiasm when they discover something new and enjoyable",
     image: "/images/team/أ. فرح بسام.jpg",
