@@ -153,43 +153,46 @@ export default function GalleryContent() {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-light-blue/10 via-white to-pink/10 relative overflow-hidden">
+      <section className="pt-20 pb-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-light-blue/10 via-white to-pink/10 relative overflow-hidden">
         <ShapeDivider className="text-royal-blue" position="bottom" />
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url(https://plus.unsplash.com/premium_photo-1673730193487-89ae5d321682?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRhcmt8ZW58MHx8MHx8fDA%3D)",
+            backgroundImage: "url(/images/Facilities/26.webp)",
+            // Previous Unsplash image (commented for future use):
+            // "url(https://images.unsplash.com/photo-1682687221080-5cb261c645cb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           }}
         />
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl font-bold text-white mb-3"
-          >
-            {current.title}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-white/80 mb-3"
-            key={activeTab}
-          >
-            {activeContent.description}
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-sm text-white/70 max-w-2xl mx-auto leading-relaxed"
-            key={`${activeTab}-full`}
-          >
-            {activeContent.fullDescription}
-          </motion.p>
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="container mx-auto max-w-5xl text-center relative z-10">
+          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl sm:text-4xl font-bold text-white mb-2"
+            >
+              {current.title}
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg text-white/90 mb-2"
+              key={activeTab}
+            >
+              {activeContent.description}
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-sm text-white/80 max-w-4xl mx-auto leading-relaxed"
+              key={`${activeTab}-full`}
+            >
+              {activeContent.fullDescription}
+            </motion.p>
+          </div>
         </div>
       </section>
 
