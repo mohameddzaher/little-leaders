@@ -303,7 +303,7 @@ export default function SectionsContent() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url(/images/Facilities/26.webp)",
+            backgroundImage: "url(/images/Facilities/18.webp)",
             // Previous Unsplash image (commented for future use):
             // "url(https://images.unsplash.com/photo-1682687221080-5cb261c645cb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           }}
@@ -722,7 +722,13 @@ export default function SectionsContent() {
                     delay: 1,
                   }}
                 />
-                <div className="bg-gradient-to-r from-royal-blue to-light-blue text-white p-5">
+                <div
+                  className={`bg-gradient-to-r ${
+                    table.type === "early"
+                      ? "from-pink to-light-blue"
+                      : "from-royal-blue to-light-blue"
+                  } text-white p-5`}
+                >
                   <h3 className="text-lg font-bold text-center mb-2">
                     {table.title}
                   </h3>
