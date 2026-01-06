@@ -81,15 +81,11 @@ export default function Location() {
           <div className="relative mb-6 rounded-xl overflow-hidden transform group-hover:scale-105 transition-transform duration-300 shadow-2xl">
             <div className="relative h-64 w-full">
               <Image
-                src="https://maps.googleapis.com/maps/api/staticmap?center=21.4858,39.1925&zoom=10&size=800x400&maptype=roadmap&markers=color:red%7C21.4858,39.1925&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dS6gm4v1N3m1pY"
-                alt="Jeddah, Saudi Arabia Map"
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&auto=format&fit=crop&q=80"
+                alt="Saudi Arabia Map with Jeddah location"
                 fill
                 className="object-cover"
                 unoptimized
-                onError={(e) => {
-                  // Fallback to Unsplash image if Google Maps fails
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&auto=format&fit=crop&q=80";
-                }}
               />
               {/* Jeddah Marker with 3D effect */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
