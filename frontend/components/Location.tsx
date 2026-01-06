@@ -3,6 +3,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Location() {
   const { language } = useLanguage();
@@ -47,45 +48,81 @@ export default function Location() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="rounded-2xl shadow-lg overflow-hidden max-w-4xl mx-auto"
+          className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto relative overflow-hidden group"
         >
-          <div className="relative h-96 w-full rounded-t-2xl overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.123456789!2d39.1234567!3d21.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDA3JzI0LjQiTiAzOcKwMDcnMjQuNCJF!5e0!3m2!1sen!2ssa!4v1234567890123!5m2!1sen!2ssa"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full"
-              title="Little Leaders Center Location"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+          {/* Decorative circles */}
+          <motion.div
+            className="absolute top-2 right-2 w-20 h-20 bg-light-blue/20 rounded-full blur-xl"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-2 left-2 w-16 h-16 bg-pink/20 rounded-full blur-xl"
+            animate={{
+              scale: [1, 1.4, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1,
+            }}
+          />
+
+          {/* Map Image with 3D effect */}
+          <div className="relative mb-6 rounded-xl overflow-hidden transform group-hover:scale-105 transition-transform duration-300">
+            <div className="relative h-64 w-full">
+              <Image
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&auto=format&fit=crop&q=80"
+                alt="Saudi Arabia Map"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              {/* Jeddah Marker */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <motion.div
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.8, 1, 0.8],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="relative"
+                >
+                  <FaMapMarkerAlt className="w-12 h-12 text-red-500 drop-shadow-lg" />
+                  <div className="absolute inset-0 w-12 h-12 bg-red-500/30 rounded-full animate-ping" />
+                </motion.div>
+              </div>
+              {/* Overlay gradient for 3D effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 via-transparent to-pink/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </div>
+          </div>
+
+          <p className="text-royal-blue/80 text-center mb-6 leading-relaxed relative z-10">
+            {current.address}
+          </p>
+          <div className="text-center relative z-10">
             <a
               href="https://maps.app.goo.gl/VvZknuihdmJTE3QLA"
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute bottom-4 right-4 bg-white/90 hover:bg-white text-royal-blue px-4 py-2 rounded-lg font-semibold transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl text-sm flex items-center gap-2"
+              className="inline-block px-8 py-3 bg-gradient-to-r from-royal-blue to-light-blue text-white rounded-lg font-semibold hover:from-light-blue hover:to-pink transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              <FaMapMarkerAlt className="w-4 h-4" />
               {current.button}
             </a>
-          </div>
-          <div className="bg-white p-6">
-            <p className="text-royal-blue/80 text-center mb-4 leading-relaxed">
-              {current.address}
-            </p>
-            <div className="text-center">
-              <a
-                href="https://maps.app.goo.gl/VvZknuihdmJTE3QLA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-8 py-3 bg-gradient-to-r from-royal-blue to-light-blue text-white rounded-lg font-semibold hover:from-light-blue hover:to-pink transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl"
-              >
-                {current.button}
-              </a>
-            </div>
           </div>
         </motion.div>
       </div>

@@ -7,6 +7,20 @@ import ShapeDivider from "./ShapeDivider";
 
 const team = [
   {
+    name: "رباب صالح بغدادي",
+    nameEn: "Rabab Saleh Baghdadi",
+    role: "مستشارة المركز",
+    roleEn: "Center Consultant",
+    experience: "34 سنة",
+    qualification: "كلية رياض أطفال",
+    qualificationEn: "College of Early Childhood Education",
+    about: "أجد نفسي فيهم في براءتهم وتفاعلهم العاطفي من دون مقابل",
+    aboutEn:
+      "I see myself in their innocence and their genuine emotional interactions given without expectation",
+    image: "/images/team/أ.رباب بغدادي.jpg",
+    order: 1, // أول صف - يمين
+  },
+  {
     name: "هالة غازي المغربي",
     nameEn: "Hala Ghazi Al-Maghrabi",
     role: "مديرة المركز",
@@ -20,21 +34,7 @@ const team = [
     aboutEn:
       "I love working with children for their innocence and spontaneity. The results of effort are clearly reflected in them through the positive changes in their behavior, language, values, concepts and principles",
     image: "/images/team/أ.هالة المغربي.jpg",
-    order: 1, // في النص فوق
-  },
-  {
-    name: "رباب صالح بغدادي",
-    nameEn: "Rabab Saleh Baghdadi",
-    role: "مستشارة المركز",
-    roleEn: "Center Consultant",
-    experience: "34 سنة",
-    qualification: "كلية رياض أطفال",
-    qualificationEn: "College of Early Childhood Education",
-    about: "أجد نفسي فيهم في براءتهم وتفاعلهم العاطفي من دون مقابل",
-    aboutEn:
-      "I see myself in their innocence and their genuine emotional interactions given without expectation",
-    image: "/images/team/أ.رباب بغدادي.jpg",
-    order: 2, // يمينها
+    order: 2, // أول صف - وسط
   },
   {
     name: "مها فوزان",
@@ -47,7 +47,7 @@ const team = [
     about: "لصدق الاحساس لدى الطفل",
     aboutEn: "For the sincerity of a child's feelings",
     image: "/images/team/أ. مها بغدادي.jpg",
-    order: 3, // شمالها
+    order: 3, // أول صف - يسار
   },
   {
     name: "فيء بسام",
@@ -260,17 +260,8 @@ export default function TeamContent() {
           </motion.h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {sortedTeam.map((member, index) => {
-              // Find Hala's index to center her in first row
-              const halaIndex = sortedTeam.findIndex(
-                (m) => m.name === "هالة غازي المغربي" || m.nameEn === "Hala Ghazi Al-Maghrabi"
-              );
-              const isHala = index === halaIndex;
-              
               return (
-                <div 
-                  key={index} 
-                  className={`flex ${isHala ? "md:col-start-2 lg:col-start-2" : ""}`}
-                >
+                <div key={index} className="flex">
                   <TeamMemberCard
                     member={member}
                     index={index}
