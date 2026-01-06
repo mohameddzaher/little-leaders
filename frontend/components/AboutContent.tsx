@@ -160,7 +160,7 @@ export default function AboutContent() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-light-blue/10 via-white to-pink/10 relative overflow-hidden">
+      <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-light-blue/10 via-white to-pink/10 relative overflow-hidden min-h-[500px] flex items-center">
         <ShapeDivider className="text-royal-blue" position="bottom" />
         <div
           className="absolute inset-0 bg-cover bg-center"
