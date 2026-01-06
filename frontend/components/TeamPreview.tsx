@@ -226,7 +226,7 @@ export default function TeamPreview() {
               <motion.div
                 whileHover={{ y: -8, scale: 1.03 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative h-full flex flex-col min-h-[420px]"
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative h-full flex flex-col min-h-[320px]"
               >
                 {/* Decorative circles in corners */}
                 <motion.div
@@ -255,7 +255,7 @@ export default function TeamPreview() {
                   }}
                 />
 
-                <div className="relative h-56 overflow-hidden ">
+                <div className="relative h-36 overflow-hidden ">
                   {member.image ? (
                     <Image
                       src={member.image}
@@ -274,21 +274,21 @@ export default function TeamPreview() {
                     />
                   )}
                 </div>
-                <div className="p-4 flex flex-col flex-1">
-                  <h3 className="text-sm font-bold text-royal-blue mb-1 text-center line-clamp-1">
+                <div className="p-3 flex flex-col flex-1">
+                  <h3 className="text-xs font-bold text-royal-blue mb-1 text-center line-clamp-1">
                     {language === "ar" ? member.name : member.nameEn}
                   </h3>
-                  <p className="text-light-blue font-semibold text-xs mb-2 text-center line-clamp-1">
+                  <p className="text-light-blue font-semibold text-[10px] mb-1.5 text-center line-clamp-1">
                     {language === "ar" ? member.role : member.roleEn}
                   </p>
-                  <div className="space-y-1 mb-2">
-                    <p className="text-royal-blue/70 text-xs text-center">
+                  <div className="space-y-0.5 mb-1.5">
+                    <p className="text-royal-blue/70 text-[10px] text-center">
                       <span className="font-semibold">
                         {language === "ar" ? "الخبرة:" : "Experience:"}
                       </span>{" "}
                       {member.experience}
                     </p>
-                    <p className="text-royal-blue/70 text-xs text-center line-clamp-1">
+                    <p className="text-royal-blue/70 text-[10px] text-center line-clamp-1">
                       <span className="font-semibold">
                         {language === "ar" ? "المؤهل:" : "Qualification:"}
                       </span>{" "}
@@ -297,8 +297,8 @@ export default function TeamPreview() {
                         : member.qualificationEn}
                     </p>
                   </div>
-                  <div className="border-t border-gray-200 pt-2 mt-auto">
-                    <p className="text-royal-blue/80 text-xs italic leading-relaxed line-clamp-2 text-center">
+                  <div className="border-t border-gray-200 pt-1.5 mt-auto">
+                    <p className="text-royal-blue/80 text-[10px] italic leading-relaxed line-clamp-2 text-center">
                       "{language === "ar" ? member.about : member.aboutEn}"
                     </p>
                   </div>
