@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt, FaDirections, FaExternalLinkAlt } from "react-icons/fa";
 import Image from "next/image";
 
 export default function Location() {
@@ -14,120 +14,171 @@ export default function Location() {
       description: "نحن في قلب جدة، جاهزون لاستقبالكم",
       address: "مبنى رقم 6403 شارع السديري حي الزهراء 4415 جدة, السعودية 23521",
       button: "افتح في خرائط جوجل",
+      getDirections: "احصل على الاتجاهات",
     },
     en: {
       title: "Our Location",
       description: "We are in the heart of Jeddah, ready to welcome you",
       address: "Building No. 6403, Al Sudairy Street, Al Zahra District 4415, Jeddah, Saudi Arabia 23521",
       button: "Open in Google Maps",
+      getDirections: "Get Directions",
     },
   };
 
   const current = content[language];
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-br from-light-blue/10 via-white to-pink/10">
-      <div className="container mx-auto max-w-6xl">
+    <section className="py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white">
+      <div className="container mx-auto max-w-5xl">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-6"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-royal-blue mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-royal-blue mb-2">
             {current.title}
           </h2>
-          <p className="text-royal-blue/70 text-lg mb-6">
+          <p className="text-royal-blue/70 text-sm">
             {current.description}
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto relative overflow-hidden group"
-        >
-          {/* Decorative circles */}
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          {/* Map Section - Takes 2 columns */}
           <motion.div
-            className="absolute top-2 right-2 w-20 h-20 bg-light-blue/20 rounded-full blur-xl"
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute bottom-2 left-2 w-16 h-16 bg-pink/20 rounded-full blur-xl"
-            animate={{
-              scale: [1, 1.4, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-          />
-
-          {/* Map Image with 3D effect */}
-          <div className="relative mb-6 rounded-xl overflow-hidden transform group-hover:scale-105 transition-transform duration-300 shadow-2xl">
-            <div className="relative h-64 w-full">
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-2 relative group"
+          >
+            <div className="relative h-64 lg:h-72 rounded-2xl overflow-hidden shadow-xl border-2 border-royal-blue/10">
+              {/* Map Image */}
               <Image
                 src="/images/map.jpg"
                 alt="Saudi Arabia Map with Jeddah location"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
                 unoptimized
               />
-              {/* Jeddah Marker with 3D effect */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+              
+              {/* Animated Marker */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
                 <motion.div
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.9, 1, 0.9],
-                    y: [0, -5, 0],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
                   className="relative"
                 >
-                  <FaMapMarkerAlt className="w-14 h-14 text-red-500 drop-shadow-2xl filter drop-shadow-lg" style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))' }} />
-                  <div className="absolute inset-0 w-14 h-14 bg-red-500/40 rounded-full animate-ping" />
-                  <div className="absolute inset-0 w-14 h-14 bg-red-500/20 rounded-full animate-pulse" />
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [1, 0.7, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <FaMapMarkerAlt className="w-10 h-10 text-red-500 drop-shadow-2xl" />
+                  </motion.div>
+                  {/* Ripple effect */}
+                  <motion.div
+                    className="absolute inset-0 w-10 h-10 bg-red-500/30 rounded-full"
+                    animate={{
+                      scale: [1, 2.5, 2.5],
+                      opacity: [0.6, 0, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeOut",
+                    }}
+                  />
+                  <motion.div
+                    className="absolute inset-0 w-10 h-10 bg-red-500/20 rounded-full"
+                    animate={{
+                      scale: [1, 2, 2],
+                      opacity: [0.4, 0, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeOut",
+                      delay: 0.5,
+                    }}
+                  />
                 </motion.div>
               </div>
-              {/* 3D Overlay gradients for depth effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/30 via-transparent to-pink/30" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-            </div>
-          </div>
 
-          <p className="text-royal-blue/80 text-center mb-6 leading-relaxed relative z-10">
-            {current.address}
-          </p>
-          <div className="text-center relative z-10">
-            <a
-              href="https://maps.app.goo.gl/VvZknuihdmJTE3QLA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-8 py-3 bg-gradient-to-r from-royal-blue to-light-blue text-white rounded-lg font-semibold hover:from-light-blue hover:to-pink transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl transform hover:scale-105"
-            >
-              {current.button}
-            </a>
-          </div>
-        </motion.div>
+              {/* Gradient Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 via-transparent to-pink/20 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+              
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-royal-blue/0 group-hover:bg-royal-blue/5 transition-colors duration-300" />
+            </div>
+          </motion.div>
+
+          {/* Info Card - Takes 1 column */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-gradient-to-br from-royal-blue to-light-blue rounded-2xl p-5 shadow-xl text-white relative overflow-hidden"
+          >
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-pink rounded-full blur-2xl" />
+            </div>
+
+            <div className="relative z-10 h-full flex flex-col justify-between">
+              {/* Address */}
+              <div className="mb-4">
+                <div className="flex items-start gap-3 mb-3">
+                  <FaMapMarkerAlt className="w-5 h-5 text-white/90 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-bold text-sm mb-2">
+                      {language === "ar" ? "العنوان" : "Address"}
+                    </h3>
+                    <p className="text-white/90 text-xs leading-relaxed">
+                      {current.address}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="space-y-2">
+                <a
+                  href="https://maps.app.goo.gl/VvZknuihdmJTE3QLA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 cursor-pointer group/btn"
+                >
+                  <FaExternalLinkAlt className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                  {current.button}
+                </a>
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(current.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-white text-royal-blue hover:bg-white/90 px-4 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 cursor-pointer shadow-lg group/btn2"
+                >
+                  <FaDirections className="w-3.5 h-3.5 group-hover/btn2:rotate-12 transition-transform" />
+                  {current.getDirections}
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
