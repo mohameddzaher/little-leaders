@@ -725,7 +725,7 @@ export default function SectionsContent() {
                 <div
                   className={`bg-gradient-to-r ${
                     table.type === "early"
-                      ? "from-pink to-light-blue"
+                      ? "from-pink-600 to-pink-300"
                       : "from-royal-blue to-light-blue"
                   } text-white p-5`}
                 >
