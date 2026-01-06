@@ -83,8 +83,8 @@ const team = [
     experience: "6 سنوات",
     qualification: "بكالوريوس في التربية (صعوبات تعلم)",
     qualificationEn: "Bachelor's Degree in Education (Learning Disabilities)",
-    about: "براءة الأطفال وخيالهم الواسع",
-    aboutEn: "Children's innocence and their wide imagination",
+    about: "أحب في الأطفال براءتهم وخيالهم الواسع الذي يفتح آفاقاً لا حدود لها للإبداع والاكتشاف",
+    aboutEn: "I love children's innocence and their wide imagination, which opens limitless horizons for creativity and discovery",
     image: "/images/team/أ.نجود الغربي.jpg",
   },
   {
@@ -95,8 +95,8 @@ const team = [
     experience: "1 شهر",
     qualification: "بكالوريوس دعوة وثقافة إسلامية",
     qualificationEn: "Bachelor's Degree in Islamic",
-    about: "لبراءتهم وصدقهم",
-    aboutEn: "For their innocence and honesty",
+    about: "أحب العمل مع الأطفال لبراءتهم وصدقهم في التعبير عن مشاعرهم وأفكارهم",
+    aboutEn: "I love working with children for their innocence and honesty in expressing their feelings and thoughts",
     image: "/images/team/أ.نوف الغامدي.jpg",
   },
   {
