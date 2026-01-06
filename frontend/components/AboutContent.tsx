@@ -163,7 +163,7 @@ export default function AboutContent() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url(https://plus.unsplash.com/premium_photo-1673730193487-89ae5d321682?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRhcmt8ZW58MHx8MHx8fDA%3D)",
+              "url(https://images.unsplash.com/photo-1682687221080-5cb261c645cb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           }}
         />
         <div className="absolute inset-0 bg-black/20" />
@@ -225,7 +225,7 @@ export default function AboutContent() {
               <img
                 src="/images/logo.png"
                 alt="Little Leaders Logo"
-                className="w-48 h-auto object-contain"
+                className="w-60 h-auto object-contain"
               />
               {/* Animated circles around logo */}
               <motion.div
@@ -453,13 +453,6 @@ export default function AboutContent() {
                 }}
               />
 
-              <div className="relative mb-3 h-32 rounded-lg overflow-hidden flex-shrink-0">
-                <img
-                  src="https://images.unsplash.com/photo-1521316730702-829a8e30dfd0?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWlzc2lvbnxlbnwwfHwwfHx8MA%3D%3D"
-                  alt={current.mission.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
               <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 flex-grow flex flex-col">
                 <h2 className="text-lg font-bold text-royal-blue mb-2 flex-shrink-0">
                   {current.mission.title}
@@ -505,13 +498,6 @@ export default function AboutContent() {
                 }}
               />
 
-              <div className="relative mb-3 h-32 rounded-lg overflow-hidden flex-shrink-0">
-                <img
-                  src="https://images.unsplash.com/photo-1484910292437-025e5d13ce87?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHZpc2lvbnxlbnwwfHwwfHx8MA%3D%3D"
-                  alt={current.vision.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
               <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 flex-grow flex flex-col">
                 <h2 className="text-lg font-bold text-royal-blue mb-2 flex-shrink-0">
                   {current.vision.title}
@@ -600,7 +586,39 @@ export default function AboutContent() {
                     }}
                   />
                   <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 relative z-10">
-                    <div className="text-3xl mb-3">{value.icon}</div>
+                    <div className="mb-3 flex justify-center">
+                      {value.icon === "✨" ? (
+                        <svg className="w-10 h-10 text-royal-blue" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                      ) : value.icon === "👑" ? (
+                        <svg className="w-10 h-10 text-royal-blue" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1s.45-1 1-1h12c.55 0 1 .45 1 1z"/>
+                        </svg>
+                      ) : value.icon === "📚" ? (
+                        <svg className="w-10 h-10 text-royal-blue" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                      ) : value.icon === "🏆" ? (
+                        <svg className="w-10 h-10 text-royal-blue" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/>
+                        </svg>
+                      ) : value.icon === "🎉" ? (
+                        <svg className="w-10 h-10 text-royal-blue" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                          <circle cx="7" cy="7" r="1.5" fill="currentColor"/>
+                          <circle cx="17" cy="7" r="1.5" fill="currentColor"/>
+                          <circle cx="7" cy="17" r="1.5" fill="currentColor"/>
+                          <circle cx="17" cy="17" r="1.5" fill="currentColor"/>
+                        </svg>
+                      ) : value.icon === "💝" ? (
+                        <svg className="w-10 h-10 text-royal-blue" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                      ) : (
+                        <div className="text-3xl">{value.icon}</div>
+                      )}
+                    </div>
                     <h3 className="text-base font-bold text-royal-blue mb-2">
                       {value.title}
                     </h3>
