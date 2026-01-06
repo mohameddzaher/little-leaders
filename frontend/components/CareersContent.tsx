@@ -104,7 +104,7 @@ export default function CareersContent() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url(https://plus.unsplash.com/premium_photo-1673730193487-89ae5d321682?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRhcmt8ZW58MHx8MHx8fDA%3D)",
+              "url(https://images.unsplash.com/photo-1682687221080-5cb261c645cb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           }}
         />
         <div className="absolute inset-0 bg-black/20" />
@@ -133,147 +133,6 @@ export default function CareersContent() {
           >
             {current.description}
           </motion.p>
-        </div>
-      </section>
-
-      {/* Additional Sections */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pink/5 via-white to-light-blue/5">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-royal-blue to-light-blue rounded-2xl p-6 text-white text-center relative overflow-hidden"
-            >
-              {/* Decorative circles */}
-              <motion.div
-                className="absolute top-2 right-2 w-10 h-10 bg-white/20 rounded-full blur-md"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute bottom-2 left-2 w-8 h-8 bg-white/20 rounded-full blur-md"
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-              />
-              <div className="text-3xl mb-2 relative z-10">🎓</div>
-              <h3 className="text-lg font-bold mb-2">
-                {language === "ar"
-                  ? "التطوير المهني"
-                  : "Professional Development"}
-              </h3>
-              <p className="text-white/90 text-sm">
-                {language === "ar"
-                  ? "فرص تدريب مستمرة ونمو مهني"
-                  : "Continuous training opportunities and professional growth"}
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-gradient-to-br from-light-blue to-pink rounded-2xl p-6 text-white text-center relative overflow-hidden"
-            >
-              {/* Decorative circles */}
-              <motion.div
-                className="absolute top-2 right-2 w-10 h-10 bg-white/20 rounded-full blur-md"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute bottom-2 left-2 w-8 h-8 bg-white/20 rounded-full blur-md"
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-              />
-              <div className="text-3xl mb-2 relative z-10">💼</div>
-              <h3 className="text-lg font-bold mb-2">
-                {language === "ar"
-                  ? "بيئة عمل إيجابية"
-                  : "Positive Work Environment"}
-              </h3>
-              <p className="text-white/90 text-sm">
-                {language === "ar"
-                  ? "فريق داعم وبيئة محفزة"
-                  : "Supportive team and stimulating environment"}
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gradient-to-br from-pink to-royal-blue rounded-2xl p-6 text-white text-center relative overflow-hidden"
-            >
-              {/* Decorative circles */}
-              <motion.div
-                className="absolute top-2 right-2 w-10 h-10 bg-white/20 rounded-full blur-md"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute bottom-2 left-2 w-8 h-8 bg-white/20 rounded-full blur-md"
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-              />
-              <div className="text-3xl mb-2 relative z-10">🌟</div>
-              <h3 className="text-lg font-bold mb-2">
-                {language === "ar" ? "مزايا تنافسية" : "Competitive Benefits"}
-              </h3>
-              <p className="text-white/90 text-sm">
-                {language === "ar"
-                  ? "رواتب مجزية ومزايا إضافية"
-                  : "Rewarding salaries and additional benefits"}
-              </p>
-            </motion.div>
-          </div>
         </div>
       </section>
 
@@ -393,7 +252,6 @@ export default function CareersContent() {
           </div>
           {/* )} */}
         </div>
-        <ShapeDivider className="text-royal-blue" position="bottom" />
       </section>
     </div>
   );

@@ -319,28 +319,18 @@ export default function TeamContent() {
               >
                 {language === "ar" ? "الفريق التعليمي" : "Educational Team"}
               </motion.h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {teachers.map((member, index) => {
-                  // Center the last 2 cards if there are odd number of teachers
-                  const isLastTwo = index >= teachers.length - 2 && teachers.length % 2 !== 0;
-                  const isSecondLast = index === teachers.length - 2;
-                  return (
-                    <div
-                      key={index}
-                      className={
-                        isLastTwo && isSecondLast
-                          ? "lg:col-start-2"
-                          : ""
-                      }
-                    >
+              <div className="flex justify-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl">
+                  {teachers.map((member, index) => (
+                    <div key={index} className="flex">
                       <TeamMemberCard
                         member={member}
                         index={index}
                         language={language}
                       />
                     </div>
-                  );
-                })}
+                  ))}
+                </div>
               </div>
             </div>
           )}
@@ -363,7 +353,7 @@ function TeamMemberCard({ member, index, language }: any) {
         delay: index * 0.1,
         ease: "easeOut",
       }}
-      className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative"
+      className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative h-full flex flex-col"
     >
       {/* Decorative circles in corners */}
       <motion.div
@@ -392,7 +382,7 @@ function TeamMemberCard({ member, index, language }: any) {
         }}
       />
 
-      <div className="p-5 text-center">
+      <div className="p-5 text-center flex flex-col flex-grow">
         {/* Image in center */}
         <div className="mb-4 flex justify-center">
           {member.image ? (
@@ -447,7 +437,7 @@ function TeamMemberCard({ member, index, language }: any) {
         </div>
 
         {/* About */}
-        <div className="border-t border-gray-200 pt-3 mt-3">
+        <div className="border-t border-gray-200 pt-3 mt-auto">
           <p className="text-royal-blue/80 text-xs italic leading-relaxed line-clamp-3">
             "{language === "ar" ? member.about : member.aboutEn}"
           </p>
