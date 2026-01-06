@@ -182,7 +182,9 @@ export default function TeamContent() {
   const current = content[language];
 
   // Sort team by order
-  const sortedTeam = [...team].sort((a, b) => (a.order || 999) - (b.order || 999));
+  const sortedTeam = [...team].sort(
+    (a, b) => (a.order || 999) - (b.order || 999)
+  );
 
   return (
     <div>
@@ -256,16 +258,27 @@ export default function TeamContent() {
           >
             {language === "ar" ? "الهيكل" : "Team Structure"}
           </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sortedTeam.map((member, index) => (
-              <div key={index} className="flex">
-                <TeamMemberCard
-                  member={member}
-                  index={index}
-                  language={language}
-                />
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {sortedTeam.map((member, index) => {
+              // Find Hala's index to center her in first row
+              const halaIndex = sortedTeam.findIndex(
+                (m) => m.name === "هالة غازي المغربي" || m.nameEn === "Hala Ghazi Al-Maghrabi"
+              );
+              const isHala = index === halaIndex;
+              
+              return (
+                <div 
+                  key={index} 
+                  className={`flex ${isHala ? "md:col-start-2 lg:col-start-2" : ""}`}
+                >
+                  <TeamMemberCard
+                    member={member}
+                    index={index}
+                    language={language}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -286,7 +299,7 @@ function TeamMemberCard({ member, index, language }: any) {
         delay: index * 0.1,
         ease: "easeOut",
       }}
-      className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative h-full flex flex-col"
+      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative h-full flex flex-col w-full"
     >
       {/* Decorative circles in corners */}
       <motion.div
@@ -315,28 +328,28 @@ function TeamMemberCard({ member, index, language }: any) {
         }}
       />
 
-      <div className="p-5 text-center flex flex-col flex-grow">
+      <div className="p-4 text-center flex flex-col flex-grow">
         {/* Image in center */}
-        <div className="mb-4 flex justify-center">
+        <div className="mb-3 flex justify-center">
           {member.image ? (
-            <div className="w-32 h-56 rounded-2xl overflow-hidden">
+            <div className="w-24 h-40 rounded-xl overflow-hidden">
               <Image
                 src={member.image}
                 alt={language === "ar" ? member.name : member.nameEn}
-                width={128}
-                height={224}
-                className="w-full h-full object-contain object-center rounded-2xl"
+                width={96}
+                height={160}
+                className="w-full h-full object-contain object-center rounded-xl"
                 unoptimized
               />
             </div>
           ) : (
-            <div className="w-32 h-56 rounded-2xl overflow-hidden">
+            <div className="w-24 h-40 rounded-xl overflow-hidden">
               <Image
                 src="/images/dafault-person.webp"
                 alt={language === "ar" ? member.name : member.nameEn}
-                width={128}
-                height={224}
-                className="w-full h-full object-cover object-center rounded-2xl"
+                width={96}
+                height={160}
+                className="w-full h-full object-cover object-center rounded-xl"
                 unoptimized
               />
             </div>
@@ -344,17 +357,17 @@ function TeamMemberCard({ member, index, language }: any) {
         </div>
 
         {/* Name */}
-        <h3 className="text-lg font-bold text-royal-blue mb-1">
+        <h3 className="text-base font-bold text-royal-blue mb-1">
           {language === "ar" ? member.name : member.nameEn}
         </h3>
 
         {/* Role */}
-        <p className="text-light-blue font-semibold text-sm mb-3">
+        <p className="text-light-blue font-semibold text-xs mb-2">
           {language === "ar" ? member.role : member.roleEn}
         </p>
 
         {/* Experience and Qualification */}
-        <div className="space-y-1 mb-3">
+        <div className="space-y-1 mb-2">
           <p className="text-royal-blue/70 text-xs">
             <span className="font-semibold">
               {language === "ar" ? "الخبرة:" : "Experience:"}
@@ -370,7 +383,7 @@ function TeamMemberCard({ member, index, language }: any) {
         </div>
 
         {/* About */}
-        <div className="border-t border-gray-200 pt-3 mt-auto">
+        <div className="border-t border-gray-200 pt-2 mt-auto">
           <p className="text-royal-blue/80 text-xs italic leading-relaxed line-clamp-3">
             "{language === "ar" ? member.about : member.aboutEn}"
           </p>

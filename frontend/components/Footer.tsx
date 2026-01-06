@@ -254,7 +254,7 @@ export default function Footer() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-8 h-8 bg-[#e68b8d] rounded-full flex items-center justify-center hover:bg-royal-blue hover:text-light-blue transition-all duration-300 cursor-pointer"
+                    className="w-8 h-8 bg-[#e68b8d] rounded-full flex items-center justify-center hover:bg-pink hover:text-white transition-all duration-300 cursor-pointer"
                     aria-label={social.name}
                   >
                     {getSocialIcon(social.name)}

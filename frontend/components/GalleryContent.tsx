@@ -463,31 +463,41 @@ export default function GalleryContent() {
       {/* Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
-          <div className="relative max-w-7xl max-h-full">
+          <div 
+            className="relative max-w-7xl max-h-full"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 text-white hover:text-gray-300 text-4xl font-bold z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center"
+              className="absolute top-4 right-4 text-white hover:text-pink text-4xl font-bold z-10 bg-black/70 hover:bg-black/90 rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300 cursor-pointer"
             >
               ×
             </button>
-            <Image
-              src={selectedImage}
-              alt="Selected image"
-              width={1200}
-              height={800}
-              className="max-w-full max-h-[90vh] object-contain rounded-lg"
-              unoptimized
-            />
-            <a
-              href={selectedImage}
-              download
-              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 hover:bg-white text-royal-blue px-6 py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer"
-            >
-              {language === "ar" ? "تحميل الصورة" : "Download Image"}
-            </a>
+            <div className="relative">
+              <Image
+                src={selectedImage}
+                alt="Selected image"
+                width={1200}
+                height={800}
+                className="max-w-full max-h-[85vh] object-contain rounded-lg"
+                unoptimized
+              />
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3">
+                <a
+                  href={selectedImage}
+                  download
+                  className="bg-gradient-to-r from-royal-blue to-light-blue hover:from-light-blue hover:to-pink text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl flex items-center gap-2"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  {language === "ar" ? "حفظ الصورة" : "Save Image"}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       )}

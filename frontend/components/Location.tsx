@@ -47,25 +47,40 @@ export default function Location() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto"
+          className="rounded-2xl shadow-lg overflow-hidden max-w-4xl mx-auto"
         >
-          <div className="flex items-center justify-center mb-6">
-            <div className="w-20 h-20 bg-gradient-to-br from-light-blue/20 to-pink/20 rounded-full flex items-center justify-center">
-              <FaMapMarkerAlt className="w-10 h-10 text-royal-blue" />
-            </div>
-          </div>
-          <p className="text-royal-blue/80 text-center mb-6 leading-relaxed">
-            {current.address}
-          </p>
-          <div className="text-center">
+          <div className="relative h-96 w-full">
             <a
               href="https://maps.app.goo.gl/VvZknuihdmJTE3QLA"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-3 bg-gradient-to-r from-royal-blue to-light-blue text-white rounded-lg font-semibold hover:from-light-blue hover:to-pink transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl"
+              className="block w-full h-full relative overflow-hidden rounded-t-2xl"
             >
-              {current.button}
+              <div className="absolute inset-0 bg-gradient-to-br from-light-blue/20 via-royal-blue/30 to-pink/20 flex items-center justify-center">
+                <div className="text-center z-10">
+                  <FaMapMarkerAlt className="w-16 h-16 text-royal-blue mx-auto mb-4" />
+                  <p className="text-royal-blue font-semibold text-lg">
+                    {current.button}
+                  </p>
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </a>
+          </div>
+          <div className="bg-white p-6">
+            <p className="text-royal-blue/80 text-center mb-4 leading-relaxed">
+              {current.address}
+            </p>
+            <div className="text-center">
+              <a
+                href="https://maps.app.goo.gl/VvZknuihdmJTE3QLA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-3 bg-gradient-to-r from-royal-blue to-light-blue text-white rounded-lg font-semibold hover:from-light-blue hover:to-pink transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl"
+              >
+                {current.button}
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>
