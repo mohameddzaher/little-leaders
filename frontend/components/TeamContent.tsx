@@ -44,8 +44,8 @@ const team = [
     experience: "20 سنة",
     qualification: "ثانوية عامة",
     qualificationEn: "High School",
-    about: "لصدق الاحساس لدى الطفل",
-    aboutEn: "For the sincerity of a child's feelings",
+    about: "أحب العمل مع الأطفال لصدق مشاعرهم وبراءتهم في التعبير عن أنفسهم",
+    aboutEn: "I love working with children for the sincerity of their feelings and their innocence in expressing themselves",
     image: "/images/team/أ. مها بغدادي.jpg",
     order: 3, // أول صف - يسار
   },

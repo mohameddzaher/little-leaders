@@ -81,7 +81,7 @@ export default function Location() {
           <div className="relative mb-6 rounded-xl overflow-hidden transform group-hover:scale-105 transition-transform duration-300 shadow-2xl">
             <div className="relative h-64 w-full">
               <Image
-                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&auto=format&fit=crop&q=80"
+                src="/images/map.jpg"
                 alt="Saudi Arabia Map with Jeddah location"
                 fill
                 className="object-cover"
