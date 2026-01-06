@@ -4,6 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import ShapeDivider from "./ShapeDivider";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SectionsContent() {
   const { language } = useLanguage();
@@ -303,7 +304,7 @@ export default function SectionsContent() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url(https://plus.unsplash.com/premium_photo-1673730193487-89ae5d321682?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRhcmt8ZW58MHx8MHx8fDA%3D)",
+              "url(https://images.unsplash.com/photo-1682687221080-5cb261c645cb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           }}
         />
         <div className="absolute inset-0 bg-black/20" />
@@ -416,7 +417,7 @@ export default function SectionsContent() {
                   />
                 </div>
                 <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5">
-                  <h3 className="text-lg font-bold text-royal-blue mb-3">
+                  <h3 className="text-center text-lg font-bold text-royal-blue mb-3">
                     {current.sections.earlyChildhood.title}
                   </h3>
                   <ul className="space-y-2">
@@ -484,7 +485,7 @@ export default function SectionsContent() {
                   />
                 </div>
                 <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5">
-                  <h3 className="text-lg font-bold text-royal-blue mb-3">
+                  <h3 className="text-center text-lg font-bold text-royal-blue mb-3">
                     {current.sections.care.title}
                   </h3>
                   <ul className="space-y-2">
@@ -552,7 +553,7 @@ export default function SectionsContent() {
                   />
                 </div>
                 <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5">
-                  <h3 className="text-lg font-bold text-royal-blue mb-3">
+                  <h3 className="text-center text-lg font-bold text-royal-blue mb-3">
                     {current.sections.afterSchool.title}
                   </h3>
                   <ul className="space-y-2">
@@ -615,10 +616,13 @@ export default function SectionsContent() {
               className="order-1 lg:order-2"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <img
-                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800"
+                <Image
+                  src="/images/Facilities/1-3.webp"
                   alt={current.registration.title}
+                  width={800}
+                  height={400}
                   className="w-full h-96 object-cover"
+                  unoptimized
                 />
                 {/* Decorative circles */}
                 <motion.div
