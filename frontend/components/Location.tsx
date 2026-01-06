@@ -49,22 +49,27 @@ export default function Location() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="rounded-2xl shadow-lg overflow-hidden max-w-4xl mx-auto"
         >
-          <div className="relative h-96 w-full">
+          <div className="relative h-96 w-full rounded-t-2xl overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.123456789!2d39.1234567!3d21.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDA3JzI0LjQiTiAzOcKwMDcnMjQuNCJF!5e0!3m2!1sen!2ssa!4v1234567890123!5m2!1sen!2ssa"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full"
+              title="Little Leaders Center Location"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
             <a
               href="https://maps.app.goo.gl/VvZknuihdmJTE3QLA"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full h-full relative overflow-hidden rounded-t-2xl"
+              className="absolute bottom-4 right-4 bg-white/90 hover:bg-white text-royal-blue px-4 py-2 rounded-lg font-semibold transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl text-sm flex items-center gap-2"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-light-blue/20 via-royal-blue/30 to-pink/20 flex items-center justify-center">
-                <div className="text-center z-10">
-                  <FaMapMarkerAlt className="w-16 h-16 text-royal-blue mx-auto mb-4" />
-                  <p className="text-royal-blue font-semibold text-lg">
-                    {current.button}
-                  </p>
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+              <FaMapMarkerAlt className="w-4 h-4" />
+              {current.button}
             </a>
           </div>
           <div className="bg-white p-6">
