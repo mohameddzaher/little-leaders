@@ -574,7 +574,7 @@ export default function SectionsContent() {
       {/* Registration Path */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white">
         <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: language === "ar" ? 50 : -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -615,18 +615,18 @@ export default function SectionsContent() {
               transition={{ duration: 0.6 }}
               className="order-1 lg:order-2"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[16/9]">
                 <Image
                   src="/images/Facilities/1-3.webp"
                   alt={current.registration.title}
-                  width={800}
-                  height={400}
-                  className="w-full h-96 object-cover"
+                  width={1200}
+                  height={675}
+                  className="w-full h-full object-cover"
                   unoptimized
                 />
                 {/* Decorative circles */}
                 <motion.div
-                  className="absolute -top-8 -right-8 w-32 h-32 bg-light-blue/30 rounded-full blur-2xl"
+                  className="absolute -top-6 -right-6 w-24 h-24 bg-light-blue/30 rounded-full blur-2xl"
                   animate={{
                     scale: [1, 1.3, 1],
                     opacity: [0.3, 0.5, 0.3],
@@ -638,7 +638,7 @@ export default function SectionsContent() {
                   }}
                 />
                 <motion.div
-                  className="absolute -bottom-8 -left-8 w-40 h-40 bg-pink/30 rounded-full blur-2xl"
+                  className="absolute -bottom-6 -left-6 w-32 h-32 bg-pink/30 rounded-full blur-2xl"
                   animate={{
                     scale: [1, 1.2, 1],
                     opacity: [0.3, 0.5, 0.3],
@@ -740,7 +740,11 @@ export default function SectionsContent() {
                         <span>{table.prices.day}</span>
                         <span className="text-pink font-extrabold text-xs flex items-center gap-1">
                           {current.pricing.currency}
-                          <svg className="w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 1000 1000">
+                          <svg
+                            className="w-4 h-4 inline-block"
+                            fill="currentColor"
+                            viewBox="0 0 1000 1000"
+                          >
                             <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
                           </svg>
                         </span>
@@ -755,7 +759,11 @@ export default function SectionsContent() {
                         <span>{table.prices.month}</span>
                         <span className="text-pink font-extrabold text-xs flex items-center gap-1">
                           {current.pricing.currency}
-                          <svg className="w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 1000 1000">
+                          <svg
+                            className="w-4 h-4 inline-block"
+                            fill="currentColor"
+                            viewBox="0 0 1000 1000"
+                          >
                             <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
                           </svg>
                         </span>
@@ -770,7 +778,11 @@ export default function SectionsContent() {
                         <span>{table.prices.threeMonths}</span>
                         <span className="text-pink font-extrabold text-xs flex items-center gap-1">
                           {current.pricing.currency}
-                          <svg className="w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 1000 1000">
+                          <svg
+                            className="w-4 h-4 inline-block"
+                            fill="currentColor"
+                            viewBox="0 0 1000 1000"
+                          >
                             <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
                           </svg>
                         </span>
@@ -785,7 +797,11 @@ export default function SectionsContent() {
                         <span>{table.prices.sixMonths}</span>
                         <span className="text-pink font-extrabold text-xs flex items-center gap-1">
                           {current.pricing.currency}
-                          <svg className="w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 1000 1000">
+                          <svg
+                            className="w-4 h-4 inline-block"
+                            fill="currentColor"
+                            viewBox="0 0 1000 1000"
+                          >
                             <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
                           </svg>
                         </span>
@@ -800,7 +816,11 @@ export default function SectionsContent() {
                         <span>{table.prices.year}</span>
                         <span className="text-pink font-extrabold text-xs flex items-center gap-1">
                           {current.pricing.currency}
-                          <svg className="w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 1000 1000">
+                          <svg
+                            className="w-4 h-4 inline-block"
+                            fill="currentColor"
+                            viewBox="0 0 1000 1000"
+                          >
                             <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
                           </svg>
                         </span>
