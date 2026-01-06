@@ -98,7 +98,8 @@ export default function AboutContent() {
       },
       values: {
         title: "Our Core Values",
-        subtitle: "The values and principles we believe in and strive to instill in our children",
+        subtitle:
+          "The values and principles we believe in and strive to instill in our children",
         items: [
           {
             title: "Promoting Values and Ethics",
@@ -400,7 +401,7 @@ export default function AboutContent() {
           }}
         />
         <div className="absolute inset-0 bg-black/15" />
-        <div className="container mx-auto max-w-5xl relative z-10">
+        <div className="container mx-auto max-w-7xl relative z-10">
           {/* Section Title */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -419,14 +420,14 @@ export default function AboutContent() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <motion.div
               initial={{ opacity: 0, x: language === "ar" ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               whileHover={{ y: -5, scale: 1.01 }}
-              className="bg-gradient-to-br from-light-blue to-pink rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"
+              className="bg-gradient-to-br from-light-blue to-pink rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden flex flex-col"
             >
               {/* Decorative circles */}
               <motion.div
@@ -455,11 +456,11 @@ export default function AboutContent() {
                 }}
               />
 
-              <div className="bg-white/95 backdrop-blur-sm rounded-lg p-6 flex-grow flex flex-col min-h-[240px]">
+              <div className="bg-white/95 backdrop-blur-sm rounded-lg p-6 flex flex-col">
                 <h2 className="text-xl font-bold text-royal-blue mb-4 text-center">
                   {current.mission.title}
                 </h2>
-                <p className="text-royal-blue/70 leading-relaxed text-sm text-center flex-grow flex items-start justify-center pt-2">
+                <p className="text-royal-blue/70 leading-relaxed text-sm text-center">
                   {current.mission.text}
                 </p>
               </div>
@@ -471,7 +472,7 @@ export default function AboutContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               whileHover={{ y: -5, scale: 1.01 }}
-              className="bg-gradient-to-br from-pink to-royal-blue rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"
+              className="bg-gradient-to-br from-pink to-royal-blue rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden flex flex-col"
             >
               {/* Decorative circles */}
               <motion.div
@@ -500,11 +501,11 @@ export default function AboutContent() {
                 }}
               />
 
-              <div className="bg-white/95 backdrop-blur-sm rounded-lg p-6 flex-grow flex flex-col min-h-[240px]">
+              <div className="bg-white/95 backdrop-blur-sm rounded-lg p-6 flex flex-col">
                 <h2 className="text-xl font-bold text-royal-blue mb-4 text-center">
                   {current.vision.title}
                 </h2>
-                <p className="text-royal-blue/70 leading-relaxed text-sm text-center flex-grow flex items-start justify-center pt-2">
+                <p className="text-royal-blue/70 leading-relaxed text-sm text-center">
                   {current.vision.text}
                 </p>
               </div>
@@ -592,7 +593,7 @@ export default function AboutContent() {
                       delay: 1,
                     }}
                   />
-                  <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 relative z-10 min-h-[280px] flex flex-col">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 relative z-10 flex flex-col">
                     <div className="mb-3 flex justify-center">
                       {value.icon === "✨" ? (
                         <svg
@@ -653,7 +654,7 @@ export default function AboutContent() {
                     <h3 className="text-base font-bold text-royal-blue mb-2">
                       {value.title}
                     </h3>
-                    <p className="text-royal-blue/70 text-xs leading-relaxed flex-grow">
+                    <p className="text-royal-blue/70 text-xs leading-relaxed">
                       {value.description}
                     </p>
                   </div>
