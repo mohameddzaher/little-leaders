@@ -69,56 +69,6 @@ export default function Location() {
                 unoptimized
               />
               
-              {/* Animated Marker */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-                  className="relative"
-                >
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [1, 0.7, 1],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <FaMapMarkerAlt className="w-10 h-10 text-red-500 drop-shadow-2xl" />
-                  </motion.div>
-                  {/* Ripple effect */}
-                  <motion.div
-                    className="absolute inset-0 w-10 h-10 bg-red-500/30 rounded-full"
-                    animate={{
-                      scale: [1, 2.5, 2.5],
-                      opacity: [0.6, 0, 0],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeOut",
-                    }}
-                  />
-                  <motion.div
-                    className="absolute inset-0 w-10 h-10 bg-red-500/20 rounded-full"
-                    animate={{
-                      scale: [1, 2, 2],
-                      opacity: [0.4, 0, 0],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeOut",
-                      delay: 0.5,
-                    }}
-                  />
-                </motion.div>
-              </div>
-
               {/* Gradient Overlays */}
               <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 via-transparent to-pink/20 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
