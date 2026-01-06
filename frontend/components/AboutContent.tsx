@@ -160,7 +160,7 @@ export default function AboutContent() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-light-blue/10 via-white to-pink/10 relative overflow-hidden">
+      <section className="pt-20 pb-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-light-blue/10 via-white to-pink/10 relative overflow-hidden">
         <ShapeDivider className="text-royal-blue" position="bottom" />
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -171,13 +171,13 @@ export default function AboutContent() {
           }}
         />
         <div className="absolute inset-0 bg-black/45" />
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/10">
+        <div className="container mx-auto max-w-5xl text-center relative z-10">
+          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-4xl font-bold text-white mb-3"
+              className="text-3xl sm:text-4xl font-bold text-white mb-2"
             >
               {current.hero.title}
             </motion.h1>
@@ -185,7 +185,7 @@ export default function AboutContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-white/90 mb-3"
+              className="text-lg text-white/90 mb-2"
             >
               {current.hero.subtitle}
             </motion.p>
@@ -193,7 +193,7 @@ export default function AboutContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-sm text-white/80 max-w-2xl mx-auto leading-relaxed"
+              className="text-sm text-white/80 max-w-4xl mx-auto leading-relaxed"
             >
               {current.hero.description}
             </motion.p>
