@@ -165,37 +165,39 @@ export default function AboutContent() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url(/images/Facilities/1-3.webp)",
+            backgroundImage: "url(/images/Facilities/26.webp)",
             // Previous Unsplash image (commented for future use):
             // "url(https://images.unsplash.com/photo-1682687221080-5cb261c645cb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           }}
         />
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/45" />
         <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl font-bold text-white mb-3"
-          >
-            {current.hero.title}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-white/80 mb-3"
-          >
-            {current.hero.subtitle}
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-sm text-white/70 max-w-2xl mx-auto leading-relaxed"
-          >
-            {current.hero.description}
-          </motion.p>
+          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/10">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl sm:text-4xl font-bold text-white mb-3"
+            >
+              {current.hero.title}
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg text-white/90 mb-3"
+            >
+              {current.hero.subtitle}
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-sm text-white/80 max-w-2xl mx-auto leading-relaxed"
+            >
+              {current.hero.description}
+            </motion.p>
+          </div>
         </div>
       </section>
 
