@@ -428,6 +428,7 @@ export default function GalleryContent() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   whileHover={{ scale: 1.05 }}
+                  onClick={() => setSelectedImage(img)}
                   className="relative overflow-hidden rounded-xl cursor-pointer group aspect-square"
                 >
                   {/* Decorative circles */}
@@ -448,9 +449,8 @@ export default function GalleryContent() {
                     alt={`${selectedEvent.name[language]} ${index + 1}`}
                     width={400}
                     height={400}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 pointer-events-none"
                     unoptimized
-                    onClick={() => setSelectedImage(img)}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
