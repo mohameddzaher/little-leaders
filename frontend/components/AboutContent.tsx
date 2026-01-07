@@ -212,7 +212,11 @@ export default function AboutContent() {
               transition={{ duration: 0.6 }}
               className="text-center lg:text-right rtl:lg:text-left"
             >
-              <h2 className={`text-2xl font-bold text-royal-blue mb-4 ${language === "ar" ? "text-right" : "text-left"}`}>
+              <h2
+                className={`text-2xl font-bold text-royal-blue mb-4 ${
+                  language === "ar" ? "text-right" : "text-left"
+                }`}
+              >
                 {language === "ar"
                   ? "مركز ليتل ليدرز"
                   : "Little Leaders Center"}

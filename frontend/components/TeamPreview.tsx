@@ -14,7 +14,7 @@ export default function TeamPreview() {
 
   const teamMembers = [
     {
-      name: "هالة غازي",
+      name: "هالة غازي المغربي",
       nameEn: "Hala Ghazi",
       role: "مديرة المركز",
       roleEn: "Center Director",
@@ -30,7 +30,7 @@ export default function TeamPreview() {
       image: "/images/team/أ.هالة المغربي.jpg",
     },
     {
-      name: "رباب صالح",
+      name: "رباب صالح بغدادي",
       nameEn: "Rabab Saleh",
       role: "المشرف العام",
       roleEn: "Center Consultant",

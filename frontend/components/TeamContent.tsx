@@ -45,12 +45,13 @@ const team = [
     qualification: "ثانوية عامة",
     qualificationEn: "High School",
     about: "أحب العمل مع الأطفال لصدق مشاعرهم وبراءتهم في التعبير عن أنفسهم",
-    aboutEn: "I love working with children for the sincerity of their feelings and their innocence in expressing themselves",
+    aboutEn:
+      "I love working with children for the sincerity of their feelings and their innocence in expressing themselves",
     image: "/images/team/أ. مها بغدادي.jpg",
     order: 3, // أول صف - يسار
   },
   {
-    name: "فيء بسام",
+    name: "في بسام",
     nameEn: "Fay Bassam",
     role: "مساعد إداري",
     roleEn: "Administrative Assistant",
@@ -323,13 +324,13 @@ function TeamMemberCard({ member, index, language }: any) {
         {/* Image in center */}
         <div className="mb-3 flex justify-center">
           {member.image ? (
-            <div className="w-24 h-40 rounded-xl overflow-hidden">
+            <div className="w-30 h-44 rounded-xl overflow-hidden">
               <Image
                 src={member.image}
                 alt={language === "ar" ? member.name : member.nameEn}
                 width={96}
                 height={160}
-                className="w-full h-full object-contain object-center rounded-xl"
+                className="w-full h-full object-contain object-center rounded-3xl"
                 unoptimized
               />
             </div>
@@ -340,7 +341,7 @@ function TeamMemberCard({ member, index, language }: any) {
                 alt={language === "ar" ? member.name : member.nameEn}
                 width={96}
                 height={160}
-                className="w-full h-full object-cover object-center rounded-xl"
+                className="w-full h-full object-cover object-center rounded-3xl"
                 unoptimized
               />
             </div>
@@ -360,14 +361,14 @@ function TeamMemberCard({ member, index, language }: any) {
         {/* Experience and Qualification */}
         <div className="space-y-1 mb-2">
           <p className="text-royal-blue/70 text-xs">
-            <span className="font-semibold">
-              {language === "ar" ? "الخبرة:" : "Experience:"}
+            <span className="font-bold text-pink">
+              {language === "ar" ? "الخبرة :" : "Experience:"}
             </span>{" "}
             {member.experience}
           </p>
           <p className="text-royal-blue/70 text-xs line-clamp-2">
-            <span className="font-semibold">
-              {language === "ar" ? "المؤهل:" : "Qualification:"}
+            <span className="font-bold text-pink">
+              {language === "ar" ? "المؤهل :" : "Qualification:"}
             </span>{" "}
             {language === "ar" ? member.qualification : member.qualificationEn}
           </p>
