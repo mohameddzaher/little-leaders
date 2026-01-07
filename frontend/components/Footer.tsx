@@ -142,11 +142,11 @@ export default function Footer() {
             <div className="footer-wave__about text-center md:text-right lg:text-right">
               <Link href="/" className="inline-block mb-4 cursor-pointer">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/white-logo.png"
                   alt="Little Leaders Logo"
                   width={140}
                   height={60}
-                  className="h-28 w-auto object-contain invert"
+                  className="h-28 w-auto object-contain"
                   unoptimized
                 />
               </Link>
@@ -247,7 +247,7 @@ export default function Footer() {
               <h3 className="footer-wave__heading text-royal-blue text-base font-extrabold mb-4 mt-0">
                 {current.followUs}
               </h3>
-              <div className="flex flex-wrap gap-3 justify-center md:justify-end lg:justify-end">
+              <div className="grid grid-cols-4 gap-3 justify-center md:justify-end lg:justify-end max-w-[200px] md:max-w-none mx-auto md:mx-0">
                 {socialLinks.map((social) => (
                   <a
                     key={social.name}
