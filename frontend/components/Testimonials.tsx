@@ -95,12 +95,15 @@ export default function Testimonials() {
         </motion.div>
 
         <Swiper
+          key={language}
           modules={[Autoplay, Pagination]}
           spaceBetween={20}
           slidesPerView={1}
+          loop={true}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
           pagination={{
             clickable: true,
