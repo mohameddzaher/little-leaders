@@ -148,6 +148,27 @@ export default function GalleryContent() {
         "/images/غرسُ نبتة/WhatsApp Image 2025-12-25 at 12.54.38.jpeg",
       ],
     },
+    {
+      id: "pet-land-trip",
+      name: {
+        ar: "رحلة أرض الحيوانات",
+        en: "Pet Land Trip",
+      },
+      description: {
+        ar: "رحلة ممتعة ومثيرة للأطفال لاستكشاف عالم الحيوانات والتعرف على أنواع مختلفة من الحيوانات الأليفة",
+        en: "An exciting and fun trip for children to explore the world of animals and learn about different types of pets",
+      },
+      thumbnail: "/images/Pet Land Trip/PetLand Trip-01.jpg",
+      images: [
+        "/images/Pet Land Trip/PetLand Trip-01.jpg",
+        "/images/Pet Land Trip/PetLand Trip-02.jpg",
+        "/images/Pet Land Trip/PetLand Trip-03.jpg",
+        "/images/Pet Land Trip/PetLand Trip-04.jpg",
+        "/images/Pet Land Trip/PetLand Trip-05.jpg",
+        "/images/Pet Land Trip/PetLand Trip-07.jpg",
+        "/images/Pet Land Trip/PetLand Trip-08.jpg",
+      ],
+    },
   ];
 
   const images = activeTab === "facilities" ? facilitiesImages : [];
