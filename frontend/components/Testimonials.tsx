@@ -56,11 +56,11 @@ export default function Testimonials() {
       },
       {
         name: "N.78",
-        text: '"Truly a beautiful and wonderful place, with treatment at the highest level of ethics. The place deserves us to put our children in it. May God make you happy."',
+        text: '"Truly a beautiful and wonderful place. The treatment is at the highest level of ethics. This place deserves us to enroll our children here. May God bless you."',
       },
       {
         name: "Aso",
-        text: '"God willing, blessed be the Most Merciful, you are creative and the place is heartwarming."',
+        text: '"God willing, blessed be the Most Merciful. You are creative and the place is heartwarming and delightful."',
       },
     ],
   };
