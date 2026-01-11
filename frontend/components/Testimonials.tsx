@@ -28,6 +28,14 @@ export default function Testimonials() {
         name: "ليان الحربي",
         text: '"كل ما رأيته يعكس درجة عالية من التنظيم والاهتمام من ترتيب الفصول الدراسية إلى طريقة التواصل مع أولياء الأمور انطلاقة واعدة توحي بالتفاؤل"',
       },
+      {
+        name: "N.78",
+        text: '"فعلا مكان جميل ورائع تعامل في قمه الآخلاق المكان يستاهل نحط اطفالنا فيه الله يسعدكم يارب"',
+      },
+      {
+        name: "Aso",
+        text: '"ماشاء الله تبارك الرحمن مبدعين والمكان يشرح الصدر"',
+      },
     ],
     en: [
       {
@@ -45,6 +53,14 @@ export default function Testimonials() {
       {
         name: "Layan Al-Harbi",
         text: '"Everything I saw reflects a high degree of organization and attention, from the arrangement of classrooms to the way of communicating with parents. A promising start that inspires optimism."',
+      },
+      {
+        name: "N.78",
+        text: '"Truly a beautiful and wonderful place, with treatment at the highest level of ethics. The place deserves us to put our children in it. May God make you happy."',
+      },
+      {
+        name: "Aso",
+        text: '"God willing, blessed be the Most Merciful, you are creative and the place is heartwarming."',
       },
     ],
   };
