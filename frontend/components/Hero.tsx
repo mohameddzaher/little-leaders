@@ -11,10 +11,10 @@ import "swiper/css/effect-fade";
 
 // Move heroImages outside component to prevent re-creation
 const heroImages = [
-  "https://plus.unsplash.com/premium_photo-1661448604365-4ef469471a6d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8",
-  "https://plus.unsplash.com/premium_photo-1754337887805-bb4241dc9b35?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
-  "https://plus.unsplash.com/premium_photo-1754269340768-6d5610146611?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI4fHx8ZW58MHx8fHx8",
-  "https://plus.unsplash.com/premium_photo-1750830335485-a3113ed955d1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQ0fHx8ZW58MHx8fHx8",
+  "https://cdn.arabsstock.com/uploads/images/5552/primary-school-children-race-after-preview-5552.jpg",
+  "https://setupinsa.com/wp-content/uploads/2025/03/Raising-kids-in-Saudi-Arabia-Featured-image.jpg",
+  "https://media.istockphoto.com/id/1205346893/photo/arabic-kids-playing-at-the-park-in-dubai.jpg?s=612x612&w=0&k=20&c=q5Fgzxpvi0_YlKaJ0PgaA1vHiQNmZCc7xk6RzAAzQko=",
+  "https://pub-4fc6abf6ad7c45c78a8359ce90cde2eb.r2.dev/display_images/display227b262b9f79190c47fe0f5ddb8a50eb.jpg",
 ];
 
 export default function Hero() {

@@ -181,7 +181,7 @@ export default function Statistics() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="/images/Facilities/19.webp"
+                src="/images/Facilities/26.webp"
                 alt={current.subtitle}
                 className="w-full h-80 object-cover"
               />
