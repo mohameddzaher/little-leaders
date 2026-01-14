@@ -694,11 +694,12 @@ export default function SectionsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden relative"
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="bg-gradient-to-br from-white via-light-blue/5 to-pink/5 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden relative border-2 border-light-blue/20 transition-all duration-300"
               >
                 {/* Decorative circles */}
                 <motion.div
-                  className="absolute top-2 right-2 w-10 h-10 bg-light-blue/20 rounded-full blur-md z-10"
+                  className="absolute top-4 right-4 w-16 h-16 bg-light-blue/10 rounded-full blur-xl"
                   animate={{
                     scale: [1, 1.3, 1],
                     opacity: [0.3, 0.5, 0.3],
@@ -710,7 +711,7 @@ export default function SectionsContent() {
                   }}
                 />
                 <motion.div
-                  className="absolute bottom-2 left-2 w-8 h-8 bg-pink/20 rounded-full blur-md z-10"
+                  className="absolute bottom-4 left-4 w-12 h-12 bg-pink/10 rounded-full blur-xl"
                   animate={{
                     scale: [1, 1.4, 1],
                     opacity: [0.3, 0.5, 0.3],
@@ -722,125 +723,59 @@ export default function SectionsContent() {
                     delay: 1,
                   }}
                 />
-                <div
-                  className={`${
-                    table.type === "early"
-                      ? ""
-                      : "bg-gradient-to-r from-royal-blue to-light-blue"
-                  } text-white p-5`}
-                  style={
-                    table.type === "early"
-                      ? {
-                          background:
-                            "linear-gradient(to right, #d16a6c, #e68b8d, #f0a8aa)",
-                        }
-                      : undefined
-                  }
-                >
-                  <h3 className="text-lg font-bold text-center mb-2">
+
+                {/* Header with gradient badge */}
+                <div className="p-6 pb-4 relative z-10">
+                  <div
+                    className={`${
+                      table.type === "early"
+                        ? "bg-gradient-to-r from-pink to-pink/80"
+                        : "bg-gradient-to-r from-royal-blue to-light-blue"
+                    } text-white px-4 py-2 rounded-full inline-block mb-3`}
+                  >
+                    <span className="text-sm font-bold">
+                      {table.hours}{" "}
+                      {language === "ar" ? "ساعات يومياً" : "Hours Daily"}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-royal-blue mb-2">
                     {table.title}
                   </h3>
                   {"description" in table && table.description && (
-                    <p className="text-white/90 text-xs text-center leading-relaxed">
+                    <p className="text-royal-blue/70 text-sm leading-relaxed">
                       {table.description}
                     </p>
                   )}
                 </div>
-                <div className="p-6">
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center py-2.5 border-b border-gray-200">
-                      <span className="text-royal-blue font-semibold text-sm">
+
+                {/* Package options as styled badges */}
+                <div className="px-6 pb-6 relative z-10">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-5 space-y-3">
+                    <h4 className="text-royal-blue font-bold text-center mb-3 text-base">
+                      {language === "ar"
+                        ? "الباقات المتاحة"
+                        : "Available Packages"}
+                    </h4>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="px-4 py-2 bg-gradient-to-br from-royal-blue/10 to-light-blue/10 border border-royal-blue/20 rounded-full text-royal-blue font-semibold text-sm">
                         {("day" in table ? table.day : null) ||
                           (language === "ar" ? "اليوم" : "Day")}
                       </span>
-                      <span className="text-royal-blue font-bold text-base flex items-center gap-1.5">
-                        <span>{table.prices.day}</span>
-                        <span className="text-pink font-extrabold text-xs flex items-center gap-1">
-                          {current.pricing.currency}
-                          <svg
-                            className="w-4 h-4 inline-block"
-                            fill="currentColor"
-                            viewBox="0 0 1000 1000"
-                          >
-                            <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center py-2.5 border-b border-gray-200">
-                      <span className="text-royal-blue font-semibold text-sm">
+                      <span className="px-4 py-2 bg-gradient-to-br from-royal-blue/10 to-light-blue/10 border border-royal-blue/20 rounded-full text-royal-blue font-semibold text-sm">
                         {("month" in table ? table.month : null) ||
                           (language === "ar" ? "الشهر" : "Month")}
                       </span>
-                      <span className="text-royal-blue font-bold text-base flex items-center gap-1.5">
-                        <span>{table.prices.month}</span>
-                        <span className="text-pink font-extrabold text-xs flex items-center gap-1">
-                          {current.pricing.currency}
-                          <svg
-                            className="w-4 h-4 inline-block"
-                            fill="currentColor"
-                            viewBox="0 0 1000 1000"
-                          >
-                            <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center py-2.5 border-b border-gray-200">
-                      <span className="text-royal-blue font-semibold text-sm">
+                      <span className="px-4 py-2 bg-gradient-to-br from-royal-blue/10 to-light-blue/10 border border-royal-blue/20 rounded-full text-royal-blue font-semibold text-sm">
                         {("threeMonths" in table ? table.threeMonths : null) ||
                           (language === "ar" ? "ثلاثة أشهر" : "3 Months")}
                       </span>
-                      <span className="text-royal-blue font-bold text-base flex items-center gap-1.5">
-                        <span>{table.prices.threeMonths}</span>
-                        <span className="text-pink font-extrabold text-xs flex items-center gap-1">
-                          {current.pricing.currency}
-                          <svg
-                            className="w-4 h-4 inline-block"
-                            fill="currentColor"
-                            viewBox="0 0 1000 1000"
-                          >
-                            <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center py-2.5 border-b border-gray-200">
-                      <span className="text-royal-blue font-semibold text-sm">
+                      <span className="px-4 py-2 bg-gradient-to-br from-royal-blue/10 to-light-blue/10 border border-royal-blue/20 rounded-full text-royal-blue font-semibold text-sm">
                         {("sixMonths" in table ? table.sixMonths : null) ||
                           (language === "ar" ? "ستة أشهر" : "6 Months")}
                       </span>
-                      <span className="text-royal-blue font-bold text-base flex items-center gap-1.5">
-                        <span>{table.prices.sixMonths}</span>
-                        <span className="text-pink font-extrabold text-xs flex items-center gap-1">
-                          {current.pricing.currency}
-                          <svg
-                            className="w-4 h-4 inline-block"
-                            fill="currentColor"
-                            viewBox="0 0 1000 1000"
-                          >
-                            <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center py-2.5">
-                      <span className="text-royal-blue font-semibold text-sm">
+                      <span className="px-4 py-2 bg-gradient-to-br from-royal-blue/10 to-light-blue/10 border border-royal-blue/20 rounded-full text-royal-blue font-semibold text-sm">
                         {("year" in table ? table.year : null) ||
                           (language === "ar" ? "السنة" : "Year")}
-                      </span>
-                      <span className="text-royal-blue font-bold text-base flex items-center gap-1.5">
-                        <span>{table.prices.year}</span>
-                        <span className="text-pink font-extrabold text-xs flex items-center gap-1">
-                          {current.pricing.currency}
-                          <svg
-                            className="w-4 h-4 inline-block"
-                            fill="currentColor"
-                            viewBox="0 0 1000 1000"
-                          >
-                            <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
-                          </svg>
-                        </span>
                       </span>
                     </div>
                   </div>
