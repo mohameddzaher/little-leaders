@@ -19,6 +19,7 @@ export default function TeamPreview() {
       role: "مديرة المركز",
       roleEn: "Center Director",
       experience: "30 سنة",
+      experienceEn: "30 years",
       qualification:
         "بكالوريوس في الأحياء مع إعداد تربوي - كلية التربية بالطائف (جامعة أم القرى)",
       qualificationEn:
@@ -35,6 +36,7 @@ export default function TeamPreview() {
       role: "المشرف العام",
       roleEn: "Center Consultant",
       experience: "34 سنة",
+      experienceEn: "34 years",
       qualification: "كلية التربية للطفولة المبكرة",
       qualificationEn: "College of Early Childhood Education",
       about:
@@ -49,6 +51,7 @@ export default function TeamPreview() {
       role: "وكيلة المركز",
       roleEn: "Center Vice Director",
       experience: "20 سنة",
+      experienceEn: "20 years",
       qualification: "ثانوية عامة",
       qualificationEn: "High School",
       about: "لصدق الاحساس لدى الطفل",
@@ -61,6 +64,7 @@ export default function TeamPreview() {
       role: "مساعد إداري",
       roleEn: "Administrative Assistant",
       experience: "سنتين",
+      experienceEn: "2 years",
       qualification: "بكالوريوس تسويق",
       qualificationEn: "Bachelor's Degree in Marketing",
       about:
@@ -75,6 +79,7 @@ export default function TeamPreview() {
       role: "معلمة",
       roleEn: "Teacher",
       experience: "2.5 سنة",
+      experienceEn: "2.5 years",
       qualification: "بكالوريوس في تعليم الطفولة المبكرة",
       qualificationEn: "Bachelor's Degree in Early Childhood Education",
       about:
@@ -89,6 +94,7 @@ export default function TeamPreview() {
       role: "معلمة",
       roleEn: "Teacher",
       experience: "5 أشهر",
+      experienceEn: "5 months",
       qualification: "بكالوريوس رياض أطفال مع الإعداد التربوي",
       qualificationEn:
         "Bachelor's Degree in Early Childhood Education with Educational Preparation",
@@ -104,6 +110,7 @@ export default function TeamPreview() {
       role: "معلمة",
       roleEn: "Teacher",
       experience: "6 سنوات",
+      experienceEn: "6 years",
       qualification: "بكالوريوس في التربية (صعوبات تعلم)",
       qualificationEn: "Bachelor's Degree in Education (Learning Disabilities)",
       about: "براءة الأطفال وخيالهم الواسع",
@@ -116,6 +123,7 @@ export default function TeamPreview() {
       role: "معلمة",
       roleEn: "Teacher",
       experience: "1 شهر",
+      experienceEn: "1 month",
       qualification: "بكالوريوس دعوة وثقافة إسلامية",
       qualificationEn: "Bachelor's Degree in Islamic",
       about: "لبراءتهم وصدقهم",
@@ -128,6 +136,7 @@ export default function TeamPreview() {
       role: "معلمة",
       roleEn: "Teacher",
       experience: "ليس لديها خبرات",
+      experienceEn: "No experience",
       qualification: "بكالوريوس فنون جامعة الملك عبدالعزيز",
       qualificationEn: "Bachelor's Degree in Arts – King Abdulaziz University",
       about:
@@ -142,6 +151,7 @@ export default function TeamPreview() {
       role: "معلمة",
       roleEn: "Teacher",
       experience: "3.5 سنة",
+      experienceEn: "3.5 years",
       qualification: "دبلوم محاسبة",
       qualificationEn: "Diploma in Accounting",
       about:
@@ -286,7 +296,7 @@ export default function TeamPreview() {
                       <span className="font-semibold">
                         {language === "ar" ? "الخبرة:" : "Experience:"}
                       </span>{" "}
-                      {member.experience}
+                      {language === "ar" ? member.experience : (member.experienceEn || member.experience)}
                     </p>
                     <p className="text-royal-blue/70 text-[10px] text-center line-clamp-1">
                       <span className="font-semibold">

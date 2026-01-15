@@ -208,6 +208,11 @@ export default function SectionsContent() {
           title: "Care Stage",
           description:
             "From 3 months to 2 years for 10 hours daily, 26 days per month",
+          day: "Day",
+          month: "Month",
+          threeMonths: "3 Months",
+          sixMonths: "6 Months",
+          year: "Year",
           prices: {
             day: "300",
             month: "4,000",
@@ -220,6 +225,11 @@ export default function SectionsContent() {
           title: "Early Childhood Stage",
           description:
             "From 3 years to 5 years for 8 hours daily, 26 days per month",
+          day: "Day",
+          month: "Month",
+          threeMonths: "3 Months",
+          sixMonths: "6 Months",
+          year: "Year",
           prices: {
             day: "250",
             month: "3,000",
@@ -232,6 +242,11 @@ export default function SectionsContent() {
           title: "Early Childhood Stage",
           description:
             "From 3 years to 5 years for 10 hours daily, 26 days per month",
+          day: "Day",
+          month: "Month",
+          threeMonths: "3 Months",
+          sixMonths: "6 Months",
+          year: "Year",
           prices: {
             day: "300",
             month: "3,750",

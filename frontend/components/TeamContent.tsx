@@ -12,6 +12,7 @@ const team = [
     role: "مستشارة المركز",
     roleEn: "Center Consultant",
     experience: "34 سنة",
+    experienceEn: "34 years",
     qualification: "كلية رياض أطفال",
     qualificationEn: "College of Early Childhood Education",
     about: "أجد نفسي فيهم في براءتهم وتفاعلهم العاطفي من دون مقابل",
@@ -26,6 +27,7 @@ const team = [
     role: "مديرة المركز",
     roleEn: "Center Director",
     experience: "30 سنة",
+    experienceEn: "30 years",
     qualification: "بكالوريوس أحياء مع إعداد تربوي – كلية التربية بالطائف",
     qualificationEn:
       "Bachelor's Degree in Biology with Educational Preparation – College of Education, Taif",
@@ -42,6 +44,7 @@ const team = [
     role: "وكيلة المركز",
     roleEn: "Center Vice Director",
     experience: "20 سنة",
+    experienceEn: "20 years",
     qualification: "ثانوية عامة",
     qualificationEn: "High School",
     about: "أحب العمل مع الأطفال لصدق مشاعرهم وبراءتهم في التعبير عن أنفسهم",
@@ -56,6 +59,7 @@ const team = [
     role: "مساعد إداري",
     roleEn: "Administrative Assistant",
     experience: "سنتين",
+    experienceEn: "2 years",
     qualification: "بكالوريوس تسويق",
     qualificationEn: "Bachelor's Degree in Marketing",
     about:
@@ -71,6 +75,7 @@ const team = [
     role: "معلمة",
     roleEn: "Teacher",
     experience: "5 أشهر",
+    experienceEn: "5 months",
     qualification: "بكالوريوس رياض أطفال مع الإعداد التربوي",
     qualificationEn:
       "Bachelor's Degree in Early Childhood Education with Educational Preparation",
@@ -87,6 +92,7 @@ const team = [
     role: "معلمة",
     roleEn: "Teacher",
     experience: "6 سنوات",
+    experienceEn: "6 years",
     qualification: "بكالوريوس في التربية (صعوبات تعلم)",
     qualificationEn: "Bachelor's Degree in Education (Learning Disabilities)",
     about:
@@ -102,6 +108,7 @@ const team = [
     role: "معلمة",
     roleEn: "Teacher",
     experience: "1 شهر",
+    experienceEn: "1 month",
     qualification: "بكالوريوس دعوة وثقافة إسلامية",
     qualificationEn: "Bachelor's Degree in Islamic",
     about:
@@ -117,6 +124,7 @@ const team = [
     role: "معلمة",
     roleEn: "Teacher",
     experience: "ليس لديها خبرات",
+    experienceEn: "No experience",
     qualification: "بكالوريوس فنون جامعة الملك عبدالعزيز",
     qualificationEn: "Bachelor's Degree in Arts – King Abdulaziz University",
     about:
@@ -132,6 +140,7 @@ const team = [
     role: "معلمة",
     roleEn: "Teacher",
     experience: "3 سنوات و6 أشهر",
+    experienceEn: "3 years and 6 months",
     qualification: "دبلوم محاسبة",
     qualificationEn: "Diploma in Accounting",
     about:
@@ -147,6 +156,7 @@ const team = [
     role: "معلمة",
     roleEn: "Teacher",
     experience: "سنتين ونصف",
+    experienceEn: "2.5 years",
     qualification: "بكالوريوس طفولة مبكرة",
     qualificationEn: "Bachelor's Degree in Early Childhood Education",
     about: "أحب في تعاملي مع الأطفال دهشتهم وحماسهم عند اكتشاف شيء جديد وممتع",
@@ -364,7 +374,7 @@ function TeamMemberCard({ member, index, language }: any) {
             <span className="font-bold text-pink">
               {language === "ar" ? "الخبرة :" : "Experience:"}
             </span>{" "}
-            {member.experience}
+            {language === "ar" ? member.experience : (member.experienceEn || member.experience)}
           </p>
           <p className="text-royal-blue/70 text-xs line-clamp-2">
             <span className="font-bold text-pink">
