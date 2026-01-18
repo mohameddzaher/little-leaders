@@ -11,10 +11,9 @@ import "swiper/css/effect-fade";
 
 // Move heroImages outside component to prevent re-creation
 const heroImages = [
-  "https://cdn.arabsstock.com/uploads/images/5552/primary-school-children-race-after-preview-5552.jpg",
-  "https://setupinsa.com/wp-content/uploads/2025/03/Raising-kids-in-Saudi-Arabia-Featured-image.jpg",
-  "https://media.istockphoto.com/id/1205346893/photo/arabic-kids-playing-at-the-park-in-dubai.jpg?s=612x612&w=0&k=20&c=q5Fgzxpvi0_YlKaJ0PgaA1vHiQNmZCc7xk6RzAAzQko=",
-  "https://pub-4fc6abf6ad7c45c78a8359ce90cde2eb.r2.dev/display_images/display227b262b9f79190c47fe0f5ddb8a50eb.jpg",
+  "/images/heroSection/WhatsApp Image 2026-01-18 at 10.14.56.jpeg",
+  "/images/heroSection/WhatsApp Image 2026-01-18 at 10.15.13.jpeg",
+  "/images/heroSection/WhatsApp Image 2026-01-18 at 10.15.26.jpeg",
 ];
 
 export default function Hero() {
@@ -49,7 +48,7 @@ export default function Hero() {
           <div
             className="w-full h-full absolute inset-0"
             style={{
-              backgroundImage: `url(${img})`,
+              backgroundImage: `url(${encodeURI(img)})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

@@ -312,7 +312,7 @@ export default function AboutContent() {
               ? "في مركز ليتل ليدرز نهتم لتطوير أهم الجوانب التي تساهم في نمو طفلك وتطوره بثقة وسعادة"
               : "At Little Leaders Center, we care about developing the most important aspects that contribute to your child's growth and development with confidence and happiness"}
           </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center">
             {[
               {
                 title:
@@ -325,7 +325,7 @@ export default function AboutContent() {
                     : "In a distinguished environment that cares for every detail of your child's daily journey",
                 gradient: "from-pink to-light-blue",
                 image:
-                  "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400",
+                  "/images/aboutimages/WhatsApp Image 2026-01-18 at 09.27.22.jpeg",
               },
               {
                 title:
@@ -338,7 +338,7 @@ export default function AboutContent() {
                     : "To ensure a safe and stimulating environment for growth",
                 gradient: "from-light-blue to-pink",
                 image:
-                  "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=400",
+                  "/images/aboutimages/WhatsApp Image 2026-01-18 at 09.27.23.jpeg",
               },
               {
                 title:
@@ -351,7 +351,7 @@ export default function AboutContent() {
                     : "Provides directed care that supports each child's abilities and inspires them to learn and explore",
                 gradient: "from-pink to-royal-blue",
                 image:
-                  "https://images.unsplash.com/photo-1646617747566-b7e784435a48?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDU4fHx8ZW58MHx8fHx8",
+                  "/images/aboutimages/WhatsApp Image 2026-01-18 at 09.27.23 (1).jpeg",
               },
             ].map((feature, index) => (
               <motion.div
@@ -365,11 +365,11 @@ export default function AboutContent() {
                   delay: index * 0.1,
                   ease: "easeOut",
                 }}
-                className={`bg-gradient-to-br ${feature.gradient} rounded-2xl p-5 shadow-lg hover:shadow-xl cursor-pointer relative overflow-hidden`}
+                className={`bg-gradient-to-br ${feature.gradient} rounded-lg p-2 shadow-lg hover:shadow-xl cursor-pointer relative overflow-hidden max-w-[280px] w-full`}
               >
                 {/* Decorative circles */}
                 <motion.div
-                  className="absolute top-2 right-2 w-10 h-10 bg-white/20 rounded-full blur-md"
+                  className="absolute top-1 right-1 w-6 h-6 bg-white/20 rounded-full blur-md"
                   animate={{
                     scale: [1, 1.3, 1],
                     opacity: [0.3, 0.5, 0.3],
@@ -380,15 +380,15 @@ export default function AboutContent() {
                     ease: "easeInOut",
                   }}
                 />
-                <div className="relative mb-4 h-32 rounded-xl overflow-hidden">
+                <div className="relative mb-2 aspect-square rounded-lg overflow-hidden">
                   <img
                     src={feature.image}
                     alt={feature.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 relative z-10">
-                  <h3 className="text-base font-bold text-royal-blue mb-2">
+                <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2 relative z-10">
+                  <h3 className="text-sm font-bold text-royal-blue mb-1.5">
                     {feature.title}
                   </h3>
                   <p className="text-royal-blue/70 text-xs leading-relaxed">

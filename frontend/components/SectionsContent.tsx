@@ -380,18 +380,18 @@ export default function SectionsContent() {
               : "We offer three main sections specifically designed to meet the needs of each age group, focusing on developing cognitive, social and emotional skills in a safe and stimulating environment"}
           </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -8, scale: 1.03 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="bg-gradient-to-br from-pink to-light-blue rounded-2xl p-6 shadow-lg hover:shadow-xl cursor-pointer relative overflow-hidden"
+              className="bg-gradient-to-br from-pink to-light-blue rounded-lg p-2 shadow-lg hover:shadow-xl cursor-pointer relative overflow-hidden max-w-[280px] w-full"
             >
               {/* Decorative circles */}
               <motion.div
-                className="absolute top-2 right-2 w-12 h-12 bg-white/20 rounded-full blur-md"
+                className="absolute top-1 right-1 w-6 h-6 bg-white/20 rounded-full blur-md"
                 animate={{
                   scale: [1, 1.3, 1],
                   opacity: [0.3, 0.5, 0.3],
@@ -403,7 +403,7 @@ export default function SectionsContent() {
                 }}
               />
               <motion.div
-                className="absolute bottom-2 left-2 w-10 h-10 bg-white/20 rounded-full blur-md"
+                className="absolute bottom-1 left-1 w-5 h-5 bg-white/20 rounded-full blur-md"
                 animate={{
                   scale: [1, 1.4, 1],
                   opacity: [0.3, 0.5, 0.3],
@@ -416,9 +416,9 @@ export default function SectionsContent() {
                 }}
               />
               <div className="relative z-10">
-                <div className="mb-4 relative h-32 rounded-xl overflow-hidden">
+                <div className="mb-2 relative aspect-square rounded-lg overflow-hidden">
                   <img
-                    src="https://plus.unsplash.com/premium_photo-1661546660879-98fdb88d4a4e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE3fHx8ZW58MHx8fHx8"
+                    src="/images/aboutimages/WhatsApp Image 2026-01-18 at 09.27.23 (2).jpeg"
                     alt={current.sections.earlyChildhood.title}
                     className="w-full h-full object-cover"
                   />
@@ -434,13 +434,13 @@ export default function SectionsContent() {
                     }}
                   />
                 </div>
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5">
-                  <h3 className="text-center text-lg font-bold text-royal-blue mb-3">
+                <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2">
+                  <h3 className="text-center text-sm font-bold text-royal-blue mb-1.5">
                     {current.sections.earlyChildhood.title}
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1">
                     {current.sections.earlyChildhood.ages.map((age, i) => (
-                      <li key={i} className="text-royal-blue/70 text-sm">
+                      <li key={i} className="text-royal-blue/70 text-xs">
                         • {age}
                       </li>
                     ))}
@@ -455,11 +455,11 @@ export default function SectionsContent() {
               viewport={{ once: true }}
               whileHover={{ y: -8, scale: 1.03 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="bg-gradient-to-br from-light-blue to-pink rounded-2xl p-6 shadow-lg hover:shadow-xl cursor-pointer relative overflow-hidden"
+              className="bg-gradient-to-br from-light-blue to-pink rounded-lg p-2 shadow-lg hover:shadow-xl cursor-pointer relative overflow-hidden max-w-[280px] w-full"
             >
               {/* Decorative circles */}
               <motion.div
-                className="absolute top-2 right-2 w-12 h-12 bg-white/20 rounded-full blur-md"
+                className="absolute top-1 right-1 w-6 h-6 bg-white/20 rounded-full blur-md"
                 animate={{
                   scale: [1, 1.3, 1],
                   opacity: [0.3, 0.5, 0.3],
@@ -471,7 +471,7 @@ export default function SectionsContent() {
                 }}
               />
               <motion.div
-                className="absolute bottom-2 left-2 w-10 h-10 bg-white/20 rounded-full blur-md"
+                className="absolute bottom-1 left-1 w-5 h-5 bg-white/20 rounded-full blur-md"
                 animate={{
                   scale: [1, 1.4, 1],
                   opacity: [0.3, 0.5, 0.3],
@@ -484,9 +484,9 @@ export default function SectionsContent() {
                 }}
               />
               <div className="relative z-10">
-                <div className="mb-4 relative h-32 rounded-xl overflow-hidden">
+                <div className="mb-2 relative aspect-square rounded-lg overflow-hidden">
                   <img
-                    src="https://plus.unsplash.com/premium_photo-1683133407737-33452a1ad02b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D"
+                    src="/images/aboutimages/WhatsApp Image 2026-01-18 at 09.27.23 (3).jpeg"
                     alt={current.sections.care.title}
                     className="w-full h-full object-cover"
                   />
@@ -502,13 +502,13 @@ export default function SectionsContent() {
                     }}
                   />
                 </div>
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5">
-                  <h3 className="text-center text-lg font-bold text-royal-blue mb-3">
+                <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2">
+                  <h3 className="text-center text-sm font-bold text-royal-blue mb-1.5">
                     {current.sections.care.title}
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1">
                     {current.sections.care.ages.map((age, i) => (
-                      <li key={i} className="text-royal-blue/70 text-sm">
+                      <li key={i} className="text-royal-blue/70 text-xs">
                         • {age}
                       </li>
                     ))}
@@ -523,11 +523,11 @@ export default function SectionsContent() {
               viewport={{ once: true }}
               whileHover={{ y: -8, scale: 1.03 }}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-              className="bg-gradient-to-br from-pink to-royal-blue rounded-2xl p-6 shadow-lg hover:shadow-xl cursor-pointer relative overflow-hidden"
+              className="bg-gradient-to-br from-pink to-royal-blue rounded-lg p-2 shadow-lg hover:shadow-xl cursor-pointer relative overflow-hidden max-w-[280px] w-full"
             >
               {/* Decorative circles */}
               <motion.div
-                className="absolute top-2 right-2 w-12 h-12 bg-white/20 rounded-full blur-md"
+                className="absolute top-1 right-1 w-6 h-6 bg-white/20 rounded-full blur-md"
                 animate={{
                   scale: [1, 1.3, 1],
                   opacity: [0.3, 0.5, 0.3],
@@ -539,7 +539,7 @@ export default function SectionsContent() {
                 }}
               />
               <motion.div
-                className="absolute bottom-2 left-2 w-10 h-10 bg-white/20 rounded-full blur-md"
+                className="absolute bottom-1 left-1 w-5 h-5 bg-white/20 rounded-full blur-md"
                 animate={{
                   scale: [1, 1.4, 1],
                   opacity: [0.3, 0.5, 0.3],
@@ -552,9 +552,9 @@ export default function SectionsContent() {
                 }}
               />
               <div className="relative z-10">
-                <div className="mb-4 relative h-32 rounded-xl overflow-hidden">
+                <div className="mb-2 relative aspect-square rounded-lg overflow-hidden">
                   <img
-                    src="https://plus.unsplash.com/premium_photo-1750373196335-edbcd6d7473c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D"
+                    src="/images/aboutimages/WhatsApp Image 2026-01-18 at 09.27.23 (4).jpeg"
                     alt={current.sections.afterSchool.title}
                     className="w-full h-full object-cover"
                   />
@@ -570,13 +570,13 @@ export default function SectionsContent() {
                     }}
                   />
                 </div>
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5">
-                  <h3 className="text-center text-lg font-bold text-royal-blue mb-3">
+                <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2">
+                  <h3 className="text-center text-sm font-bold text-royal-blue mb-1.5">
                     {current.sections.afterSchool.title}
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1">
                     {current.sections.afterSchool.ages.map((age, i) => (
-                      <li key={i} className="text-royal-blue/70 text-sm">
+                      <li key={i} className="text-royal-blue/70 text-xs">
                         • {age}
                       </li>
                     ))}
