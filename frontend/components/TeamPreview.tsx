@@ -4,15 +4,26 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
 
 export default function TeamPreview() {
   const { language } = useLanguage();
 
   const teamMembers = [
+    {
+      name: "رباب صالح بغدادي",
+      nameEn: "Rabab Saleh",
+      role: "المشرف العام",
+      roleEn: "Center Consultant",
+      experience: "34 سنة",
+      experienceEn: "34 years",
+      qualification: "كلية التربية للطفولة المبكرة",
+      qualificationEn: "College of Early Childhood Education",
+      about:
+        "أرى نفسي في براءتهم وتلقائيتهم وفي تفاعلاتهم العاطفية الصادقة التي تأتي دون تكلف أو توقع",
+      aboutEn:
+        "I see myself in their innocence and their genuine emotional interactions given without expectation",
+      image: "/images/team/أ.رباب بغدادي.jpg",
+    },
     {
       name: "هالة غازي المغربي",
       nameEn: "Hala Ghazi",
@@ -30,21 +41,7 @@ export default function TeamPreview() {
         "I love working with children for their innocence and spontaneity. The results of effort are clearly reflected in them through the positive changes in their behavior, language, values, concepts and principles",
       image: "/images/team/أ.هالة المغربي.jpg",
     },
-    {
-      name: "رباب صالح بغدادي",
-      nameEn: "Rabab Saleh",
-      role: "المشرف العام",
-      roleEn: "Center Consultant",
-      experience: "34 سنة",
-      experienceEn: "34 years",
-      qualification: "كلية التربية للطفولة المبكرة",
-      qualificationEn: "College of Early Childhood Education",
-      about:
-        "أرى نفسي في براءتهم وتلقائيتهم وفي تفاعلاتهم العاطفية الصادقة التي تأتي دون تكلف أو توقع",
-      aboutEn:
-        "I see myself in their innocence and their genuine emotional interactions given without expectation",
-      image: "/images/team/أ.رباب بغدادي.jpg",
-    },
+    
     {
       name: "مها فوزان",
       nameEn: "Maha Fozan",
@@ -135,8 +132,8 @@ export default function TeamPreview() {
       nameEn: "Hajer Ayman",
       role: "معلمة",
       roleEn: "Teacher",
-      experience: "ليس لديها خبرات",
-      experienceEn: "No experience",
+      experience: "سنة",
+      experienceEn: "1 year",
       qualification: "بكالوريوس فنون جامعة الملك عبدالعزيز",
       qualificationEn: "Bachelor's Degree in Arts – King Abdulaziz University",
       about:
@@ -207,116 +204,115 @@ export default function TeamPreview() {
           </p>
         </motion.div>
 
-        <Swiper
-          modules={[Autoplay, Navigation]}
-          spaceBetween={20}
-          slidesPerView={2}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          navigation={true}
-          speed={800}
-          effect="slide"
-          breakpoints={{
-            640: {
-              slidesPerView: 3,
-            },
-            768: {
-              slidesPerView: 4,
-            },
-            1024: {
-              slidesPerView: 5,
-            },
-          }}
-          className="mb-6"
-        >
-          {teamMembers.map((member, index) => (
-            <SwiperSlide key={index} className="h-auto pb-10">
-              <motion.div
-                whileHover={{ y: -8, scale: 1.03 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative h-full flex flex-col min-h-[320px]"
-              >
-                {/* Decorative circles in corners */}
+        {/* Infinite Scroll Slider */}
+        <div className="relative flex items-center justify-center overflow-hidden mb-6">
+          <div className="flex overflow-hidden w-full">
+            <motion.div
+              key={language}
+              initial={{ x: 0 }}
+              animate={{ 
+                x: language === "ar" 
+                  ? ['0%', '-50%']  // RTL: من اليمين لليسار (معكوس)
+                  : ['0%', '-50%']  // LTR: معكوس - من اليمين لليسار
+              }}
+              transition={{ 
+                repeat: Infinity, 
+                duration: 50, 
+                ease: 'linear' 
+              }}
+              className="flex min-w-max"
+              style={{ 
+                gap: '1.5rem',
+                flexDirection: language === "ar" ? "row-reverse" : "row-reverse"
+              }}
+            >
+              {[...teamMembers, ...teamMembers].map((member, index) => (
                 <motion.div
-                  className="absolute top-2 right-2 w-8 h-8 bg-light-blue/20 rounded-full blur-sm z-10"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-                <motion.div
-                  className="absolute bottom-2 left-2 w-6 h-6 bg-pink/20 rounded-full blur-sm z-10"
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                  }}
-                />
+                  key={index}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="flex-shrink-0 w-[280px] sm:w-[240px] md:w-[260px] lg:w-[280px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative h-full flex flex-col min-h-[320px]"
+                >
+                  {/* Decorative circles in corners */}
+                  <motion.div
+                    className="absolute top-2 right-2 w-8 h-8 bg-light-blue/20 rounded-full blur-sm z-10"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  <motion.div
+                    className="absolute bottom-2 left-2 w-6 h-6 bg-pink/20 rounded-full blur-sm z-10"
+                    animate={{
+                      scale: [1, 1.3, 1],
+                      opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1,
+                    }}
+                  />
 
-                <div className="relative h-36 overflow-hidden ">
-                  {member.image ? (
-                    <Image
-                      src={member.image}
-                      alt={language === "ar" ? member.name : member.nameEn}
-                      fill
-                      className="object-contain object-center"
-                      unoptimized
-                    />
-                  ) : (
-                    <Image
-                      src="/images/dafault-person.webp"
-                      alt={language === "ar" ? member.name : member.nameEn}
-                      fill
-                      className="object-cover object-center"
-                      unoptimized
-                    />
-                  )}
-                </div>
-                <div className="p-3 flex flex-col flex-1">
-                  <h3 className="text-xs font-bold text-royal-blue mb-1 text-center line-clamp-1">
-                    {language === "ar" ? member.name : member.nameEn}
-                  </h3>
-                  <p className="text-light-blue font-semibold text-[10px] mb-1.5 text-center line-clamp-1">
-                    {language === "ar" ? member.role : member.roleEn}
-                  </p>
-                  <div className="space-y-0.5 mb-1.5">
-                    <p className="text-royal-blue/70 text-[10px] text-center">
-                      <span className="font-semibold">
-                        {language === "ar" ? "الخبرة:" : "Experience:"}
-                      </span>{" "}
-                      {language === "ar" ? member.experience : (member.experienceEn || member.experience)}
-                    </p>
-                    <p className="text-royal-blue/70 text-[10px] text-center line-clamp-1">
-                      <span className="font-semibold">
-                        {language === "ar" ? "المؤهل:" : "Qualification:"}
-                      </span>{" "}
-                      {language === "ar"
-                        ? member.qualification
-                        : member.qualificationEn}
-                    </p>
+                  <div className="relative h-36 overflow-hidden">
+                    {member.image ? (
+                      <Image
+                        src={member.image}
+                        alt={language === "ar" ? member.name : member.nameEn}
+                        fill
+                        className="object-contain object-center"
+                        unoptimized
+                      />
+                    ) : (
+                      <Image
+                        src="/images/dafault-person.webp"
+                        alt={language === "ar" ? member.name : member.nameEn}
+                        fill
+                        className="object-cover object-center"
+                        unoptimized
+                      />
+                    )}
                   </div>
-                  <div className="border-t border-gray-200 pt-1.5 mt-auto">
-                    <p className="text-royal-blue/80 text-[10px] italic leading-relaxed line-clamp-2 text-center">
-                      "{language === "ar" ? member.about : member.aboutEn}"
+                  <div className="p-3 flex flex-col flex-1">
+                    <h3 className="text-xs font-bold text-royal-blue mb-1 text-center line-clamp-1">
+                      {language === "ar" ? member.name : member.nameEn}
+                    </h3>
+                    <p className="text-light-blue font-semibold text-[10px] mb-1.5 text-center line-clamp-1">
+                      {language === "ar" ? member.role : member.roleEn}
                     </p>
+                    <div className="space-y-0.5 mb-1.5">
+                      <p className="text-royal-blue/70 text-[10px] text-center">
+                        <span className="font-semibold">
+                          {language === "ar" ? "الخبرة:" : "Experience:"}
+                        </span>{" "}
+                        {language === "ar" ? member.experience : (member.experienceEn || member.experience)}
+                      </p>
+                      <p className="text-royal-blue/70 text-[10px] text-center line-clamp-1">
+                        <span className="font-semibold">
+                          {language === "ar" ? "المؤهل:" : "Qualification:"}
+                        </span>{" "}
+                        {language === "ar"
+                          ? member.qualification
+                          : member.qualificationEn}
+                      </p>
+                    </div>
+                    <div className="border-t border-gray-200 pt-1.5 mt-auto">
+                      <p className="text-royal-blue/80 text-[10px] italic leading-relaxed line-clamp-2 text-center">
+                        "{language === "ar" ? member.about : member.aboutEn}"
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
 
         <div className="text-center">
           <Link

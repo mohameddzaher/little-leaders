@@ -123,8 +123,8 @@ const team = [
     nameEn: "Hajer Ayman",
     role: "معلمة",
     roleEn: "Teacher",
-    experience: "ليس لديها خبرات",
-    experienceEn: "No experience",
+    experience: "سنة",
+    experienceEn: "1 year",
     qualification: "بكالوريوس فنون جامعة الملك عبدالعزيز",
     qualificationEn: "Bachelor's Degree in Arts – King Abdulaziz University",
     about:

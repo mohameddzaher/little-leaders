@@ -63,14 +63,18 @@ export default function Hero() {
       {/* Image Slider Background */}
       <div className="absolute inset-0 overflow-hidden">
         <Swiper
-          key="hero-swiper-static"
-          modules={[Autoplay]}
+          key={`hero-swiper-${language}`}
+          modules={[Autoplay, EffectFade]}
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
+            reverseDirection: false,
           }}
           speed={800}
           loop={true}
+          loopAdditionalSlides={heroImages.length}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
           allowTouchMove={false}
           className="w-full h-full"
         >
