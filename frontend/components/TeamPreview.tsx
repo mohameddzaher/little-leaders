@@ -206,13 +206,16 @@ export default function TeamPreview() {
 
         {/* Infinite Scroll Slider */}
         <div className="relative flex items-center justify-center overflow-hidden mb-6">
-          <div className="flex overflow-hidden w-full">
+          <div
+            className="flex overflow-hidden w-full"
+            style={{
+              transform: language === "ar" ? "scaleX(-1)" : "none"
+            }}
+          >
             <motion.div
               key={language}
               animate={{
-                x: language === "ar"
-                  ? ["-33.33%", "0%"]  // RTL: يتحرك من اليسار لليمين
-                  : ["0%", "-33.33%"]  // LTR: يتحرك من اليمين لليسار
+                x: ["0%", "-33.33%"]
               }}
               transition={{
                 repeat: Infinity,
@@ -232,6 +235,9 @@ export default function TeamPreview() {
                   whileHover={{ y: -8, scale: 1.03 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
                   className="flex-shrink-0 w-[280px] sm:w-[240px] md:w-[260px] lg:w-[280px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative h-full flex flex-col min-h-[320px]"
+                  style={{
+                    transform: language === "ar" ? "scaleX(-1)" : "none"
+                  }}
                 >
                   {/* Decorative circles in corners */}
                   <motion.div
