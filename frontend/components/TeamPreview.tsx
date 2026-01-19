@@ -205,40 +205,36 @@ export default function TeamPreview() {
         </motion.div>
 
         {/* Infinite Scroll Slider */}
-        <div className="relative flex items-center justify-center overflow-hidden mb-6">
+        <div className="relative overflow-hidden mb-6">
+          <style jsx>{`
+            @keyframes scrollLTR {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            @keyframes scrollRTL {
+              0% { transform: translateX(-50%); }
+              100% { transform: translateX(0); }
+            }
+            .slider-track-ltr {
+              animation: scrollLTR 40s linear infinite;
+            }
+            .slider-track-rtl {
+              animation: scrollRTL 40s linear infinite;
+            }
+            .slider-track-ltr:hover,
+            .slider-track-rtl:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
           <div
-            className="flex overflow-hidden w-full"
-            style={{
-              transform: language === "ar" ? "scaleX(-1)" : "none"
-            }}
+            className={`flex gap-6 ${language === "ar" ? "slider-track-rtl" : "slider-track-ltr"}`}
+            style={{ width: "fit-content" }}
           >
-            <motion.div
-              key={language}
-              animate={{
-                x: ["0%", "-33.33%"]
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 40,
-                ease: "linear",
-                repeatType: "loop"
-              }}
-              className="flex min-w-max"
-              style={{
-                gap: "1.5rem",
-                flexDirection: "row"
-              }}
-            >
-              {[...teamMembers, ...teamMembers, ...teamMembers].map((member, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ y: -8, scale: 1.03 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="flex-shrink-0 w-[280px] sm:w-[240px] md:w-[260px] lg:w-[280px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative h-full flex flex-col min-h-[320px]"
-                  style={{
-                    transform: language === "ar" ? "scaleX(-1)" : "none"
-                  }}
-                >
+            {[...teamMembers, ...teamMembers].map((member, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[280px] sm:w-[240px] md:w-[260px] lg:w-[280px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative h-full flex flex-col min-h-[320px] transition-transform duration-200 hover:-translate-y-2 hover:scale-[1.03]"
+              >
                   {/* Decorative circles in corners */}
                   <motion.div
                     className="absolute top-2 right-2 w-8 h-8 bg-light-blue/20 rounded-full blur-sm z-10"
@@ -314,9 +310,8 @@ export default function TeamPreview() {
                       </p>
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
+              </div>
+            ))}
           </div>
         </div>
 
