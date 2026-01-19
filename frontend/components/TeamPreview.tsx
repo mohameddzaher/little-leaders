@@ -209,24 +209,24 @@ export default function TeamPreview() {
           <div className="flex overflow-hidden w-full">
             <motion.div
               key={language}
-              initial={{ x: 0 }}
-              animate={{ 
-                x: language === "ar" 
-                  ? ['0%', '-50%']  // RTL: من اليمين لليسار (معكوس)
-                  : ['0%', '-50%']  // LTR: معكوس - من اليمين لليسار
+              animate={{
+                x: language === "ar"
+                  ? ["-33.33%", "0%"]  // RTL: يتحرك من اليسار لليمين
+                  : ["0%", "-33.33%"]  // LTR: يتحرك من اليمين لليسار
               }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 50, 
-                ease: 'linear' 
+              transition={{
+                repeat: Infinity,
+                duration: 40,
+                ease: "linear",
+                repeatType: "loop"
               }}
               className="flex min-w-max"
-              style={{ 
-                gap: '1.5rem',
-                flexDirection: language === "ar" ? "row-reverse" : "row-reverse"
+              style={{
+                gap: "1.5rem",
+                flexDirection: "row"
               }}
             >
-              {[...teamMembers, ...teamMembers].map((member, index) => (
+              {[...teamMembers, ...teamMembers, ...teamMembers].map((member, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ y: -8, scale: 1.03 }}
