@@ -178,6 +178,62 @@ export default function TeamPreview() {
 
   const current = content[language];
 
+  // Team Card Component
+  const TeamCard = ({ member, language: lang }: { member: typeof teamMembers[0]; language: string }) => (
+    <div className="flex-shrink-0 w-[280px] sm:w-[240px] md:w-[260px] lg:w-[280px] mx-3 bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative flex flex-col min-h-[320px] transition-transform duration-200 hover:-translate-y-2 hover:scale-[1.03]">
+      {/* Decorative circles */}
+      <div className="absolute top-2 right-2 w-8 h-8 bg-light-blue/20 rounded-full blur-sm z-10" />
+      <div className="absolute bottom-2 left-2 w-6 h-6 bg-pink/20 rounded-full blur-sm z-10" />
+
+      <div className="relative h-36 overflow-hidden">
+        {member.image ? (
+          <Image
+            src={member.image}
+            alt={lang === "ar" ? member.name : member.nameEn}
+            fill
+            className="object-contain object-center"
+            unoptimized
+          />
+        ) : (
+          <Image
+            src="/images/dafault-person.webp"
+            alt={lang === "ar" ? member.name : member.nameEn}
+            fill
+            className="object-cover object-center"
+            unoptimized
+          />
+        )}
+      </div>
+      <div className="p-3 flex flex-col flex-1">
+        <h3 className="text-xs font-bold text-royal-blue mb-1 text-center line-clamp-1">
+          {lang === "ar" ? member.name : member.nameEn}
+        </h3>
+        <p className="text-light-blue font-semibold text-[10px] mb-1.5 text-center line-clamp-1">
+          {lang === "ar" ? member.role : member.roleEn}
+        </p>
+        <div className="space-y-0.5 mb-1.5">
+          <p className="text-royal-blue/70 text-[10px] text-center">
+            <span className="font-semibold">
+              {lang === "ar" ? "الخبرة:" : "Experience:"}
+            </span>{" "}
+            {lang === "ar" ? member.experience : (member.experienceEn || member.experience)}
+          </p>
+          <p className="text-royal-blue/70 text-[10px] text-center line-clamp-1">
+            <span className="font-semibold">
+              {lang === "ar" ? "المؤهل:" : "Qualification:"}
+            </span>{" "}
+            {lang === "ar" ? member.qualification : member.qualificationEn}
+          </p>
+        </div>
+        <div className="border-t border-gray-200 pt-1.5 mt-auto">
+          <p className="text-royal-blue/80 text-[10px] italic leading-relaxed line-clamp-2 text-center">
+            &quot;{lang === "ar" ? member.about : member.aboutEn}&quot;
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div
@@ -204,115 +260,34 @@ export default function TeamPreview() {
           </p>
         </motion.div>
 
-        {/* Infinite Scroll Slider */}
-        <div className="relative overflow-hidden mb-6">
+        {/* Infinite Scroll Slider - Marquee Style */}
+        <div className="relative overflow-hidden mb-6 group">
+          <div
+            className="flex"
+            style={{
+              width: "max-content",
+              animation: `marquee 50s linear infinite`,
+              animationDirection: language === "ar" ? "reverse" : "normal",
+            }}
+          >
+            {/* First set */}
+            {teamMembers.map((member, index) => (
+              <TeamCard key={`first-${index}`} member={member} language={language} />
+            ))}
+            {/* Second set (duplicate for seamless loop) */}
+            {teamMembers.map((member, index) => (
+              <TeamCard key={`second-${index}`} member={member} language={language} />
+            ))}
+          </div>
           <style jsx>{`
-            @keyframes scrollLeft {
+            @keyframes marquee {
               0% { transform: translateX(0); }
               100% { transform: translateX(-50%); }
             }
-            @keyframes scrollRight {
-              0% { transform: translateX(-50%); }
-              100% { transform: translateX(0); }
-            }
-            .slider-ltr {
-              animation: scrollLeft 40s linear infinite;
-            }
-            .slider-rtl {
-              animation: scrollRight 40s linear infinite;
-            }
-            .slider-ltr:hover,
-            .slider-rtl:hover {
+            .group:hover > div {
               animation-play-state: paused;
             }
           `}</style>
-          <div
-            className={`flex gap-6 ${language === "ar" ? "slider-rtl" : "slider-ltr"}`}
-            style={{ width: "fit-content" }}
-          >
-            {[...teamMembers, ...teamMembers].map((member, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-[280px] sm:w-[240px] md:w-[260px] lg:w-[280px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative h-full flex flex-col min-h-[320px] transition-transform duration-200 hover:-translate-y-2 hover:scale-[1.03]"
-              >
-                  {/* Decorative circles in corners */}
-                  <motion.div
-                    className="absolute top-2 right-2 w-8 h-8 bg-light-blue/20 rounded-full blur-sm z-10"
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  />
-                  <motion.div
-                    className="absolute bottom-2 left-2 w-6 h-6 bg-pink/20 rounded-full blur-sm z-10"
-                    animate={{
-                      scale: [1, 1.3, 1],
-                      opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 1,
-                    }}
-                  />
-
-                  <div className="relative h-36 overflow-hidden">
-                    {member.image ? (
-                      <Image
-                        src={member.image}
-                        alt={language === "ar" ? member.name : member.nameEn}
-                        fill
-                        className="object-contain object-center"
-                        unoptimized
-                      />
-                    ) : (
-                      <Image
-                        src="/images/dafault-person.webp"
-                        alt={language === "ar" ? member.name : member.nameEn}
-                        fill
-                        className="object-cover object-center"
-                        unoptimized
-                      />
-                    )}
-                  </div>
-                  <div className="p-3 flex flex-col flex-1">
-                    <h3 className="text-xs font-bold text-royal-blue mb-1 text-center line-clamp-1">
-                      {language === "ar" ? member.name : member.nameEn}
-                    </h3>
-                    <p className="text-light-blue font-semibold text-[10px] mb-1.5 text-center line-clamp-1">
-                      {language === "ar" ? member.role : member.roleEn}
-                    </p>
-                    <div className="space-y-0.5 mb-1.5">
-                      <p className="text-royal-blue/70 text-[10px] text-center">
-                        <span className="font-semibold">
-                          {language === "ar" ? "الخبرة:" : "Experience:"}
-                        </span>{" "}
-                        {language === "ar" ? member.experience : (member.experienceEn || member.experience)}
-                      </p>
-                      <p className="text-royal-blue/70 text-[10px] text-center line-clamp-1">
-                        <span className="font-semibold">
-                          {language === "ar" ? "المؤهل:" : "Qualification:"}
-                        </span>{" "}
-                        {language === "ar"
-                          ? member.qualification
-                          : member.qualificationEn}
-                      </p>
-                    </div>
-                    <div className="border-t border-gray-200 pt-1.5 mt-auto">
-                      <p className="text-royal-blue/80 text-[10px] italic leading-relaxed line-clamp-2 text-center">
-                        "{language === "ar" ? member.about : member.aboutEn}"
-                      </p>
-                    </div>
-                  </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="text-center">
