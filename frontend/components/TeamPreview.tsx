@@ -41,7 +41,7 @@ export default function TeamPreview() {
         "I love working with children for their innocence and spontaneity. The results of effort are clearly reflected in them through the positive changes in their behavior, language, values, concepts and principles",
       image: "/images/team/أ.هالة المغربي.jpg",
     },
-    
+
     {
       name: "مها فوزان",
       nameEn: "Maha Fozan",
@@ -178,9 +178,15 @@ export default function TeamPreview() {
 
   const current = content[language];
 
-  // Team Card Component
-  const TeamCard = ({ member, language: lang }: { member: typeof teamMembers[0]; language: string }) => (
-    <div className="flex-shrink-0 w-[280px] sm:w-[240px] md:w-[260px] lg:w-[280px] mx-3 bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative flex flex-col min-h-[320px] transition-transform duration-200 hover:-translate-y-2 hover:scale-[1.03]">
+  // ✅ Team Card Component
+  const TeamCard = ({
+    member,
+    language: lang,
+  }: {
+    member: (typeof teamMembers)[0];
+    language: string;
+  }) => (
+    <div className="flex-shrink-0 w-[280px] sm:w-[240px] md:w-[260px] lg:w-[280px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative flex flex-col min-h-[320px] transition-transform duration-200 hover:-translate-y-2 hover:scale-[1.03]">
       {/* Decorative circles */}
       <div className="absolute top-2 right-2 w-8 h-8 bg-light-blue/20 rounded-full blur-sm z-10" />
       <div className="absolute bottom-2 left-2 w-6 h-6 bg-pink/20 rounded-full blur-sm z-10" />
@@ -204,20 +210,26 @@ export default function TeamPreview() {
           />
         )}
       </div>
+
       <div className="p-3 flex flex-col flex-1">
         <h3 className="text-xs font-bold text-royal-blue mb-1 text-center line-clamp-1">
           {lang === "ar" ? member.name : member.nameEn}
         </h3>
+
         <p className="text-light-blue font-semibold text-[10px] mb-1.5 text-center line-clamp-1">
           {lang === "ar" ? member.role : member.roleEn}
         </p>
+
         <div className="space-y-0.5 mb-1.5">
           <p className="text-royal-blue/70 text-[10px] text-center">
             <span className="font-semibold">
               {lang === "ar" ? "الخبرة:" : "Experience:"}
             </span>{" "}
-            {lang === "ar" ? member.experience : (member.experienceEn || member.experience)}
+            {lang === "ar"
+              ? member.experience
+              : member.experienceEn || member.experience}
           </p>
+
           <p className="text-royal-blue/70 text-[10px] text-center line-clamp-1">
             <span className="font-semibold">
               {lang === "ar" ? "المؤهل:" : "Qualification:"}
@@ -225,6 +237,7 @@ export default function TeamPreview() {
             {lang === "ar" ? member.qualification : member.qualificationEn}
           </p>
         </div>
+
         <div className="border-t border-gray-200 pt-1.5 mt-auto">
           <p className="text-royal-blue/80 text-[10px] italic leading-relaxed line-clamp-2 text-center">
             &quot;{lang === "ar" ? member.about : member.aboutEn}&quot;
@@ -240,10 +253,11 @@ export default function TeamPreview() {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1510146758428-e5e4b17b8b6a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRlYW18ZW58MHx8MHx8fDA%3D",
+            "url(https://images.unsplash.com/photo-1510146758428-e5e4b17b8b6a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRlYW18ZW58MHx8MHx8fDA%3D)",
         }}
       />
       <div className="absolute inset-0 bg-black/5" />
+
       <div className="container mx-auto max-w-7xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -260,31 +274,35 @@ export default function TeamPreview() {
           </p>
         </motion.div>
 
-        {/* Infinite Scroll Slider - Marquee Style */}
-        <div className="relative overflow-hidden mb-6 group">
-          <div
-            className="flex"
-            style={{
-              width: "max-content",
-              animation: `marquee 50s linear infinite`,
-              animationDirection: language === "ar" ? "reverse" : "normal",
-            }}
-          >
+        {/* ✅ Infinite Scroll Slider */}
+        <div
+          className="relative overflow-hidden mb-6 group"
+          style={{ direction: language === "ar" ? "rtl" : "ltr" }}
+        >
+          <div className="flex w-max gap-6 animate-marquee">
             {/* First set */}
             {teamMembers.map((member, index) => (
-              <TeamCard key={`first-${index}`} member={member} language={language} />
+              <div key={`first-${index}`} style={{ direction: "ltr" }}>
+                <TeamCard member={member} language={language} />
+              </div>
             ))}
             {/* Second set (duplicate for seamless loop) */}
             {teamMembers.map((member, index) => (
-              <TeamCard key={`second-${index}`} member={member} language={language} />
+              <div key={`second-${index}`} style={{ direction: "ltr" }}>
+                <TeamCard member={member} language={language} />
+              </div>
             ))}
           </div>
-          <style jsx>{`
+
+          <style jsx global>{`
             @keyframes marquee {
               0% { transform: translateX(0); }
               100% { transform: translateX(-50%); }
             }
-            .group:hover > div {
+            .animate-marquee {
+              animation: marquee 50s linear infinite;
+            }
+            .group:hover .animate-marquee {
               animation-play-state: paused;
             }
           `}</style>
