@@ -3,7 +3,8 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
+import TeamSliderArabic from "./TeamSliderArabic";
+import TeamSliderEnglish from "./TeamSliderEnglish";
 
 export default function TeamPreview() {
   const { language } = useLanguage();
@@ -178,75 +179,6 @@ export default function TeamPreview() {
 
   const current = content[language];
 
-  // ✅ Team Card Component
-  const TeamCard = ({
-    member,
-    language: lang,
-  }: {
-    member: (typeof teamMembers)[0];
-    language: string;
-  }) => (
-    <div className="flex-shrink-0 w-[280px] sm:w-[240px] md:w-[260px] lg:w-[280px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl cursor-pointer relative flex flex-col min-h-[320px] transition-transform duration-200 hover:-translate-y-2 hover:scale-[1.03]">
-      {/* Decorative circles */}
-      <div className="absolute top-2 right-2 w-8 h-8 bg-light-blue/20 rounded-full blur-sm z-10" />
-      <div className="absolute bottom-2 left-2 w-6 h-6 bg-pink/20 rounded-full blur-sm z-10" />
-
-      <div className="relative h-36 overflow-hidden">
-        {member.image ? (
-          <Image
-            src={member.image}
-            alt={lang === "ar" ? member.name : member.nameEn}
-            fill
-            className="object-contain object-center"
-            unoptimized
-          />
-        ) : (
-          <Image
-            src="/images/dafault-person.webp"
-            alt={lang === "ar" ? member.name : member.nameEn}
-            fill
-            className="object-cover object-center"
-            unoptimized
-          />
-        )}
-      </div>
-
-      <div className="p-3 flex flex-col flex-1">
-        <h3 className="text-xs font-bold text-royal-blue mb-1 text-center line-clamp-1">
-          {lang === "ar" ? member.name : member.nameEn}
-        </h3>
-
-        <p className="text-light-blue font-semibold text-[10px] mb-1.5 text-center line-clamp-1">
-          {lang === "ar" ? member.role : member.roleEn}
-        </p>
-
-        <div className="space-y-0.5 mb-1.5">
-          <p className="text-royal-blue/70 text-[10px] text-center">
-            <span className="font-semibold">
-              {lang === "ar" ? "الخبرة:" : "Experience:"}
-            </span>{" "}
-            {lang === "ar"
-              ? member.experience
-              : member.experienceEn || member.experience}
-          </p>
-
-          <p className="text-royal-blue/70 text-[10px] text-center line-clamp-1">
-            <span className="font-semibold">
-              {lang === "ar" ? "المؤهل:" : "Qualification:"}
-            </span>{" "}
-            {lang === "ar" ? member.qualification : member.qualificationEn}
-          </p>
-        </div>
-
-        <div className="border-t border-gray-200 pt-1.5 mt-auto">
-          <p className="text-royal-blue/80 text-[10px] italic leading-relaxed line-clamp-2 text-center">
-            &quot;{lang === "ar" ? member.about : member.aboutEn}&quot;
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div
@@ -274,38 +206,10 @@ export default function TeamPreview() {
           </p>
         </motion.div>
 
-        {/* ✅ Infinite Scroll Slider */}
-        <div
-          className="relative overflow-hidden mb-6 group"
-          style={{ direction: language === "ar" ? "rtl" : "ltr" }}
-        >
-          <div className="flex w-max gap-6 animate-marquee">
-            {/* First set */}
-            {teamMembers.map((member, index) => (
-              <div key={`first-${index}`} style={{ direction: "ltr" }}>
-                <TeamCard member={member} language={language} />
-              </div>
-            ))}
-            {/* Second set (duplicate for seamless loop) */}
-            {teamMembers.map((member, index) => (
-              <div key={`second-${index}`} style={{ direction: "ltr" }}>
-                <TeamCard member={member} language={language} />
-              </div>
-            ))}
-          </div>
-
-          <style jsx global>{`
-            @keyframes marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            .animate-marquee {
-              animation: marquee 50s linear infinite;
-            }
-            .group:hover .animate-marquee {
-              animation-play-state: paused;
-            }
-          `}</style>
+        {/* ✅ Infinite Scroll Slider - Separate components for each language */}
+        <div className="mb-6">
+          {language === "en" && <TeamSliderEnglish teamMembers={teamMembers} />}
+          {language === "ar" && <TeamSliderArabic teamMembers={teamMembers} />}
         </div>
 
         <div className="text-center">
