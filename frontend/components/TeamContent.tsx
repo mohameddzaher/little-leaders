@@ -103,22 +103,6 @@ const team = [
     order: 6, // بعدين
   },
   {
-    name: "نوف علي",
-    nameEn: "Nouf Ali",
-    role: "معلمة",
-    roleEn: "Teacher",
-    experience: "1 شهر",
-    experienceEn: "1 month",
-    qualification: "بكالوريوس دعوة وثقافة إسلامية",
-    qualificationEn: "Bachelor's Degree in Islamic",
-    about:
-      "أحب العمل مع الأطفال لبراءتهم وصدقهم في التعبير عن مشاعرهم وأفكارهم",
-    aboutEn:
-      "I love working with children for their innocence and honesty in expressing their feelings and thoughts",
-    image: "/images/team/أ.نوف الغامدي.jpg",
-    order: 7, // بعدهم الباقي
-  },
-  {
     name: "هاجر أيمن",
     nameEn: "Hajer Ayman",
     role: "معلمة",
