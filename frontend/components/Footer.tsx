@@ -57,7 +57,7 @@ export default function Footer() {
       secondPeriodAge: "(3 months to 10 years)",
       address:
         "Building No. 6403, Al Sudairy Street, Al Zahra District 4415, Jeddah, Saudi Arabia 23521",
-      phone: "+966537468887",
+      phone: "+966 53 746 8887",
       email: "info@little-leaders.org",
       rights: "All rights reserved © 2026 | Little Leaders Center",
     },
@@ -227,11 +227,10 @@ export default function Footer() {
                 <li className="flex items-center">
                   <FaPhone className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0 w-5 h-5 text-royal-blue" />
                   <a
-                    href={`tel:${current.phone}`}
+                    href={`tel:${current.phone.replace(/\s/g, "")}`}
                     className="text-royal-blue/90 hover:text-royal-blue transition-colors cursor-pointer no-underline"
-                    dir="ltr"
                   >
-                    {current.phone}
+                    <bdi>{current.phone}</bdi>
                   </a>
                 </li>
                 <li className="flex items-center">

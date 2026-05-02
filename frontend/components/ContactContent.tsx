@@ -33,7 +33,7 @@ export default function ContactContent() {
         title: "معلومات الاتصال",
         address:
           "مبنى رقم 6403 شارع السديري حي الزهراء 4415 جدة, السعودية 23521",
-        phone: "+966537468887",
+        phone: "+966 53 746 8887",
         email: "info@little-leaders.org",
       },
     },
@@ -53,7 +53,7 @@ export default function ContactContent() {
         title: "Contact Information",
         address:
           "Building No. 6403, Al Sudairy Street, Al Zahra District 4415, Jeddah, Saudi Arabia 23521",
-        phone: "+966537468887",
+        phone: "+966 53 746 8887",
         email: "info@little-leaders.org",
       },
     },
@@ -301,10 +301,10 @@ export default function ContactContent() {
                     📞 {language === "ar" ? "الهاتف" : "Phone"}
                   </h3>
                   <a
-                    href={`tel:${current.contactInfo.phone}`}
+                    href={`tel:${current.contactInfo.phone.replace(/\s/g, "")}`}
                     className="text-white/90 hover:text-white transition-colors text-sm cursor-pointer"
                   >
-                    {current.contactInfo.phone}
+                    <bdi>{current.contactInfo.phone}</bdi>
                   </a>
                 </div>
                 <div>

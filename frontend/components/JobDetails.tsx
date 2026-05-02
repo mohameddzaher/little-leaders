@@ -11,7 +11,7 @@ export default function JobDetails({ jobId }: { jobId: string }) {
     name: '',
     phone: '',
     email: '',
-    resume: null as File | null,
+    resume: '',
     message: '',
   });
 
@@ -73,14 +73,16 @@ export default function JobDetails({ jobId }: { jobId: string }) {
         name: 'الاسم',
         phone: 'رقم الهاتف',
         email: 'البريد الإلكتروني',
-        resume: 'السيرة الذاتية',
+        resume: 'رابط السيرة الذاتية',
+        resumePlaceholder: 'مثال: رابط Google Drive للسيرة الذاتية',
         message: 'رسالة أو ملاحظات',
         submit: 'إرسال الطلب',
       },
       contactInfo: 'يمكنك أيضاً إرسال سيرتك الذاتية مباشرة إلى:',
       email: 'info@little-leaders.org',
       orCall: 'أو الاتصال بنا على:',
-      phone: '+966537468887',
+      phone: '+966 53 746 8887',
+      phoneTel: '+966537468887',
       back: 'العودة للوظائف',
       requirements: 'المتطلبات',
       responsibilities: 'المسؤوليات',
@@ -91,14 +93,16 @@ export default function JobDetails({ jobId }: { jobId: string }) {
         name: 'Name',
         phone: 'Phone Number',
         email: 'Email',
-        resume: 'Resume/CV',
+        resume: 'Resume/CV Link',
+        resumePlaceholder: 'e.g. Google Drive link to your CV',
         message: 'Message or Notes',
         submit: 'Submit Application',
       },
       contactInfo: 'You can also send your resume directly to:',
       email: 'info@little-leaders.org',
       orCall: 'Or call us at:',
-      phone: '+966537468887',
+      phone: '+966 53 746 8887',
+      phoneTel: '+966537468887',
       back: 'Back to Jobs',
       requirements: 'Requirements',
       responsibilities: 'Responsibilities',
@@ -134,27 +138,24 @@ export default function JobDetails({ jobId }: { jobId: string }) {
             name: 'الاسم',
             phone: 'رقم الهاتف',
             email: 'البريد الإلكتروني',
+            resume: 'رابط السيرة الذاتية',
             message: 'رسالة / ملاحظات',
-            resumeNote:
-              'ملاحظة: من فضلك أرفق ملف السيرة الذاتية يدوياً قبل إرسال الإيميل.',
           }
         : {
             position: 'Position',
             name: 'Name',
             phone: 'Phone',
             email: 'Email',
+            resume: 'Resume/CV Link',
             message: 'Message / Notes',
-            resumeNote:
-              'Note: please attach your resume file manually before sending this email.',
           };
     const body = [
       `${labels.position}: ${job?.title ?? ''}`,
       `${labels.name}: ${formData.name}`,
       `${labels.phone}: ${formData.phone}`,
       `${labels.email}: ${formData.email}`,
+      `${labels.resume}: ${formData.resume}`,
       `${labels.message}: ${formData.message}`,
-      '',
-      labels.resumeNote,
     ].join('\n');
     const mailto = `mailto:${recipient}?subject=${encodeURIComponent(
       subjectLine
@@ -267,11 +268,10 @@ export default function JobDetails({ jobId }: { jobId: string }) {
                 </a>
                 <p className="text-sm text-white/90 mb-2">{current.orCall}</p>
                 <a
-                  href={`tel:${current.phone}`}
+                  href={`tel:${current.phoneTel}`}
                   className="text-white hover:text-pink underline underline-offset-4 transition-colors text-sm font-bold block cursor-pointer"
-                  dir="ltr"
                 >
-                  {current.phone}
+                  <bdi>{current.phone}</bdi>
                 </a>
               </motion.div>
 
@@ -328,9 +328,11 @@ export default function JobDetails({ jobId }: { jobId: string }) {
                       {current.form.resume}
                     </label>
                     <input
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      onChange={(e) => setFormData({ ...formData, resume: e.target.files?.[0] || null })}
+                      type="url"
+                      required
+                      placeholder={current.form.resumePlaceholder}
+                      value={formData.resume}
+                      onChange={(e) => setFormData({ ...formData, resume: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-light-blue focus:border-transparent text-sm"
                     />
                   </div>
