@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
+import ShapeDivider from './ShapeDivider';
 
 export default function JobDetails({ jobId }: { jobId: string }) {
   const { language } = useLanguage();
@@ -166,43 +167,51 @@ export default function JobDetails({ jobId }: { jobId: string }) {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-light-blue/10 via-white to-pink/10 relative overflow-hidden">
+      <section className="pt-20 pb-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-light-blue/10 via-white to-pink/10 relative overflow-hidden">
+        <ShapeDivider className="text-royal-blue" position="bottom" />
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200)',
+            backgroundImage: 'url(/images/Facilities/12.webp)',
           }}
         />
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="container mx-auto max-w-5xl text-center relative z-10">
           <Link
             href="/careers"
-            className="inline-block mb-4 text-light-blue hover:text-royal-blue transition-colors text-sm font-medium cursor-pointer"
+            className="inline-block mb-4 text-white/90 hover:text-white transition-colors text-sm font-medium cursor-pointer"
           >
             ← {current.back}
           </Link>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl font-bold text-royal-blue mb-4"
-          >
-            {job.title}
-          </motion.h1>
-          <div className="flex flex-wrap justify-center gap-3 mb-4">
-            <span className="px-4 py-2 bg-light-blue/10 text-light-blue rounded-full text-sm font-semibold">
-              {job.department}
-            </span>
-            <span className="px-4 py-2 bg-pink/10 text-pink rounded-full text-sm font-semibold">
-              {job.type}
-            </span>
-            <span className="px-4 py-2 bg-pink/10 text-pink rounded-full text-sm font-semibold">
-              {job.experience}
-            </span>
+          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl sm:text-4xl font-bold text-white mb-3"
+            >
+              {job.title}
+            </motion.h1>
+            <div className="flex flex-wrap justify-center gap-2 mb-3">
+              <span className="px-3 py-1 bg-white/15 text-white rounded-full text-xs font-semibold backdrop-blur-sm">
+                {job.department}
+              </span>
+              <span className="px-3 py-1 bg-white/15 text-white rounded-full text-xs font-semibold backdrop-blur-sm">
+                {job.type}
+              </span>
+              <span className="px-3 py-1 bg-white/15 text-white rounded-full text-xs font-semibold backdrop-blur-sm">
+                {job.experience}
+              </span>
+            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-sm text-white/80 max-w-3xl mx-auto leading-relaxed"
+            >
+              {job.description}
+            </motion.p>
           </div>
-          <p className="text-base text-royal-blue/70 max-w-2xl mx-auto">
-            {job.description}
-          </p>
         </div>
       </section>
 
