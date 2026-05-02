@@ -261,14 +261,15 @@ export default function JobDetails({ jobId }: { jobId: string }) {
                 <p className="text-sm text-white/90 mb-4">{current.contactInfo}</p>
                 <a
                   href={`mailto:${current.email}`}
-                  className="text-light-blue hover:text-white transition-colors text-sm font-semibold block mb-2 cursor-pointer"
+                  className="text-white hover:text-pink underline underline-offset-4 transition-colors text-sm font-bold block mb-3 cursor-pointer"
                 >
                   {current.email}
                 </a>
                 <p className="text-sm text-white/90 mb-2">{current.orCall}</p>
                 <a
                   href={`tel:${current.phone}`}
-                  className="text-light-blue hover:text-white transition-colors text-sm font-semibold block cursor-pointer"
+                  className="text-white hover:text-pink underline underline-offset-4 transition-colors text-sm font-bold block cursor-pointer"
+                  dir="ltr"
                 >
                   {current.phone}
                 </a>
