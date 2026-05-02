@@ -17,132 +17,50 @@ export default function JobDetails({ jobId }: { jobId: string }) {
 
   const jobs = {
     ar: {
-      1: {
-        title: 'معلمة رياض أطفال',
+      4: {
+        title: 'معلمة رياض أطفال (تخصص لغة إنجليزية)',
         department: 'التعليم',
         type: 'دوام كامل',
         experience: 'خبرة لا تقل عن سنتين',
-        location: 'جدة، السعودية',
-        description: 'نبحث عن معلمة متخصصة في رياض الأطفال لديها شغف بالتعليم والرعاية. المطلوب خبرة في التعامل مع الأطفال من عمر 3-5 سنوات.',
+        location: 'مركز ضيافة الأطفال - جدة',
+        description: 'تبحث إدارة المركز عن معلمة رياض أطفال متخصصة في اللغة الإنجليزية، للمساهمة في تعليم الأطفال وتنمية مهاراتهم اللغوية والمعرفية في بيئة تعليمية آمنة ومحفزة.',
         requirements: [
-          'بكالوريوس في التربية أو رياض الأطفال',
-          'خبرة لا تقل عن سنتين في مجال التعليم',
-          'القدرة على التعامل مع الأطفال بحب وصبر',
-          'مهارات تواصل ممتازة',
-          'القدرة على العمل ضمن فريق',
+          'أن تكون المتقدمة سعودية الجنسية',
+          'درجة دبلوم أو بكالوريوس في رياض الأطفال أو تخصص ذو صلة (ويُفضل تخصص لغة إنجليزية)',
+          'خبرة لا تقل عن سنتين في مجال رياض الأطفال أو التعليم المبكر',
+          'مهارات تواصل ممتازة مع الأطفال وأولياء الأمور',
+          'القدرة على العمل ضمن فريق وتحمل المسؤولية',
         ],
         responsibilities: [
-          'تخطيط وتنفيذ الأنشطة التعليمية',
-          'رعاية الأطفال وتوفير بيئة آمنة',
-          'التواصل مع أولياء الأمور',
-          'المشاركة في تطوير البرامج التعليمية',
-        ],
-      },
-      2: {
-        title: 'معلمة رعاية أطفال',
-        department: 'الرعاية',
-        type: 'دوام كامل',
-        experience: 'خبرة لا تقل عن سنة',
-        location: 'جدة، السعودية',
-        description: 'نبحث عن معلمة متخصصة في رعاية الأطفال الرضع والصغار. المطلوب خبرة في التعامل مع الأطفال من عمر 3 أشهر إلى سنتين.',
-        requirements: [
-          'بكالوريوس في التربية أو رعاية الأطفال',
-          'خبرة لا تقل عن سنة في رعاية الأطفال',
-          'القدرة على التعامل مع الأطفال الرضع',
-          'مهارات رعاية ممتازة',
-          'القدرة على العمل ضمن فريق',
-        ],
-        responsibilities: [
-          'رعاية الأطفال الرضع والصغار',
-          'توفير بيئة آمنة ونظيفة',
-          'التواصل مع أولياء الأمور',
-          'المشاركة في تطوير برامج الرعاية',
-        ],
-      },
-      3: {
-        title: 'مساعد إداري',
-        department: 'الإدارة',
-        type: 'دوام كامل',
-        experience: 'خبرة لا تقل عن سنة',
-        location: 'جدة، السعودية',
-        description: 'نبحث عن مساعد إداري للعمل في إدارة المركز. المطلوب مهارات تنظيمية جيدة وإتقان برامج Microsoft Office.',
-        requirements: [
-          'بكالوريوس في إدارة الأعمال أو ما يعادلها',
-          'خبرة لا تقل عن سنة في العمل الإداري',
-          'إتقان برامج Microsoft Office',
-          'مهارات تنظيمية ممتازة',
-          'القدرة على العمل ضمن فريق',
-        ],
-        responsibilities: [
-          'المساعدة في المهام الإدارية',
-          'تنظيم الملفات والوثائق',
-          'الرد على الاستفسارات',
-          'المشاركة في التخطيط والتنظيم',
+          'تقديم دروس اللغة الإنجليزية للأطفال بأساليب تعليمية ممتعة وتفاعلية',
+          'تطوير خطط تعليمية مناسبة لأعمار الأطفال',
+          'تعزيز مهارات الاستماع والتحدث لدى الأطفال',
+          'تنظيم الأنشطة التعليمية والترفيهية التي تدعم التعلم',
+          'إعداد تقارير دورية عن مستوى الأطفال وتطورهم',
         ],
       },
     },
     en: {
-      1: {
-        title: 'Early Childhood Teacher',
+      4: {
+        title: 'Kindergarten Teacher (English Specialty)',
         department: 'Education',
         type: 'Full Time',
         experience: 'Minimum 2 years experience',
-        location: 'Jeddah, Saudi Arabia',
-        description: 'We are looking for a teacher specialized in early childhood education with a passion for teaching and care. Experience with children aged 3-5 years is required.',
+        location: 'Childcare Center – Jeddah',
+        description: 'The daycare Center is seeking a Teacher specialized in English to contribute to children\'s education and support the development of their language and cognitive skills in a safe and stimulating learning environment.',
         requirements: [
-          'Bachelor\'s degree in Education or Early Childhood',
-          'Minimum 2 years of teaching experience',
-          'Ability to work with children with love and patience',
-          'Excellent communication skills',
-          'Ability to work in a team',
+          'Must be a Saudi national',
+          'Diploma or bachelor\'s degree in early childhood education or a related field (English specialization preferred)',
+          'Minimum of two years of experience in kindergarten or early childhood education',
+          'Excellent communication skills with children and parents',
+          'Ability to work within a team and take responsibility',
         ],
         responsibilities: [
-          'Plan and implement educational activities',
-          'Care for children and provide a safe environment',
-          'Communicate with parents',
-          'Participate in developing educational programs',
-        ],
-      },
-      2: {
-        title: 'Childcare Teacher',
-        department: 'Care',
-        type: 'Full Time',
-        experience: 'Minimum 1 year experience',
-        location: 'Jeddah, Saudi Arabia',
-        description: 'We are looking for a teacher specialized in caring for infants and toddlers. Experience with children aged 3 months to 2 years is required.',
-        requirements: [
-          'Bachelor\'s degree in Education or Childcare',
-          'Minimum 1 year of childcare experience',
-          'Ability to work with infants',
-          'Excellent care skills',
-          'Ability to work in a team',
-        ],
-        responsibilities: [
-          'Care for infants and toddlers',
-          'Provide a safe and clean environment',
-          'Communicate with parents',
-          'Participate in developing care programs',
-        ],
-      },
-      3: {
-        title: 'Administrative Assistant',
-        department: 'Administration',
-        type: 'Full Time',
-        experience: 'Minimum 1 year experience',
-        location: 'Jeddah, Saudi Arabia',
-        description: 'We are looking for an administrative assistant to work in the center\'s administration. Good organizational skills and proficiency in Microsoft Office programs are required.',
-        requirements: [
-          'Bachelor\'s degree in Business Administration or equivalent',
-          'Minimum 1 year of administrative experience',
-          'Proficiency in Microsoft Office programs',
-          'Excellent organizational skills',
-          'Ability to work in a team',
-        ],
-        responsibilities: [
-          'Assist with administrative tasks',
-          'Organize files and documents',
-          'Respond to inquiries',
-          'Participate in planning and organization',
+          'Deliver English lessons to children using engaging and interactive teaching methods',
+          'Develop age-appropriate lesson plans',
+          'Enhance children\'s listening and speaking skills',
+          'Organize educational and recreational activities that support learning',
+          'Prepare periodic reports on children\'s progress and development',
         ],
       },
     },
@@ -188,7 +106,7 @@ export default function JobDetails({ jobId }: { jobId: string }) {
   };
 
   const current = content[language];
-  const job = jobs[language as 'ar' | 'en']?.[jobId as '1' | '2' | '3'];
+  const job = jobs[language as 'ar' | 'en']?.[jobId as unknown as 4];
 
   if (!job) {
     return (
@@ -203,8 +121,45 @@ export default function JobDetails({ jobId }: { jobId: string }) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert(language === 'ar' ? 'تم إرسال طلبك بنجاح!' : 'Your application has been submitted successfully!');
+    // TEMPORARY: open user's email client with prefilled data until EmailJS is configured
+    const recipient = 'info@little-leaders.org';
+    const subjectLine =
+      language === 'ar'
+        ? `طلب تقديم على وظيفة: ${job?.title ?? ''}`
+        : `Job Application: ${job?.title ?? ''}`;
+    const labels =
+      language === 'ar'
+        ? {
+            position: 'الوظيفة',
+            name: 'الاسم',
+            phone: 'رقم الهاتف',
+            email: 'البريد الإلكتروني',
+            message: 'رسالة / ملاحظات',
+            resumeNote:
+              'ملاحظة: من فضلك أرفق ملف السيرة الذاتية يدوياً قبل إرسال الإيميل.',
+          }
+        : {
+            position: 'Position',
+            name: 'Name',
+            phone: 'Phone',
+            email: 'Email',
+            message: 'Message / Notes',
+            resumeNote:
+              'Note: please attach your resume file manually before sending this email.',
+          };
+    const body = [
+      `${labels.position}: ${job?.title ?? ''}`,
+      `${labels.name}: ${formData.name}`,
+      `${labels.phone}: ${formData.phone}`,
+      `${labels.email}: ${formData.email}`,
+      `${labels.message}: ${formData.message}`,
+      '',
+      labels.resumeNote,
+    ].join('\n');
+    const mailto = `mailto:${recipient}?subject=${encodeURIComponent(
+      subjectLine
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
   };
 
   return (

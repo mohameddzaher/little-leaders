@@ -211,14 +211,18 @@ export default function Footer() {
               <ul className="list-none p-0 m-0 space-y-3 text-sm text-royal-blue/90">
                 <li className="flex items-start">
                   <FaMapMarkerAlt className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0 w-5 h-5 text-royal-blue mt-0.5" />
-                  <a
+                  {/* TEMPORARILY DISABLED - Google Maps link, restore later */}
+                  {/* <a
                     href="https://maps.app.goo.gl/VvZknuihdmJTE3QLA"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-royal-blue/90 hover:text-royal-blue transition-colors cursor-pointer no-underline"
                   >
                     {current.address}
-                  </a>
+                  </a> */}
+                  <span className="text-royal-blue/90">
+                    {current.address}
+                  </span>
                 </li>
                 <li className="flex items-center">
                   <FaPhone className="mr-2 rtl:mr-0 rtl:ml-2 flex-shrink-0 w-5 h-5 text-royal-blue" />

@@ -11,60 +11,24 @@ export default function CareersContent() {
   const jobs = {
     ar: [
       {
-        id: 1,
-        title: "معلمة رياض أطفال",
+        id: 4,
+        title: "معلمة رياض أطفال (تخصص لغة إنجليزية)",
         department: "التعليم",
         type: "دوام كامل",
         experience: "خبرة لا تقل عن سنتين",
         description:
-          "نبحث عن معلمة متخصصة في رياض الأطفال لديها شغف بالتعليم والرعاية. المطلوب خبرة في التعامل مع الأطفال من عمر 3-5 سنوات.",
-      },
-      {
-        id: 2,
-        title: "معلمة رعاية أطفال",
-        department: "الرعاية",
-        type: "دوام كامل",
-        experience: "خبرة لا تقل عن سنة",
-        description:
-          "نبحث عن معلمة متخصصة في رعاية الأطفال الرضع والصغار. المطلوب خبرة في التعامل مع الأطفال من عمر 3 أشهر إلى سنتين.",
-      },
-      {
-        id: 3,
-        title: "مساعد إداري",
-        department: "الإدارة",
-        type: "دوام كامل",
-        experience: "خبرة لا تقل عن سنة",
-        description:
-          "نبحث عن مساعد إداري للعمل في إدارة المركز. المطلوب مهارات تنظيمية جيدة وإتقان برامج Microsoft Office.",
+          "تبحث إدارة المركز عن معلمة رياض أطفال متخصصة في اللغة الإنجليزية للمساهمة في تعليم الأطفال وتنمية مهاراتهم اللغوية والمعرفية في بيئة تعليمية آمنة ومحفزة.",
       },
     ],
     en: [
       {
-        id: 1,
-        title: "Early Childhood Teacher",
+        id: 4,
+        title: "Kindergarten Teacher (English Specialty)",
         department: "Education",
         type: "Full Time",
         experience: "Minimum 2 years experience",
         description:
-          "We are looking for a teacher specialized in early childhood education with a passion for teaching and care. Experience with children aged 3-5 years is required.",
-      },
-      {
-        id: 2,
-        title: "Childcare Teacher",
-        department: "Care",
-        type: "Full Time",
-        experience: "Minimum 1 year experience",
-        description:
-          "We are looking for a teacher specialized in caring for infants and toddlers. Experience with children aged 3 months to 2 years is required.",
-      },
-      {
-        id: 3,
-        title: "Administrative Assistant",
-        department: "Administration",
-        type: "Full Time",
-        experience: "Minimum 1 year experience",
-        description:
-          "We are looking for an administrative assistant to work in the center's administration. Good organizational skills and proficiency in Microsoft Office programs are required.",
+          "The daycare Center is seeking a Teacher specialized in English to contribute to children's education and support the development of their language and cognitive skills in a safe and stimulating learning environment.",
       },
     ],
   };
@@ -152,8 +116,6 @@ export default function CareersContent() {
             {current.availableJobs}
           </motion.h2>
 
-          {/* Comment out jobs list - uncomment when jobs are available */}
-          {/* 
           {currentJobs.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentJobs.map((job, index) => (
@@ -219,7 +181,6 @@ export default function CareersContent() {
                 transition={{ duration: 0.6 }}
                 className="bg-gradient-to-br from-light-blue/10 to-pink/10 rounded-2xl p-12 max-w-2xl mx-auto border-2 border-royal-blue/20"
               >
-                <div className="text-6xl mb-4">📋</div>
                 <h3 className="text-2xl font-bold text-royal-blue mb-3">
                   {current.noJobs}
                 </h3>
@@ -231,28 +192,6 @@ export default function CareersContent() {
               </motion.div>
             </div>
           )}
-          */}
-
-          {/* No jobs available message - currently showing */}
-          <div className="text-center py-16">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-light-blue/10 to-pink/10 rounded-2xl p-12 max-w-2xl mx-auto border-2 border-royal-blue/20"
-            >
-              <h3 className="text-2xl font-bold text-royal-blue mb-3">
-                {current.noJobs}
-              </h3>
-              <p className="text-royal-blue/70">
-                {language === "ar"
-                  ? "نحن دائماً نبحث عن مواهب جديدة. تحقق من هذه الصفحة بانتظام للاطلاع على الفرص المتاحة."
-                  : "We are always looking for new talents. Check this page regularly for available opportunities."}
-              </p>
-            </motion.div>
-          </div>
-          {/* )} */}
         </div>
       </section>
     </div>

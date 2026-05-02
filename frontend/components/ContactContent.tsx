@@ -4,7 +4,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import ShapeDivider from "./ShapeDivider";
-import Location from "./Location";
+// TEMPORARILY DISABLED - Google Maps location issue, restore later
+// import Location from "./Location";
 
 export default function ContactContent() {
   const { language } = useLanguage();
@@ -62,13 +63,36 @@ export default function ContactContent() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert(
+    // TEMPORARY: open user's email client with prefilled data until EmailJS is configured
+    const recipient = "info@little-leaders.org";
+    const subjectLine =
       language === "ar"
-        ? "تم إرسال رسالتك بنجاح!"
-        : "Your message has been sent successfully!"
-    );
-    setFormData({ name: "", email: "", phone: "", message: "" });
+        ? `رسالة جديدة من ${formData.name}`
+        : `New message from ${formData.name}`;
+    const labels =
+      language === "ar"
+        ? {
+            name: "الاسم",
+            email: "البريد الإلكتروني",
+            phone: "رقم الجوال",
+            message: "الرسالة",
+          }
+        : {
+            name: "Name",
+            email: "Email",
+            phone: "Phone",
+            message: "Message",
+          };
+    const body = [
+      `${labels.name}: ${formData.name}`,
+      `${labels.email}: ${formData.email}`,
+      `${labels.phone}: ${formData.phone}`,
+      `${labels.message}: ${formData.message}`,
+    ].join("\n");
+    const mailto = `mailto:${recipient}?subject=${encodeURIComponent(
+      subjectLine
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
   };
 
   return (
@@ -301,8 +325,8 @@ export default function ContactContent() {
         <ShapeDivider className="text-royal-blue" position="bottom" />
       </section>
 
-      {/* Location Section */}
-      <Location />
+      {/* Location Section - TEMPORARILY DISABLED, restore later */}
+      {/* <Location /> */}
     </div>
   );
 }
