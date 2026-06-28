@@ -55,7 +55,7 @@ export default function Location() {
             className="lg:col-span-2 relative group"
           >
             <a
-              href="https://maps.app.goo.gl/VvZknuihdmJTE3QLA"
+              href="https://maps.app.goo.gl/eRp6q8UGhCGsDcsS8"
               target="_blank"
               rel="noopener noreferrer"
               className="block relative h-64 lg:h-72 rounded-2xl overflow-hidden shadow-xl border-2 border-royal-blue/10 cursor-pointer"
@@ -121,7 +121,7 @@ export default function Location() {
               {/* Action Button */}
               <div>
                 <a
-                  href="https://maps.app.goo.gl/VvZknuihdmJTE3QLA"
+                  href="https://maps.app.goo.gl/eRp6q8UGhCGsDcsS8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 cursor-pointer group/btn shadow-lg"
