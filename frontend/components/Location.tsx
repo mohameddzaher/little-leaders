@@ -3,7 +3,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt, FaExternalLinkAlt } from "react-icons/fa";
-import Image from "next/image";
 
 export default function Location() {
   const { language } = useLanguage();
@@ -52,40 +51,19 @@ export default function Location() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-2 relative group"
+            className="lg:col-span-2 relative"
           >
-            <a
-              href="https://maps.app.goo.gl/eRp6q8UGhCGsDcsS8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block relative h-64 lg:h-72 rounded-2xl overflow-hidden shadow-xl border-2 border-royal-blue/10 cursor-pointer"
-            >
-              {/* Map Image */}
-              <Image
-                src="/images/map.jpg"
-                alt="Saudi Arabia Map with Jeddah location"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
-                unoptimized
+            {/* Live Google Map */}
+            <div className="relative h-64 lg:h-72 rounded-2xl overflow-hidden shadow-xl border-2 border-royal-blue/10">
+              <iframe
+                title={current.title}
+                src={`https://maps.google.com/maps?q=21.5939593,39.1413085&hl=${language}&z=16&output=embed`}
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
               />
-              
-              {/* Gradient Overlays */}
-              <div className="absolute inset-0 bg-gradient-to-br from-royal-blue/20 via-transparent to-pink/20 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-              
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-royal-blue/0 group-hover:bg-royal-blue/5 transition-colors duration-300" />
-              
-              {/* Click indicator */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
-                  <FaExternalLinkAlt className="w-4 h-4 text-royal-blue" />
-                  <span className="text-royal-blue font-semibold text-sm">
-                    {current.button}
-                  </span>
-                </div>
-              </div>
-            </a>
+            </div>
           </motion.div>
 
           {/* Info Card - Takes 1 column */}
