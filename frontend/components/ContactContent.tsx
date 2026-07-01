@@ -4,8 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import ShapeDivider from "./ShapeDivider";
-// TEMPORARILY DISABLED - Google Maps location issue, restore later
-// import Location from "./Location";
+import Location from "./Location";
 
 export default function ContactContent() {
   const { language } = useLanguage();
@@ -325,8 +324,8 @@ export default function ContactContent() {
         <ShapeDivider className="text-royal-blue" position="bottom" />
       </section>
 
-      {/* Location Section - TEMPORARILY DISABLED, restore later */}
-      {/* <Location /> */}
+      {/* Location Section */}
+      <Location />
     </div>
   );
 }
