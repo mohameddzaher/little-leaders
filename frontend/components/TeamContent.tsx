@@ -22,27 +22,10 @@ const team = [
     order: 1, // أول صف - يمين
   },
   {
-    name: "هالة غازي المغربي",
-    nameEn: "Hala Ghazi Al-Maghrabi",
-    role: "مديرة المركز",
-    roleEn: "Center Director",
-    experience: "30 سنة",
-    experienceEn: "30 years",
-    qualification: "بكالوريوس أحياء مع إعداد تربوي – كلية التربية بالطائف",
-    qualificationEn:
-      "Bachelor's Degree in Biology with Educational Preparation – College of Education, Taif",
-    about:
-      "أحب التعامل مع الاطفال لبراءتهم ولتلقائيتهم ونتيجة الجهد ملموسة فيهم بتغيير سلوكهم وألفاظهم وقيمهم ومفاهيمهم ومبادئهم",
-    aboutEn:
-      "I love working with children for their innocence and spontaneity. The results of effort are clearly reflected in them through the positive changes in their behavior, language, values, concepts and principles",
-    image: "/images/team/أ.هالة المغربي.jpg",
-    order: 2, // أول صف - وسط
-  },
-  {
     name: "مها فوزان",
     nameEn: "Maha Fozan",
-    role: "وكيلة المركز",
-    roleEn: "Center Vice Director",
+    role: "مديرة المركز",
+    roleEn: "Center Director",
     experience: "20 سنة",
     experienceEn: "20 years",
     qualification: "ثانوية عامة",
@@ -68,23 +51,6 @@ const team = [
       "Working with children brings a sense of blessing and tranquility their innocence and genuine emotions remind me of the values of purity and human generosity",
     image: "/images/team/أ. فيء بسام.jpg",
     order: 4, // تحتهم
-  },
-  {
-    name: "مها دعال",
-    nameEn: "Maha Da'al",
-    role: "معلمة",
-    roleEn: "Teacher",
-    experience: "5 أشهر",
-    experienceEn: "5 months",
-    qualification: "بكالوريوس رياض أطفال مع الإعداد التربوي",
-    qualificationEn:
-      "Bachelor's Degree in Early Childhood Education with Educational Preparation",
-    about:
-      "أثق بكم وأعلم أنكم تستطيعون تحقيق أحلامكم لأجل ذلك أنا هنا دائما لأساعدكم وأساندكم",
-    aboutEn:
-      "I trust you and believe that you can achieve your dreams. That's why I'm always here to support and help you",
-    image: null,
-    order: 5, // بعدين
   },
   {
     name: "نجود هشام",
@@ -148,6 +114,70 @@ const team = [
       "In my interaction with children I'm always amazed by their excitement and enthusiasm when they discover something new and enjoyable",
     image: "/images/team/أ. فرح بسام.jpg",
     order: 10, // بعدهم الباقي
+  },
+  {
+    name: "مونيا العبادلة",
+    nameEn: "Monia Al-Abadla",
+    role: "معلمة",
+    roleEn: "Teacher",
+    experience: "3 سنوات ونصف",
+    experienceEn: "3.5 years",
+    qualification: "بكالوريوس قانون",
+    qualificationEn: "Bachelor's Degree in Law",
+    about:
+      "أشعر بسعادة معهم، وجودي معهم يمنحني طاقة إيجابية وأستمتع بمساعدتهم",
+    aboutEn:
+      "I feel happy with them; being around them gives me positive energy and I enjoy helping them",
+    image: null,
+    order: 11,
+  },
+  {
+    name: "سارة مفتي",
+    nameEn: "Sarah Mufti",
+    role: "معلمة",
+    roleEn: "Teacher",
+    experience: "سنة",
+    experienceEn: "1 year",
+    qualification: "بكالوريوس إدارة عامة",
+    qualificationEn: "Bachelor's Degree in Public Administration",
+    about:
+      "لأنني أجد في التعامل مع الأطفال فرصة لإحداث أثر إيجابي في حياتهم والمساهمة في بناء شخصياتهم منذ الصغر",
+    aboutEn:
+      "Working with children gives me the chance to make a positive impact on their lives and help build their personalities from an early age",
+    image: null,
+    order: 12,
+  },
+  {
+    name: "وعد الوادعي",
+    nameEn: "Waad Al-Wadei",
+    role: "معلمة اللغة الإنجليزية",
+    roleEn: "English Teacher",
+    experience: "سنة",
+    experienceEn: "1 year",
+    qualification: "بكالوريوس أدب إنجليزي",
+    qualificationEn: "Bachelor's Degree in English Literature",
+    about:
+      "أحب أن أكون جزءًا من بناء شخصية الطفل وتعزيز ثقته بنفسه، فكل طفل عالم فريد يستحق الاهتمام والاحتواء",
+    aboutEn:
+      "I love being part of building a child's personality and boosting their self-confidence; every child is a unique world that deserves care and nurturing",
+    image: null,
+    order: 13,
+  },
+  {
+    name: "لورا مكي",
+    nameEn: "Laura Makki",
+    role: "معلمة",
+    roleEn: "Teacher",
+    experience: "سنة وشهرين",
+    experienceEn: "1 year and 2 months",
+    qualification: "بكالوريوس علم نفس",
+    qualificationEn: "Bachelor's Degree in Psychology",
+    about:
+      "أحب أتعامل مع الأطفال لأني أستمتع ببراءتهم وعفويتهم، وأحب أكون جزء من تطورهم وأساعدهم يتعلموا ويكتشفوا قدراتهم، وأشوف إنو كل طفل عنده عالمه الخاص اللي يستحق نفهمه وندعمه ونحتويه.",
+    aboutEn:
+      "I enjoy children's innocence and spontaneity. I love being part of their growth, helping them learn and discover their abilities. Every child has their own world that deserves to be understood, supported and embraced",
+    image: null,
+    order: 14,
   },
 ];
 
